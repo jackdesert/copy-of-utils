@@ -1,14 +1,34 @@
 #! /usr/env/ruby
-# This is a script to offer shortcuts to navigate around a Rails app
-# Set up an alias like this in your ~/.bashrc:
+# Nav
+# This class is useful for shell navigation within a Rails application
+# It will navigate up the directory tree until it finds a Gemfile. 
+# Then it will cd to the appropriate directory
+#
+# SETUP
+#
+# Save this file (nav.rb) somewhere on your hard drive
+# 
+# add to your ~/.bashrc the following:
 #   alias c='cd $(ruby /path/to/nav.rb c)'
 #   alias m='cd $(ruby /path/to/nav.rb m)'
 #   alias v='cd $(ruby /path/to/nav.rb v)'
+#   alias j='cd $(ruby /path/to/nav.rb j)'
+#   alias r='cd $(ruby /path/to/nav.rb r)'
+#
+# then run 
+#   source ~/.bashrc
+#
+# Then from anywhere in your Rails directory, you can simply type:
+#   c
+#
+# and you will be taken to RAILS_ROOT/app/controllers
 
 class Nav
   PATHS = {c: 'app/controllers',
            m: 'app/models',
-           v: 'app/views'}
+           v: 'app/views',
+           j: 'app/assets/javascripts',
+           r: ''}
 
   def initialize(token)
     @desired_path = get_path_from_token(token)
@@ -23,7 +43,7 @@ class Nav
 
   def take_me_there
     take_me_home
-    Dir.chdir @desired_path
+    Dir.chdir @desired_path unless @desired_path == ''
   end
 
   def take_me_home
