@@ -1,0 +1,57 @@
+# Manually tell Xfce to use capslock as escape
+/usr/bin/setxkbmap -option "caps:escape"
+
+alias start_postgres='/usr/lib/postgresql/9.1/bin/postgres -D /var/lib/postgresql/9.1/main -c config_file=/etc/postgresql/9.1/main/postgresql.conf &
+'
+wf='jackdesert@jackdesert.webfactional.com'
+alias be='bundle exec'
+alias bs='git branch && git status'
+alias h='cd ~/h'
+alias alt1='TEST_ENV_NUMBER=1'
+alias alt2='TEST_ENV_NUMBER=2'
+alias rc='bundle exec rails console'
+alias d='cd ~/d'
+alias wish='cd ~/r/wishes'
+alias wi='cd ~/r/wiki/content'
+alias log='git log --name-status'
+alias mig='bundle exec rake db:migrate && RAILS_ENV=test bundle exec rake db:migrate && RAILS_ENV=test TEST_ENV_NUMBER=1 bundle exec rake db:migrate && RAILS_ENV=test TEST_ENV_NUMBER=2 bundle exec rake db:migrate'
+alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
+alias keep="git add . && git commit -am'placeholder'"
+alias rackdev='ssh -A dev@209.20.74.96'
+racka='dev@209.20.74.96'
+
+alias rr='bundle exec rake routes | grep'
+alias pass="git add . && git commit -am'placeholder--CURRENT TEST PASSING'"
+alias dayspec="cd /home/jd/day/spec/ && bundle exec rspec */*_spec.rb"
+
+#   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds 
+alias m='cd $(ruby /home/jd/.utils/nav.rb m)'
+alias v='cd $(ruby /home/jd/.utils/nav.rb v)'
+alias c='cd $(ruby /home/jd/.utils/nav.rb c)'
+
+alias pp='ps aux | grep '
+alias s='source /home/jd/.bashrc'
+jj='jackdesert@jackdesert.webfactional.com'
+alias startpostgres='sudo -u postgres /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &'
+
+
+# This only applies to Crucial hdd on MacBook Pro where I built postgres from source
+export PATH=/usr/local/pgsql/bin:$PATH
+
+# Tell git to use vim
+export EDITOR=vim
+
+alias on='synclient TouchpadOff=0'
+alias off='synclient TouchpadOff=1'
+
+# Git
+alias gg='git grep -i'
+
+# Crowdflower (temp)
+alias f='cd /home/jd/r/flower'
+
+# xmodmap
+xmodmap /home/jd/.Xmodmap
+
+# set repeat rate
+xset r rate 200 60
