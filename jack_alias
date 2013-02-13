@@ -34,6 +34,10 @@ alias s='source /home/jd/.bashrc'
 jj='jackdesert@jackdesert.webfactional.com'
 alias startpostgres='sudo -u postgres /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &'
 
+# Sup uses the system ruby, so there's a folder where rbenv is set to use system ruby locally
+# This command changes to that directory before running Sup, then comes back afterward
+alias sup='dir_before_sup=`pwd` && cd /home/jd/sup && sup-mail && cd $dir_before_sup && unset dir_before_sup'
+
 
 # This only applies to Crucial hdd on MacBook Pro where I built postgres from source
 export PATH=/usr/local/pgsql/bin:$PATH
