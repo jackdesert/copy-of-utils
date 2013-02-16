@@ -59,3 +59,8 @@ xmodmap /home/jd/.Xmodmap
 
 # set repeat rate
 xset r rate 200 60
+
+# Mount Apple File Protocol Shares
+# Example:
+#   apple technology
+alias apple='ruby /home/jd/.utils/applemount.rb'
