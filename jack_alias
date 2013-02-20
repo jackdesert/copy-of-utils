@@ -28,6 +28,8 @@ alias dayspec="cd /home/jd/day/spec/ && bundle exec rspec */*_spec.rb"
 alias m='cd $(ruby /home/jd/.utils/nav.rb m)'
 alias v='cd $(ruby /home/jd/.utils/nav.rb v)'
 alias c='cd $(ruby /home/jd/.utils/nav.rb c)'
+alias r='cd $(ruby /home/jd/.utils/nav.rb r)'
+alias j='cd $(ruby /home/jd/.utils/nav.rb j)'
 
 alias pp='ps aux | grep '
 alias s='source /home/jd/.bashrc'
@@ -64,3 +66,9 @@ xset r rate 200 60
 # Example:
 #   apple technology
 alias apple='ruby /home/jd/.utils/applemount.rb'
+
+# Enable Palm Detection
+synclient PalmDetect=1
+
+# Set keyboard map since Ubuntu loses it after suspend
+setxkbmap 'us(altgr-intl)'
