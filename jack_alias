@@ -1,5 +1,7 @@
 # Manually tell Xfce to use capslock as escape
 /usr/bin/setxkbmap -option "caps:escape"
+# Allow a manual override to completely null out the capslock (Useful while using Jira)
+alias nocaps='/usr/bin/setxkbmap -option "caps:none"'
 
 alias start_postgres='/usr/lib/postgresql/9.1/bin/postgres -D /var/lib/postgresql/9.1/main -c config_file=/etc/postgresql/9.1/main/postgresql.conf &
 '
@@ -30,9 +32,10 @@ alias v='cd $(ruby /home/jd/.utils/nav.rb v)'
 alias c='cd $(ruby /home/jd/.utils/nav.rb c)'
 alias r='cd $(ruby /home/jd/.utils/nav.rb r)'
 alias j='cd $(ruby /home/jd/.utils/nav.rb j)'
+alias s='cd $(ruby /home/jd/.utils/nav.rb s)'
 
 alias pp='ps aux | grep '
-alias s='source /home/jd/.bashrc'
+alias sb='source /home/jd/.bashrc'
 jj='jackdesert@jackdesert.webfactional.com'
 alias startpostgres='sudo -u postgres /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &'
 

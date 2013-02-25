@@ -13,6 +13,7 @@
 #   alias m='cd $(ruby /path/to/nav.rb m)'
 #   alias v='cd $(ruby /path/to/nav.rb v)'
 #   alias j='cd $(ruby /path/to/nav.rb j)'
+#   alias s='cd $(ruby /path/to/nav.rb s)'
 #   alias r='cd $(ruby /path/to/nav.rb r)'
 #
 # then run 
@@ -28,6 +29,7 @@ class Nav
            m: 'app/models',
            v: 'app/views',
            j: 'app/assets/javascripts',
+           s: 'app/assets/stylesheets',
            r: ''}
 
   def initialize(token)
