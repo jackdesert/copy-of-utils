@@ -37,7 +37,7 @@ create_dir(MOUNT_POINT_BASE)
 create_dir(mount_point)
 
 command = "afp_client mount -u #{USERNAME} -p #{password} #{SERVER}:#{volume} #{mount_point}"
-puts command
+puts command.gsub(password, 'your_secret_password')
 # Execute command
 puts 'Connecting...'
 system(command)
