@@ -1,5 +1,6 @@
 # Manually tell Xfce to use capslock as escape
-/usr/bin/setxkbmap -option "caps:escape"
+alias caps='/usr/bin/setxkbmap -option "caps:escape"'
+caps
 # Allow a manual override to completely null out the capslock (Useful while using Jira)
 alias nocaps='/usr/bin/setxkbmap -option "caps:none"'
 
@@ -16,7 +17,7 @@ alias d='cd ~/d'
 alias wish='cd ~/r/wishes'
 alias wi='cd ~/r/wiki/content'
 alias log='git log --name-status'
-alias mig='bundle exec rake db:migrate && RAILS_ENV=test bundle exec rake db:migrate && RAILS_ENV=test TEST_ENV_NUMBER=1 bundle exec rake db:migrate && RAILS_ENV=test TEST_ENV_NUMBER=2 bundle exec rake db:migrate'
+alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
 alias keep="git add . && git commit -am'placeholder'"
 alias rackdev='ssh -A dev@209.20.74.96'
@@ -25,6 +26,10 @@ racka='dev@209.20.74.96'
 alias rr='bundle exec rake routes | grep'
 alias pass="git add . && git commit -am'placeholder--CURRENT TEST PASSING'"
 alias dayspec="cd /home/jd/day/spec/ && bundle exec rspec */*_spec.rb"
+
+# Current Projects
+alias sm='cd /home/jd/r/mai'
+alias sj='cd /home/jd/r/jms'
 
 #   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds 
 alias m='cd $(ruby /home/jd/.utils/nav.rb m)'
@@ -75,3 +80,14 @@ synclient PalmDetect=1
 
 # Set keyboard map since Ubuntu loses it after suspend
 setxkbmap 'us(altgr-intl)'
+
+# JohnMcneilStudio
+pushprod='git push production master; heroku run rake db:migrate $prod'
+prod='--app jms-website-production'
+prodlog='heroku logs --tail --app jms-website-production'
+stag='--app jms-website-staging'
+staglog='heroku logs --tail --app jms-website-staging'
+qa='--app jms-website-qa'
+qalog='heroku logs --tail --app jms-website-qa'
+mai='--app motion-and-image'
+mailog='heroku logs --tail --app motion-and-image'
