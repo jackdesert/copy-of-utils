@@ -1,8 +1,9 @@
 #! /usr/bin/ruby
 
 # Use this file to automate mounting of your apple file protocol shares
-# First verify that you can connect. 
-# Hint: http://wiki.jackdesert.com/Linux/apple_file_protocol
+# First install afpfs-ng-utils (but not through apt-get)
+#   Hint: http://wiki.jackdesert.com/Linux/apple_file_protocol
+# Second verify that you can connect. 
 
 require 'pathname'
 require 'pry-debugger'
