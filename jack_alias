@@ -73,7 +73,11 @@ xset r rate 200 60
 # Mount Apple File Protocol Shares
 # Example:
 #   apple technology
-alias apple='ruby /home/jd/.utils/applemount.rb'
+#alias apple='ruby /home/jd/.utils/applemount.rb'
+alias applec='gvfs-mount afp://jack@10.1.10.10/Creative/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative/'
+alias applet='gvfs-mount afp://jack@10.1.10.10/Technology/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Technology/'
+alias appleu='gvfs-mount -e'  # unmounts all
+alias applego='cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative'
 
 # Enable Palm Detection
 synclient PalmDetect=1
@@ -91,3 +95,7 @@ qa='--app jms-website-qa'
 qalog='heroku logs --tail --app jms-website-qa'
 mai='--app motion-and-image'
 mailog='heroku logs --tail --app motion-and-image'
+
+# Redshift
+alias rs1='redshift -g 0.4:0.4:0.4 -l 37:-122 &'
+alias rs2='redshift -g 0.3:0.3:0.3 -l 37:-122 &'
