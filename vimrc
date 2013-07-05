@@ -8,7 +8,8 @@ set autoindent
 set foldmethod=syntax
 set shiftwidth=2
 filetype plugin indent on
-autocmd FileType javascript,html,css set autoindent shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType javascript,html set autoindent shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType ruby,css set autoindent shiftwidth=2 softtabstop=2 expandtab
 
 
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just

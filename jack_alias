@@ -22,10 +22,14 @@ alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
 alias keep="git add . && git commit -am'placeholder'"
 alias rackdev='ssh -A dev@209.20.74.96'
 racka='dev@209.20.74.96'
+alias push='gem build breadnbutter.gemspec && gem install breadnbutter-0.0.1.gem'
+alias ff='find -iname'
+alias hint='grunt jshint'
 
 alias rr='bundle exec rake routes | grep'
 alias pass="git add . && git commit -am'placeholder--CURRENT TEST PASSING'"
 alias dayspec="cd /home/jd/day/spec/ && bundle exec rspec */*_spec.rb"
+alias em='echo —'
 
 # Current Projects
 alias sm='cd /home/jd/r/mai'
@@ -77,7 +81,8 @@ xset r rate 200 60
 alias applec='gvfs-mount afp://jack@10.1.10.10/Creative/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative/'
 alias applet='gvfs-mount afp://jack@10.1.10.10/Technology/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Technology/'
 alias appleu='gvfs-mount -e'  # unmounts all
-alias applego='cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative'
+#alias applego='cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative'
+alias applego='cd Juniper/_New\ Network\ Innovators\ \(2012\)/JUN12351\ Campus\ -\ Simply\ connected\ Tool/Photoshop/'
 
 # Enable Palm Detection
 synclient PalmDetect=1
@@ -95,7 +100,10 @@ qa='--app jms-website-qa'
 qalog='heroku logs --tail --app jms-website-qa'
 mai='--app motion-and-image'
 mailog='heroku logs --tail --app motion-and-image'
+alias amazon='ssh -A jack@107.20.254.191'
+
+alias publish='scp -r index.html scripts scss/css img $jj:webapps/static'
 
 # Redshift
 alias rs1='redshift -g 0.4:0.4:0.4 -l 37:-122 &'
-alias rs2='redshift -g 0.3:0.3:0.3 -l 37:-122 &'
+alias rs2='redshift -g 0.2:0.2:0.2 -l 37:-122 &'
