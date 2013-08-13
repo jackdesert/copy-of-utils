@@ -20,6 +20,7 @@ alias log='git log --name-status'
 alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
 alias keep="git add . && git commit -am'placeholder'"
+alias keeps='keep; git push origin master'
 alias rackdev='ssh -A dev@209.20.74.96'
 racka='dev@209.20.74.96'
 alias push='gem build breadnbutter.gemspec && gem install breadnbutter-0.0.1.gem'
@@ -68,6 +69,9 @@ alias gg='git grep -i'
 # Crowdflower (temp)
 alias f='cd /home/jd/r/flower'
 
+# my external hdd
+alias linux='sudo mount -t ext2 /dev/sdb2 /media/jd/linux && cd /media/jd/linux'
+
 # xmodmap
 xmodmap /home/jd/.Xmodmap
 
@@ -107,3 +111,46 @@ alias publish='scp -r index.html scripts scss/css img $jj:webapps/static'
 # Redshift
 alias rs1='redshift -g 0.4:0.4:0.4 -l 37:-122 &'
 alias rs2='redshift -g 0.2:0.2:0.2 -l 37:-122 &'
+
+############################################################
+#             F L Y W H E E L    S T U F F
+alias gcm="git checkout master && do_chef"
+alias gcs="git checkout staging-130521 && do_chef"
+alias gcp="git checkout production-130812 && do_chef"
+alias kesl="knife ec2 server list"
+alias kesls="knife ec2 server list | sort -k2"
+alias kesd="knife ec2 server delete"
+
+export CHEF_HOME=$HOME/jet/chef-repo
+export CHEF_USER="jack"
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre/
+
+export EC2_AMITOOL_HOME=$HOME/.tools/ec2-ami-tools
+export EC2_APITOOL_HOME=$HOME/.tools/ec2-api-tools
+
+export PATH=$PATH:$EC2_APITOOL_HOME/bin:$EC2_AMITOOL_HOME/bin
+
+# alias for Chef setup
+export EC2_HOME=$EC2_APITOOL_HOME
+
+
+export AWS_ACCESS_KEY_ID="AKIAJ6PIRAIDXU3QIDHA"
+export AWS_SECRET_ACCESS_KEY="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"
+export AWS_SSH_KEY_ID="chef-instances"
+# for ec2 API tools
+export AWS_ACCESS_KEY=$AWS_ACCESS_KEY_ID
+export AWS_SECRET_KEY=$AWS_SECRET_ACCESS_KEY
+export EC2_URL=`cat $CHEF_HOME/.chef/EC2_URL.conf`
+
+do_chef() {
+   export AWS_ACCESS_KEY_ID="AKIAJ6PIRAIDXU3QIDHA"
+   export AWS_SECRET_ACCESS_KEY="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"
+   export AWS_SSH_KEY_ID="chef-instances"
+   # for ec2 API tools
+   export AWS_ACCESS_KEY=$AWS_ACCESS_KEY_ID
+   export AWS_SECRET_KEY=$AWS_SECRET_ACCESS_KEY
+   export EC2_URL=`cat $CHEF_HOME/.chef/EC2_URL.conf`
+}
+
+#Alex' gist
+# https://gist.github.com/bisceglie/13e1a7a5069e72411c90
