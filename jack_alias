@@ -13,11 +13,15 @@ alias h='cd ~/h'
 alias alt1='TEST_ENV_NUMBER=1'
 alias alt2='TEST_ENV_NUMBER=2'
 alias rc='bundle exec rails console'
+alias sin='bundle exec rerun -b "ruby app.rb"'
+alias cl='cd /home/jd/r/sinatra_scraper'
 alias d='cd ~/d'
 alias wish='cd ~/r/wishes'
 alias wi='cd ~/r/wiki/content'
 alias log='git log --name-status'
 alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
+#alias mig='bundle exec rake db:migrate'
+alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake db:migrate:redo'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
 alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
@@ -66,9 +70,6 @@ alias off='synclient TouchpadOff=1'
 # Git
 alias gg='git grep -i'
 
-# Crowdflower (temp)
-alias f='cd /home/jd/r/flower'
-
 # my external hdd
 alias linux='sudo mount -t ext2 /dev/sdb2 /media/jd/linux && cd /media/jd/linux'
 
@@ -76,7 +77,7 @@ alias linux='sudo mount -t ext2 /dev/sdb2 /media/jd/linux && cd /media/jd/linux'
 xmodmap /home/jd/.Xmodmap
 
 # set repeat rate
-xset r rate 200 60
+xset r rate 240 60
 
 # Mount Apple File Protocol Shares
 # Example:
@@ -112,14 +113,54 @@ alias publish='scp -r index.html scripts scss/css img $jj:webapps/static'
 alias rs1='redshift -g 0.4:0.4:0.4 -l 37:-122 &'
 alias rs2='redshift -g 0.2:0.2:0.2 -l 37:-122 &'
 
+# Ack
+alias ack='ack-grep'
+
+# screen
+alias scr='screen -D -R jack'
+alias scrc='screen -D -R jack_server'
+
 ############################################################
 #             F L Y W H E E L    S T U F F
+
+# Start Jetsons
+alias start_jetsons='cd /home/jd/jet/jack && bash runem.sh'
+alias check_jetsons='dir_before_check=`pwd` && cd /home/jd/jet/jack && bundle exec ruby check.rb && cd $dir_before_check && unset dir_before_check'
+
+# Flywheel envs for Rosie
+export APN_CERTFILE="flywheel-ck.pem"
+export APN_PASSPHRASE="valid helmet"
+export GCM_APIKEY="AIzaSyBGuP7rghB-bxJzvpTaUSvGdpD1fhe-yEg"
+
+
+alias fly='cd && cd flywheel_notes'
+alias sp='cd && cd jet/spacely'
+alias gu='git fetch flywheel && git rebase flywheel/master'
+alias ja='bundle exec rspec spec/jane_spec.rb --order default'
+
 alias gcm="git checkout master && do_chef"
 alias gcs="git checkout staging-130521 && do_chef"
 alias gcp="git checkout production-130812 && do_chef"
 alias kesl="knife ec2 server list"
 alias kesls="knife ec2 server list | sort -k2"
 alias kesd="knife ec2 server delete"
+
+# Custom
+alias acceptance01='ssh -i ~/.ssh/chef-instances.pem ubuntu@master-uswest2a-acceptance01.flywheelnow.com'
+alias acceptance02='ssh -i ~/.ssh/chef-instances.pem ubuntu@master-uswest2a-acceptance02.flywheelnow.com'
+alias staging01='ssh -i ~/.ssh/chef-instances.pem ubuntu@staging-uswest2a-app01.flywheelnow.com'
+alias staging02='ssh -i ~/.ssh/chef-instances.pem ubuntu@staging-uswest2a-app02.flywheelnow.com'
+alias staging03='ssh -i ~/.ssh/chef-instances.pem ubuntu@staging-uswest2a-app03.flywheelnow.com'
+
+alias production01='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1a-app01.flywheelnow.com'
+alias production02='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1b-app02.flywheelnow.com'
+alias production03='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1d-app03.flywheelnow.com'
+alias production04='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1a-app04.flywheelnow.com'
+alias production05='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1b-app05.flywheelnow.com'
+alias production06='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1d-app06.flywheelnow.com'
+alias production07='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1b-app07.flywheelnow.com'
+alias production08='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1d-app08.flywheelnow.com'
+
 
 export CHEF_HOME=$HOME/jet/chef-repo
 export CHEF_USER="jack"
