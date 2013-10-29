@@ -127,6 +127,11 @@ alias scrc='screen -D -R jack_server'
 alias start_jetsons='cd /home/jd/jet/jack && bash runem.sh'
 alias check_jetsons='dir_before_check=`pwd` && cd /home/jd/jet/jack && bundle exec ruby check.rb && cd $dir_before_check && unset dir_before_check'
 
+# Start Riak
+alias start_riak='/home/jd/.installed_programs/riak-1.2.1/rel/riak/bin/riak start'
+alias stop_riak='/home/jd/.installed_programs/riak-1.2.1/rel/riak/bin/riak stop'
+
+
 # Flywheel envs for Rosie
 export APN_CERTFILE="flywheel-ck.pem"
 export APN_PASSPHRASE="valid helmet"
@@ -159,7 +164,7 @@ alias production04='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1a-
 alias production05='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1b-app05.flywheelnow.com'
 alias production06='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1d-app06.flywheelnow.com'
 alias production07='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1b-app07.flywheelnow.com'
-alias production08='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1d-app08.flywheelnow.com'
+alias production08='echo production08 has been shut down'
 
 
 export CHEF_HOME=$HOME/jet/chef-repo
