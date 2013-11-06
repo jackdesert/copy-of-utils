@@ -14,48 +14,39 @@ alias alt1='TEST_ENV_NUMBER=1'
 alias alt2='TEST_ENV_NUMBER=2'
 alias rc='bundle exec rails console'
 alias sin='bundle exec rerun -b "ruby app.rb"'
-alias cl='cd /home/jd/r/sinatra_scraper'
-alias d='cd ~/d'
-alias wish='cd ~/r/wishes'
+alias cl='cd ~/r/sinatra_scraper'
 alias wi='cd ~/r/wiki/content'
 alias log='git log --name-status'
 alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
-#alias mig='bundle exec rake db:migrate'
 alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake db:migrate:redo'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
 alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
 alias rackdev='ssh -A dev@209.20.74.96'
 racka='dev@209.20.74.96'
-alias push='gem build breadnbutter.gemspec && gem install breadnbutter-0.0.1.gem'
-alias ff='find -iname'
-alias hint='grunt jshint'
+#alias push='gem build breadnbutter.gemspec && gem install breadnbutter-0.0.1.gem'
+#alias ff='find -iname'
+#alias hint='grunt jshint'
 
 alias rr='bundle exec rake routes | grep'
 alias pass="git add . && git commit -am'placeholder--CURRENT TEST PASSING'"
-alias dayspec="cd /home/jd/day/spec/ && bundle exec rspec */*_spec.rb"
-alias em='echo —'
-
-# Current Projects
-alias sm='cd /home/jd/r/mai'
-alias sj='cd /home/jd/r/jms'
 
 #   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds 
-alias m='cd $(ruby /home/jd/.utils/nav.rb m)'
-alias v='cd $(ruby /home/jd/.utils/nav.rb v)'
-alias c='cd $(ruby /home/jd/.utils/nav.rb c)'
-alias r='cd $(ruby /home/jd/.utils/nav.rb r)'
-alias j='cd $(ruby /home/jd/.utils/nav.rb j)'
-alias s='cd $(ruby /home/jd/.utils/nav.rb s)'
+alias m='cd $(ruby ~/.utils/nav.rb m)'
+alias v='cd $(ruby ~/.utils/nav.rb v)'
+alias c='cd $(ruby ~/.utils/nav.rb c)'
+alias r='cd $(ruby ~/.utils/nav.rb r)'
+alias j='cd $(ruby ~/.utils/nav.rb j)'
+alias s='cd $(ruby ~/.utils/nav.rb s)'
 
 alias pp='ps aux | grep '
-alias sb='source /home/jd/.bashrc'
+alias sb='source ~/.bashrc'
 jj='jackdesert@jackdesert.webfactional.com'
 alias startpostgres='sudo -u postgres /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &'
 
 # Sup uses the system ruby, so there's a folder where rbenv is set to use system ruby locally
 # This command changes to that directory before running Sup, then comes back afterward
-alias sup='dir_before_sup=`pwd` && cd /home/jd/sup && sup-mail && cd $dir_before_sup && unset dir_before_sup'
+alias sup='dir_before_sup=`pwd` && cd ~/sup && sup-mail && cd $dir_before_sup && unset dir_before_sup'
 
 
 # This only applies to Crucial hdd on MacBook Pro where I built postgres from source
@@ -64,17 +55,17 @@ export PATH=/usr/local/pgsql/bin:$PATH
 # Tell git to use vim
 export EDITOR=vim
 
-alias on='synclient TouchpadOff=0'
-alias off='synclient TouchpadOff=1'
+#alias on='synclient TouchpadOff=0'
+#alias off='synclient TouchpadOff=1'
 
 # Git
 alias gg='git grep -i'
 
 # my external hdd
-alias linux='sudo mount -t ext2 /dev/sdb2 /media/jd/linux && cd /media/jd/linux'
+#alias linux='sudo mount -t ext2 /dev/sdb2 /media/jd/linux && cd /media/jd/linux'
 
 # xmodmap
-xmodmap /home/jd/.Xmodmap
+xmodmap ~/.Xmodmap
 
 # set repeat rate manually
 # (Note that on osx using KeyRemap4MacBook 240/30 feels the same as 240/50 through xset)
@@ -84,7 +75,7 @@ xset r rate 240 60
 # Mount Apple File Protocol Shares
 # Example:
 #   apple technology
-#alias apple='ruby /home/jd/.utils/applemount.rb'
+#alias apple='ruby ~/.utils/applemount.rb'
 alias applec='gvfs-mount afp://jack@10.1.10.10/Creative/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative/'
 alias applet='gvfs-mount afp://jack@10.1.10.10/Technology/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Technology/'
 alias appleu='gvfs-mount -e'  # unmounts all
@@ -96,18 +87,6 @@ synclient PalmDetect=1
 
 # Set keyboard map since Ubuntu loses it after suspend
 setxkbmap 'us(altgr-intl)'
-
-# JohnMcneilStudio
-pushprod='git push production master; heroku run rake db:migrate $prod'
-prod='--app jms-website-production'
-prodlog='heroku logs --tail --app jms-website-production'
-stag='--app jms-website-staging'
-staglog='heroku logs --tail --app jms-website-staging'
-qa='--app jms-website-qa'
-qalog='heroku logs --tail --app jms-website-qa'
-mai='--app motion-and-image'
-mailog='heroku logs --tail --app motion-and-image'
-alias amazon='ssh -A jack@107.20.254.191'
 
 alias publish='scp -r index.html scripts scss/css img $jj:webapps/static'
 
@@ -126,12 +105,12 @@ alias scrc='screen -D -R jack_server'
 #             F L Y W H E E L    S T U F F
 
 # Start Jetsons
-alias start_jetsons='cd /home/jd/jet/jack && bash runem.sh'
-alias check_jetsons='dir_before_check=`pwd` && cd /home/jd/jet/jack && bundle exec ruby check.rb && cd $dir_before_check && unset dir_before_check'
+alias start_jetsons='cd ~/jet/jack && bash runem.sh'
+alias check_jetsons='dir_before_check=`pwd` && cd ~/jet/jack && bundle exec ruby check.rb && cd $dir_before_check && unset dir_before_check'
 
 # Start Riak
-alias start_riak='/home/jd/.installed_programs/riak-1.2.1/rel/riak/bin/riak start'
-alias stop_riak='/home/jd/.installed_programs/riak-1.2.1/rel/riak/bin/riak stop'
+alias start_riak='~/.installed_programs/riak-1.2.1/rel/riak/bin/riak start'
+alias stop_riak='~/.installed_programs/riak-1.2.1/rel/riak/bin/riak stop'
 
 
 # Flywheel envs for Rosie
@@ -141,7 +120,7 @@ export GCM_APIKEY="AIzaSyBGuP7rghB-bxJzvpTaUSvGdpD1fhe-yEg"
 
 
 alias fly='cd && cd flywheel_notes'
-alias sp='cd && cd jet/spacely'
+alias sp='cd ~/jet/spacely'
 alias gu='git fetch flywheel && git rebase flywheel/master'
 alias ja='bundle exec rspec spec/jane_spec.rb --order default'
 
