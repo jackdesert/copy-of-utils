@@ -24,9 +24,20 @@ alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
 alias rackdev='ssh -A dev@209.20.74.96'
 racka='dev@209.20.74.96'
+alias p='cd ~/portable'
 #alias push='gem build breadnbutter.gemspec && gem install breadnbutter-0.0.1.gem'
 #alias ff='find -iname'
 #alias hint='grunt jshint'
+alias turn_on_ssh_agent='eval $(ssh-agent)'
+alias remember='eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa'
+
+# Vagrant
+alias vs='cd ~/portable && vagrant up && vagrant ssh'
+alias vu='cd ~/portable && vagrant up'
+alias vp='cd ~/portable && vagrant provision'
+alias vf='vi portable/Vagrantfile'
+alias viv='vi ~/portable/Vagrantfile'
+alias vir='vi ~/portable/README.md'
 
 alias rr='bundle exec rake routes | grep'
 alias pass="git add . && git commit -am'placeholder--CURRENT TEST PASSING'"
@@ -121,6 +132,9 @@ export GCM_APIKEY="AIzaSyBGuP7rghB-bxJzvpTaUSvGdpD1fhe-yEg"
 
 alias fly='cd && cd flywheel_notes'
 alias sp='cd ~/jet/spacely'
+alias jl='cd ~/r/jacklisted'
+alias day='cd ~/r/day'
+alias fc='cd ~/jet/fc'
 alias gu='git fetch flywheel && git rebase flywheel/master'
 alias ja='bundle exec rspec spec/jane_spec.rb --order default'
 
