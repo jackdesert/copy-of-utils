@@ -22,8 +22,9 @@ alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake 
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
 alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
+alias he='keep; git push origin HEAD'
 alias rackdev='ssh -A dev@209.20.74.96'
-racka='dev@209.20.74.96'
+rack='dev@209.20.74.96'
 alias p='cd ~/portable'
 #alias push='gem build breadnbutter.gemspec && gem install breadnbutter-0.0.1.gem'
 #alias ff='find -iname'
@@ -42,6 +43,13 @@ alias vir='vi ~/portable/README.md'
 alias rr='bundle exec rake routes | grep'
 alias pass="git add . && git commit -am'placeholder--CURRENT TEST PASSING'"
 
+# Oft-edited files
+alias acc='view /vagrant/secret/accounts'
+alias acce='vi /vagrant/secret/accounts'
+alias acck='view /vagrant/secret/accounts_kids'
+alias accke='vi /vagrant/secret/accounts_kids'
+alias jobs='cd /vagrant/jobs/portland'
+
 #   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds 
 alias m='cd $(ruby ~/.utils/nav.rb m)'
 alias v='cd $(ruby ~/.utils/nav.rb v)'
@@ -53,6 +61,7 @@ alias s='cd $(ruby ~/.utils/nav.rb s)'
 alias pp='ps aux | grep '
 alias sb='source ~/.bashrc'
 jj='jackdesert@jackdesert.webfactional.com'
+jjj='jackdesert@jackdesert.webfactional.com:webapps/all_git/repos'
 alias startpostgres='sudo -u postgres /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &'
 
 # Sup uses the system ruby, so there's a folder where rbenv is set to use system ruby locally
@@ -111,6 +120,7 @@ alias ack='ack-grep'
 # screen
 alias scr='screen -D -R jack'
 alias scrc='screen -D -R jack_server'
+alias irc="ssh $rack 'screen -D -R irc'"
 
 ############################################################
 #             F L Y W H E E L    S T U F F
@@ -133,6 +143,7 @@ export GCM_APIKEY="AIzaSyBGuP7rghB-bxJzvpTaUSvGdpD1fhe-yEg"
 alias fly='cd && cd flywheel_notes'
 alias sp='cd ~/jet/spacely'
 alias jl='cd ~/r/jacklisted'
+alias dl='cd ~/r/daily_lager'
 alias day='cd ~/r/day'
 alias fc='cd ~/jet/fc'
 alias gu='git fetch flywheel && git rebase flywheel/master'
@@ -164,7 +175,8 @@ alias production08='echo production08 has been shut down'
 
 export CHEF_HOME=$HOME/jet/chef-repo
 export CHEF_USER="jack"
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre/
+#export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre/
+export CLASSPATH='.:/home/vagrant/j/class_files/algs4_files/:/home/vagrant/j/class_files/stdlib/:/home/vagrant/j/class_files/testng/:/home/vagrant/j/class_files/jcommander/src/main/java/com/beust/jcommander:/home/vagrant/j/class_files/junit'
 
 export EC2_AMITOOL_HOME=$HOME/.tools/ec2-ami-tools
 export EC2_APITOOL_HOME=$HOME/.tools/ec2-api-tools
