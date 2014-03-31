@@ -36,8 +36,9 @@ alias turn_on_ssh_agent='eval $(ssh-agent)'
 alias remember='eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa'
 
 # Vagrant
-alias vs='cd ~/portable && vagrant up && vagrant ssh'
+alias vs='vagrant ssh -- -A'
 alias vu='cd ~/portable && vagrant up'
+alias vus='cd ~/portable && vagrant up && vagrant ssh -- -A'
 alias vp='cd ~/portable && vagrant provision'
 alias vf='vi portable/Vagrantfile'
 alias viv='vi ~/portable/Vagrantfile'
@@ -78,6 +79,9 @@ export PATH=/usr/local/pgsql/bin:$PATH
 # Tell git to use vim
 export EDITOR=vim
 
+# Tell apt-get to do as its told
+export DEBIAN_FRONTEND=noninteractive
+
 #alias on='synclient TouchpadOff=0'
 #alias off='synclient TouchpadOff=1'
 
@@ -99,23 +103,23 @@ xset r rate 240 60
 # Example:
 #   apple technology
 #alias apple='ruby ~/.utils/applemount.rb'
-alias applec='gvfs-mount afp://jack@10.1.10.10/Creative/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative/'
-alias applet='gvfs-mount afp://jack@10.1.10.10/Technology/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Technology/'
-alias appleu='gvfs-mount -e'  # unmounts all
+#alias applec='gvfs-mount afp://jack@10.1.10.10/Creative/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative/'
+#alias applet='gvfs-mount afp://jack@10.1.10.10/Technology/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Technology/'
+#alias appleu='gvfs-mount -e'  # unmounts all
 #alias applego='cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative'
-alias applego='cd Juniper/_New\ Network\ Innovators\ \(2012\)/JUN12351\ Campus\ -\ Simply\ connected\ Tool/Photoshop/'
+#alias applego='cd Juniper/_New\ Network\ Innovators\ \(2012\)/JUN12351\ Campus\ -\ Simply\ connected\ Tool/Photoshop/'
 
 # Enable Palm Detection
-synclient PalmDetect=1
+#synclient PalmDetect=1
 
 # Set keyboard map since Ubuntu loses it after suspend
-setxkbmap 'us(altgr-intl)'
+#setxkbmap 'us(altgr-intl)'
 
 alias publish='scp -r index.html scripts scss/css img $jj:webapps/static'
 
 # Redshift
-alias rs1='redshift -g 0.4:0.4:0.4 -l 37:-122 &'
-alias rs2='redshift -g 0.2:0.2:0.2 -l 37:-122 &'
+#alias rs1='redshift -g 0.4:0.4:0.4 -l 37:-122 &'
+#alias rs2='redshift -g 0.2:0.2:0.2 -l 37:-122 &'
 
 # Ack
 alias ack='ack-grep'
@@ -125,88 +129,4 @@ alias scr='screen -D -R jack'
 alias scrc='screen -D -R jack_server'
 alias irc="ssh $rack 'screen -D -R irc'"
 
-############################################################
-#             F L Y W H E E L    S T U F F
 
-# Start Jetsons
-alias start_jetsons='cd ~/jet/jack && bash runem.sh'
-alias check_jetsons='dir_before_check=`pwd` && cd ~/jet/jack && bundle exec ruby check.rb && cd $dir_before_check && unset dir_before_check'
-
-# Start Riak
-alias start_riak='~/.installed_programs/riak-1.2.1/rel/riak/bin/riak start'
-alias stop_riak='~/.installed_programs/riak-1.2.1/rel/riak/bin/riak stop'
-
-
-# Flywheel envs for Rosie
-export APN_CERTFILE="flywheel-ck.pem"
-export APN_PASSPHRASE="valid helmet"
-export GCM_APIKEY="AIzaSyBGuP7rghB-bxJzvpTaUSvGdpD1fhe-yEg"
-
-
-alias fly='cd && cd flywheel_notes'
-alias sp='cd ~/jet/spacely'
-alias jl='cd ~/r/jacklisted'
-alias dl='cd ~/r/daily_lager'
-alias day='cd ~/r/day'
-alias fc='cd ~/jet/fc'
-alias gu='git fetch flywheel && git rebase flywheel/master'
-alias ja='bundle exec rspec spec/jane_spec.rb --order default'
-
-alias gcm="git checkout master && do_chef"
-alias gcs="git checkout staging-130521 && do_chef"
-alias gcp="git checkout production-130812 && do_chef"
-alias kesl="knife ec2 server list"
-alias kesls="knife ec2 server list | sort -k2"
-alias kesd="knife ec2 server delete"
-
-# Custom
-alias acceptance01='ssh -i ~/.ssh/chef-instances.pem ubuntu@master-uswest2a-acceptance01.flywheelnow.com'
-alias acceptance02='ssh -i ~/.ssh/chef-instances.pem ubuntu@master-uswest2a-acceptance02.flywheelnow.com'
-alias staging01='ssh -i ~/.ssh/chef-instances.pem ubuntu@staging-uswest2a-app01.flywheelnow.com'
-alias staging02='ssh -i ~/.ssh/chef-instances.pem ubuntu@staging-uswest2a-app02.flywheelnow.com'
-alias staging03='ssh -i ~/.ssh/chef-instances.pem ubuntu@staging-uswest2a-app03.flywheelnow.com'
-
-alias production01='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1a-app01.flywheelnow.com'
-alias production02='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1b-app02.flywheelnow.com'
-alias production03='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1d-app03.flywheelnow.com'
-alias production04='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1a-app04.flywheelnow.com'
-alias production05='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1b-app05.flywheelnow.com'
-alias production06='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1d-app06.flywheelnow.com'
-alias production07='ssh -i ~/.ssh/chef-instances.pem ubuntu@production-useast1b-app07.flywheelnow.com'
-alias production08='echo production08 has been shut down'
-
-
-export CHEF_HOME=$HOME/jet/chef-repo
-export CHEF_USER="jack"
-#export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre/
-export CLASSPATH='.:/home/vagrant/j/class_files/algs4_files/:/home/vagrant/j/class_files/stdlib/:/home/vagrant/j/class_files/testng/:/home/vagrant/j/class_files/jcommander/src/main/java/com/beust/jcommander:/home/vagrant/j/class_files/junit'
-
-export EC2_AMITOOL_HOME=$HOME/.tools/ec2-ami-tools
-export EC2_APITOOL_HOME=$HOME/.tools/ec2-api-tools
-
-export PATH=$PATH:$EC2_APITOOL_HOME/bin:$EC2_AMITOOL_HOME/bin
-
-# alias for Chef setup
-export EC2_HOME=$EC2_APITOOL_HOME
-
-
-export AWS_ACCESS_KEY_ID="AKIAJ6PIRAIDXU3QIDHA"
-export AWS_SECRET_ACCESS_KEY="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"
-export AWS_SSH_KEY_ID="chef-instances"
-# for ec2 API tools
-export AWS_ACCESS_KEY=$AWS_ACCESS_KEY_ID
-export AWS_SECRET_KEY=$AWS_SECRET_ACCESS_KEY
-export EC2_URL=`cat $CHEF_HOME/.chef/EC2_URL.conf`
-
-do_chef() {
-   export AWS_ACCESS_KEY_ID="AKIAJ6PIRAIDXU3QIDHA"
-   export AWS_SECRET_ACCESS_KEY="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"
-   export AWS_SSH_KEY_ID="chef-instances"
-   # for ec2 API tools
-   export AWS_ACCESS_KEY=$AWS_ACCESS_KEY_ID
-   export AWS_SECRET_KEY=$AWS_SECRET_ACCESS_KEY
-   export EC2_URL=`cat $CHEF_HOME/.chef/EC2_URL.conf`
-}
-
-#Alex' gist
-# https://gist.github.com/bisceglie/13e1a7a5069e72411c90
