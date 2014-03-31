@@ -13,7 +13,8 @@ alias alt1='TEST_ENV_NUMBER=1'
 alias alt2='TEST_ENV_NUMBER=2'
 alias rc='bundle exec rails console'
 alias sin='bundle exec rerun -b "ruby app.rb"'
-alias cl='cd ~/r/sinatra_scraper'
+#alias cl='cd ~/r/sinatra_scraper'
+alias cl='cd ~/cl'
 alias wi='cd ~/r/wiki/content'
 alias log='git log --name-status'
 alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
@@ -54,7 +55,7 @@ alias acck='view /vagrant/secret/accounts_kids'
 alias accke='vi /vagrant/secret/accounts_kids'
 alias jobs='cd /vagrant/jobs/portland'
 
-#   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds 
+#   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds
 alias m='cd $(ruby ~/.utils/nav.rb m)'
 alias v='cd $(ruby ~/.utils/nav.rb v)'
 alias c='cd $(ruby ~/.utils/nav.rb c)'
@@ -65,7 +66,8 @@ alias s='cd $(ruby ~/.utils/nav.rb s)'
 alias pp='ps aux | grep '
 alias sb='source ~/.bashrc'
 jj='jackdesert@jackdesert.webfactional.com'
-jjj='jackdesert@jackdesert.webfactional.com:webapps/all_git/repos'
+jjr='jackdesert@jackdesert.webfactional.com:webapps/all_git/repos'
+alias blog='cd ~/r/blog'
 alias startpostgres='sudo -u postgres /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &'
 
 # Sup uses the system ruby, so there's a folder where rbenv is set to use system ruby locally
@@ -129,4 +131,23 @@ alias scr='screen -D -R jack'
 alias scrc='screen -D -R jack_server'
 alias irc="ssh $rack 'screen -D -R irc'"
 
+alias jl='cd ~/r/jacklisted'
+alias dl='cd ~/r/daily_lager'
+alias day='cd ~/r/day'
+alias gui='cd ~/cl/gui'
+# JAVA
+export JAVA_HOME=/usr
+export CLASSPATH='.:/home/vagrant/j/class_files/algs4_files/:/home/vagrant/j/class_files/stdlib/:/home/vagrant/j/class_files/testng/:/home/vagrant/j/class_files/jcommander/src/main/java/com/beust/jcommander:/home/vagrant/j/class_files/junit'
 
+#TEMP
+alias fstop='pkill -f unicorn ; pkill -f zookeeper ; pkill -f mailcatcher ; sudo service mysql start'
+
+alias gu='echo use with caution; git fetch origin && git rebase origin/master'
+# Coworkers' aliases
+
+alias ga="git add"
+alias gc="git commit"
+alias cbe='CARDENIO_DEVELOPMENT=true bundle exec'
+#grr(){
+#  CARDENIO_DEVELOPMENT=true bundle exec $@
+#}

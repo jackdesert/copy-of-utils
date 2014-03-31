@@ -73,10 +73,18 @@ autocmd BufLeave,FocusLost * wall
 call pathogen#infect()
 call pathogen#helptags()
 
-" not working:  
+" not working:
 " map <F2> :NERDTreeToggle<CR>
 "
 " also not working:
-" nmap <silent> <F2> :execute 'NERDTreeToggle ' . getcwd()<CR>	
+" nmap <silent> <F2> :execute 'NERDTreeToggle ' . getcwd()<CR>
 "
 nnoremap ; :
+
+" Leader
+:let mapleader=","
+
+" Highlight trailing whitespace
+" match Todo /\s\+$/
+" Remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e

@@ -1,0 +1,14 @@
+[user]
+	name = Jack Desert
+	email = jackdesert@gmail.com
+[color]
+  ui = true
+[alias]
+  pop = reset --soft HEAD~1
+  ci = commit
+  co = checkout
+  br = branch
+  st = status
+  a = add
+  d = rm
+  sh = show
