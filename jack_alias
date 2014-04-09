@@ -32,7 +32,8 @@ bitch='192.168.1.101'
 nickel='192.168.1.102'
 
 # Public IP Address
-router='76.115.175.209'
+#router='76.115.175.209'
+router='jackdesert.no-ip.biz'
 alias myip='nslookup jackdesert.no-ip.biz'
 
 
