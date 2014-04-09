@@ -148,6 +148,7 @@ alias gu='echo use with caution; git fetch origin && git rebase origin/master'
 alias ga="git add"
 alias gc="git commit"
 alias cbe='CARDENIO_DEVELOPMENT=true bundle exec'
+alias gst='git status'
 #grr(){
 #  CARDENIO_DEVELOPMENT=true bundle exec $@
 #}

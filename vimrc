@@ -88,3 +88,6 @@ nnoremap ; :
 " match Todo /\s\+$/
 " Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Coworkers' Hacks:
+imap jj <Esc>
