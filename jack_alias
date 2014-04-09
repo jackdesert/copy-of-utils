@@ -26,15 +26,41 @@ alias he='keep; git push origin HEAD'
 alias rackdev='ssh -A dev@209.20.74.96'
 rack='dev@209.20.74.96'
 alias p='cd ~/portable'
+
+# Private IP Addresses	
 sassie='192.168.1.100'
 bitch='192.168.1.101'
+nickel='192.168.1.102'
+
+# Public IP Address
+#router='76.115.175.209'
+router='jackdesert.no-ip.biz'
+alias myip='nslookup jackdesert.no-ip.biz'
+
+
+# MAC Addresses
+sassie_mac='00:14:5E:7A:81:EC'
+bitch_mac='00:16:EB:11:78:06'
+nickel_wifi_mac='00:16:EB:11:78:06'
+
+# Local SSH Aliases
 alias sassie='ssh -A jd@$sassie'
 alias bitch='ssh -A jd@$bitch'
+alias nickel='ssh -A jd@$nickel'
+
+# Remote SSH Aliases
+alias rsassie='ssh -A jd@$router -p 22'
+alias rbitch='ssh -A jd@$router -p 23'
+alias rnickel='ssh -A jd@$router -p 24'
+
+alias wake_sassie='sudo etherwake -i wlan0  $sassie_mac'
+alias wake_bitch='sudo etherwake -i wlan0 $bitch_mac'
+alias wake_nickel='sudo etherwake -i wlan0 $nickel_wifi_mac'
 #alias push='gem build breadnbutter.gemspec && gem install breadnbutter-0.0.1.gem'
 #alias ff='find -iname'
 #alias hint='grunt jshint'
-alias turn_on_ssh_agent='eval $(ssh-agent)'
-alias remember='eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa'
+#alias turn_on_ssh_agent='eval $(ssh-agent)'
+#alias remember='eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa'
 
 # Vagrant
 alias vs='vagrant ssh -- -A'
