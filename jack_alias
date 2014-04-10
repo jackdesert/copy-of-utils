@@ -27,7 +27,7 @@ alias rackdev='ssh -A dev@209.20.74.96'
 rack='dev@209.20.74.96'
 alias p='cd ~/portable'
 
-# Private IP Addresses	
+# Private IP Addresses
 sassie='192.168.1.100'
 bitch='192.168.1.101'
 nickel='192.168.1.102'
@@ -53,6 +53,11 @@ alias rsassie='ssh -A jd@$router -p 22'
 alias rbitch='ssh -A jd@$router -p 23'
 alias rnickel='ssh -A jd@$router -p 24'
 
+# Remote ENV VARS (for scp) (Note capital 'P')
+rsassie='-P 22 jd@$router'
+rbitch='-P 23 jd@$router'
+rnickel='-P 24 jd@$router'
+
 alias wake_sassie='sudo etherwake -i wlan0  $sassie_mac'
 alias wake_bitch='sudo etherwake -i wlan0 $bitch_mac'
 alias wake_nickel='sudo etherwake -i wlan0 $nickel_wifi_mac'
@@ -74,12 +79,16 @@ alias vir='vi ~/portable/README.md'
 alias rr='bundle exec rake routes | grep'
 alias pass="git add . && git commit -am'placeholder--CURRENT TEST PASSING'"
 
-# Oft-edited files
+# Oft-edited Accounts files
 alias acc='view /vagrant/secret/accounts'
 alias acce='vi /vagrant/secret/accounts'
+
+alias accc='view /vagrant/secret/accounts_cloudability'
+alias accce='vi /vagrant/secret/accounts_cloudability'
+
 alias acck='view /vagrant/secret/accounts_kids'
 alias accke='vi /vagrant/secret/accounts_kids'
-alias jobs='cd /vagrant/jobs/portland'
+
 
 #   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds
 alias m='cd $(ruby ~/.utils/nav.rb m)'
