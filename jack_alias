@@ -29,6 +29,7 @@ alias he='keep; git push origin HEAD'
 alias rackdev='ssh -A dev@209.20.74.96'
 rack='dev@209.20.74.96'
 alias p='cd ~/portable'
+alias all_users='cut -d: -f1 /etc/passwd'
 
 # Private IP Addresses
 sassie='192.168.1.100'
