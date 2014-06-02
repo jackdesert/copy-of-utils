@@ -129,6 +129,9 @@ export DEBIAN_FRONTEND=noninteractive
 # Git
 alias gg='git grep -i'
 
+# Find
+alias ff='find . | grep'
+
 # my external hdd
 #alias linux='sudo mount -t ext2 /dev/sdb2 /media/jd/linux && cd /media/jd/linux'
 
@@ -179,7 +182,7 @@ export JAVA_HOME=/usr
 export CLASSPATH='.:/home/vagrant/j/class_files/algs4_files/:/home/vagrant/j/class_files/stdlib/:/home/vagrant/j/class_files/testng/:/home/vagrant/j/class_files/jcommander/src/main/java/com/beust/jcommander:/home/vagrant/j/class_files/junit'
 
 #TEMP
-alias fstop='pkill -f unicorn ; pkill -f zookeeper ; pkill -f mailcatcher ; sudo service mysql start'
+alias fstop='pkill -f unicorn ; pkill -f zookeeper ; pkill -f mailcatcher ; pkill -f ruby; sudo service mysql start'
 
 alias gu='echo use with caution; git fetch origin && git rebase origin/master'
 # Coworkers' aliases
