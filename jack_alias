@@ -18,18 +18,31 @@ alias sin='bundle exec rerun -b "ruby app.rb"'
 #alias cl='cd ~/r/sinatra_scraper'
 alias cl='cd ~/cl'
 alias wi='cd ~/r/wiki/content'
-alias log='git log --name-status'
 alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
 alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake db:migrate:redo'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
+
+# Git
+alias gu='git fetch origin && git rebase origin/master'
+alias log='git log --name-status'
 alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
 alias keeph='keep; git push origin HEAD'
 alias he='keep; git push origin HEAD'
+
+# Todo.txt
+alias t='~/.todo/todo.sh'
+
+# Rackspace
 alias rackdev='ssh -A dev@209.20.74.96'
-alias doroot='ssh -A root@162.243.156.90'
-alias dodev='ssh -A dev@162.243.156.90'
 rack='dev@209.20.74.96'
+
+# Digital Ocean
+DO_IP='162.243.156.90'
+alias doroot="ssh -A root@$DO_IP"
+dodev="dev@$DO_IP"
+alias dodev='ssh -A dev@$DO_IP'
+
 alias p='cd ~/portable'
 alias all_users='cut -d: -f1 /etc/passwd'
 
