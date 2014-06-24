@@ -28,10 +28,6 @@ alias log='git log --name-status'
 alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
 alias keeph='keep; git push origin HEAD'
-alias he='keep; git push origin HEAD'
-
-# Todo.txt
-alias t='~/.todo/todo.sh'
 
 # Rackspace
 alias rackdev='ssh -A dev@209.20.74.96'
@@ -43,8 +39,10 @@ alias doroot="ssh -A root@$DO_IP"
 dodev="dev@$DO_IP"
 alias dodev='ssh -A dev@$DO_IP'
 
-alias p='cd ~/portable'
-alias all_users='cut -d: -f1 /etc/passwd'
+alias docass='ssh -A dev@192.241.224.60'
+alias dotask='ssh -A dev@192.241.224.60'
+alias dotask2='ssh -A dev@107.170.239.156'
+alias dotask3='ssh -A dev@107.170.212.250'
 
 # Private IP Addresses
 sassie='192.168.1.100'
@@ -107,6 +105,9 @@ alias accce='vi /vagrant/secret/accounts_cloudability'
 
 alias acck='view /vagrant/secret/accounts_kids'
 alias accke='vi /vagrant/secret/accounts_kids'
+
+al='view /vagrant/utils/jack_alias'
+alc='vi /vagrant/utils/jack_alias'
 
 
 #   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds
