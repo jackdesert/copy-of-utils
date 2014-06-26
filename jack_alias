@@ -40,9 +40,8 @@ dodev="dev@$DO_IP"
 alias dodev='ssh -A dev@$DO_IP'
 
 alias docass='ssh -A dev@192.241.224.60'
-alias dotask='ssh -A dev@192.241.224.60'
-alias dotask2='ssh -A dev@107.170.239.156'
-alias dotask3='ssh -A dev@107.170.212.250'
+dotask='107.170.212.250'
+alias dotask3="ssh -A dev@$dotask"
 
 # Private IP Addresses
 sassie='192.168.1.100'
@@ -106,8 +105,8 @@ alias accce='vi /vagrant/secret/accounts_cloudability'
 alias acck='view /vagrant/secret/accounts_kids'
 alias accke='vi /vagrant/secret/accounts_kids'
 
-al='view /vagrant/utils/jack_alias'
-alc='vi /vagrant/utils/jack_alias'
+alias ali='view /vagrant/utils/jack_alias'
+alias alie='vi /vagrant/utils/jack_alias'
 
 
 #   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds
