@@ -209,3 +209,7 @@ alias gst='git status'
 #grr(){
 #  CARDENIO_DEVELOPMENT=true bundle exec $@
 #}
+#
+
+# Tell zsh not to autocorrect
+DISABLE_CORRECTION='true'
