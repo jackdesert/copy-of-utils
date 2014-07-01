@@ -41,7 +41,7 @@ alias dodev='ssh -A dev@$DO_IP'
 
 alias docass='ssh -A dev@192.241.224.60'
 dotask='107.170.212.250'
-alias dotask3="ssh -A dev@$dotask"
+alias dotask="ssh -A dev@$dotask"
 
 # Private IP Addresses
 sassie='192.168.1.100'
