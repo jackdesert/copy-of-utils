@@ -12,3 +12,5 @@ alias irc='screen -D -R irc'
 # old version:   alias start_mongo='mongod --fork --logpath /var/log/mongod.log'
 alias  start_mongo='sudo service mongodb start'
 
+# taskd
+export TASKDDATA=~/taskddata
