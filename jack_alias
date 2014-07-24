@@ -29,6 +29,15 @@ alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
 alias keeph='keep; git push origin HEAD'
 
+# Sass
+alias sassw='cd /vagrant/r/freecinc && bundle exec sass --watch /vagrant/r/freecinc/public/sass:/vagrant/r/freecinc/public'
+
+# freecinc_rackup
+alias ru_freecinc='bundle exec rackup config-freecinc.ru -p 9952'
+
+# rerun
+alias re='cd /vagrant/r/freecinc && bundle exec rerun freecinc.rb -i *.css -i *.sass --background'
+
 # Rackspace
 alias rackdev='ssh -A dev@209.20.74.96'
 rack='dev@209.20.74.96'
@@ -42,6 +51,7 @@ alias dodev='ssh -A dev@$DO_IP'
 alias docass='ssh -A dev@192.241.224.60'
 dotask='107.170.212.250'
 alias dotask="ssh -A dev@$dotask"
+alias th='cd ~/r/freecinc'
 
 # Private IP Addresses
 sassie='192.168.1.100'
@@ -192,6 +202,7 @@ alias jl='cd ~/r/jacklisted'
 alias dl='cd ~/r/daily_lager'
 alias day='cd ~/r/day'
 alias gui='cd ~/cl/gui'
+alias luc='cd ~/cl/lucinda'
 # JAVA
 export JAVA_HOME=/usr
 export CLASSPATH='.:/home/vagrant/j/class_files/algs4_files/:/home/vagrant/j/class_files/stdlib/:/home/vagrant/j/class_files/testng/:/home/vagrant/j/class_files/jcommander/src/main/java/com/beust/jcommander:/home/vagrant/j/class_files/junit'
@@ -213,3 +224,10 @@ alias gst='git status'
 
 # Tell zsh not to autocorrect
 DISABLE_CORRECTION='true'
+
+# Cloud
+alias whats_on_staging='git branch -r --contains $(curl https://s.cloudability.com/sha -s)'
+alias whats_on_prod='git branch -r --contains $(curl https://app.cloudability.com/sha -s)'
+
+# Letters
+alias nic='cd /vagrant/secret/letters/nicole'
