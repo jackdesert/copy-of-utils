@@ -49,8 +49,13 @@ dodev="dev@$DO_IP"
 alias dodev='ssh -A dev@$DO_IP'
 
 alias docass='ssh -A dev@192.241.224.60'
-dotask='107.170.212.250'
-alias dotask="ssh -A dev@$dotask"
+
+# FreeCinc
+dofreecinc='107.170.212.250'
+alias dofreecinc="ssh -A dev@$dofreecinc"
+dofreecinc_staging='107.170.222.159'
+alias dofreecinc_staging="ssh -A dev@$dofreecinc_staging"
+
 alias th='cd ~/r/freecinc'
 
 # Private IP Addresses

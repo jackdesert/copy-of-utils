@@ -2,7 +2,7 @@ alias uni='cd /home/dev/day && RAILS_ENV=production bundle exec unicorn -D -c co
 alias start_wiki='cd /home/dev/wiki && ruby markdown-tree.rb &'
 alias start_jacklisted='cd /home/dev/jacklisted/current && RAILS_ENV=production bundle exec rails server -p 8001 -d'
 alias start_daily_lager='cd /home/dev/daily_lager && RACK_ENV=production bundle exec ruby daily_lager.rb >> log/production.log 2> log/production.log &'
-alias start_freecinc='cd /home/dev/freecinc && RACK_ENV=production bundle exec rackup config-freecinc.ru -p 9952 -D'
+alias start_freecinc='nohup /home/dev/freecinc/script/run_freecinc_indefinitely.sh &'
 
 alias irc='screen -D -R irc'
 
