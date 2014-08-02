@@ -204,6 +204,7 @@ alias irc="ssh $rack 'screen -D -R irc'"
 
 alias jl='cd ~/r/jacklisted'
 alias dl='cd ~/r/daily_lager'
+alias th='cd ~/r/freecinc'
 alias day='cd ~/r/day'
 alias gui='cd ~/cl/gui'
 alias luc='cd ~/cl/lucinda'

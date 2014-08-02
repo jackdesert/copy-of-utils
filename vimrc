@@ -13,6 +13,7 @@ autocmd FileType javascript set autoindent shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType html set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType sass set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType ruby,css set autoindent shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType ruby,sass set autoindent shiftwidth=4 softtabstop=4 expandtab
 
 
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
