@@ -28,6 +28,7 @@ alias log='git log --name-status'
 alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
 alias keeph='keep; git push origin HEAD'
+alias tags='git show-ref --tags'
 
 # Sass
 alias sassw='cd /vagrant/r/freecinc && bundle exec sass --watch /vagrant/r/freecinc/public/sass:/vagrant/r/freecinc/public'
@@ -99,9 +100,9 @@ alias wake_nickel='sudo etherwake -i wlan0 $nickel_wifi_mac'
 
 # Vagrant
 alias vs='vagrant ssh -- -A'
-alias vu='cd ~/portable && vagrant up'
-alias vus='cd ~/portable && vagrant up && vagrant ssh -- -A'
-alias vp='cd ~/portable && vagrant provision'
+alias vu='vagrant up'
+alias vus='vagrant up && vagrant ssh -- -A'
+alias vp='vagrant provision'
 alias vf='vi portable/Vagrantfile'
 alias viv='vi ~/portable/Vagrantfile'
 alias vir='vi ~/portable/README.md'
@@ -234,8 +235,16 @@ DISABLE_CORRECTION='true'
 alias whats_on_staging='git branch -r --contains $(curl https://s.cloudability.com/sha -s)'
 alias whats_on_prod='git branch -r --contains $(curl https://app.cloudability.com/sha -s)'
 auth_token='pyCDemcw6BNPAriuPzTv'
+clutil='jd@ec2-54-90-85-238.compute-1.amazonaws.com'
+alias clutil='ssh -A -i ~/.ssh/skeleton01.pem jd@ec2-54-90-85-238.compute-1.amazonaws.com'
 
 # Letters
 alias nic='cd /vagrant/secret/letters/nicole'
 
-
+# Amazon
+mymicro='ec2-54-186-45-78.us-west-2.compute.amazonaws.com'
+alias mymicro="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mymicro"
+mysmall='ec2-54-191-148-125.us-west-2.compute.amazonaws.com'
+alias mysmall="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mysmall"
+mymedium='ec2-54-200-191-207.us-west-2.compute.amazonaws.com'
+alias mymedium="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mymedium"
