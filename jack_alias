@@ -108,7 +108,7 @@ alias viv='vi ~/portable/Vagrantfile'
 alias vir='vi ~/portable/README.md'
 
 alias rr='bundle exec rake routes | grep'
-alias pass="git add . && git commit -am'placeholder--CURRENT TEST PASSING'"
+alias pass="git commit -am'placeholder--Its RUNNING'"
 
 # Oft-edited Accounts files
 alias acc='view /vagrant/secret/accounts'
@@ -249,8 +249,17 @@ alias mysmall="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mysmall"
 mymedium='ec2-54-200-191-207.us-west-2.compute.amazonaws.com'
 alias mymedium="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mymedium"
 
-# Go
-export GOPATH=/home/vagrant/gopath
-export PATH=$PATH:$GOPATH/bin
+mylarge='ec2-54-164-79-58.compute-1.amazonaws.com'
+alias mylarge="ssh -A -i ~/.ssh/jacks-amazon-key-useast.pem ubuntu@$mylarge"
+mylarge2='ec2-54-172-80-175.compute-1.amazonaws.com'
+alias mylarge2="ssh -A -i ~/.ssh/jacks-amazon-key-useast.pem ubuntu@$mylarge2"
+
+night_train_server='ec2-54-163-251-231.compute-1.amazonaws.com'
+alias 'night_train_server'="ssh -A -i ~/.ssh/night-train-keypair.pem ubuntu@$night_train_server"
+
+# GoLang
+export GOPATH="$HOME/gopath"
+export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
-alias nt='cd /home/vagrant/gopath/src/night-train'
+alias cu='cd /home/vagrant/tmp/go2'
+alias nt='cd $GOPATH/src/night-train'

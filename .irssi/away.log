@@ -1,0 +1,5 @@
+--- Log opened Sun Jul 27 19:42:17 2014
+19:53 #taskwarrior: 8/<g >/pbeckinghamg8/>g ejackdesert: put a 'sleep $SECONDS' in that loop, as a crude form of rate-limiting, until you replace it with something better.
+--- Log closed Sun Jul 27 21:55:41 2014
+--- Log opened Sat Aug 02 20:59:45 2014
+--- Log closed Sat Aug 02 20:59:48 2014
