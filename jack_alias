@@ -248,3 +248,9 @@ mysmall='ec2-54-191-148-125.us-west-2.compute.amazonaws.com'
 alias mysmall="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mysmall"
 mymedium='ec2-54-200-191-207.us-west-2.compute.amazonaws.com'
 alias mymedium="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mymedium"
+
+# Go
+export GOPATH=/home/vagrant/gopath
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
+alias nt='cd /home/vagrant/gopath/src/night-train'
