@@ -254,12 +254,11 @@ alias mylarge="ssh -A -i ~/.ssh/jacks-amazon-key-useast.pem ubuntu@$mylarge"
 mylarge2='ec2-54-172-80-175.compute-1.amazonaws.com'
 alias mylarge2="ssh -A -i ~/.ssh/jacks-amazon-key-useast.pem ubuntu@$mylarge2"
 
-night_train_server='ec2-54-163-251-231.compute-1.amazonaws.com'
-alias 'night_train_server'="ssh -A -i ~/.ssh/night-train-keypair.pem ubuntu@$night_train_server"
+riak_test='ec2-54-160-69-211.compute-1.amazonaws.com'
+alias riak_test="ssh -A -i ~/.ssh/night-train-keypair.pem ubuntu@$riak_test"
 
 # GoLang
 export GOPATH="$HOME/gopath"
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
-alias cu='cd /home/vagrant/tmp/go2'
-alias nt='cd $GOPATH/src/night-train'
+alias nt='cd $GOPATH/src/github.com/cloudability/night-train'
