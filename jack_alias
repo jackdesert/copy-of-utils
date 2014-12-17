@@ -21,6 +21,7 @@ alias wi='cd ~/r/wiki/content'
 alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
 alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake db:migrate:redo'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
+alias p='cd ~/r/poetry'
 
 # Git
 alias gu='git fetch origin && git rebase origin/master'
