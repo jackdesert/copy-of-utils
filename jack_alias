@@ -22,6 +22,8 @@ alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:mig
 alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake db:migrate:redo'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
 alias p='cd ~/r/poetry'
+alias da='cd ~/r/dancer'
+
 
 # Git
 alias gu='git fetch origin && git rebase origin/master'
@@ -30,6 +32,7 @@ alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
 alias keeph='keep; git push origin HEAD'
 alias tags='git show-ref --tags'
+alias housecleaning='git branch --merge | grep -v master | xargs git branch -d'
 
 # Sass
 alias sassw='cd /vagrant/r/freecinc && bundle exec sass --watch /vagrant/r/freecinc/public/sass:/vagrant/r/freecinc/public'
@@ -57,7 +60,7 @@ alias dofreecinc="ssh -A dev@$dofreecinc"
 dofreecinc_staging='107.170.222.159'
 alias dofreecinc_staging="ssh -A dev@$dofreecinc_staging"
 
-alias th='cd ~/r/freecinc'
+alias fr='cd ~/gopath/src/freecinc'
 
 # Private IP Addresses
 sassie='192.168.1.100'
@@ -255,8 +258,18 @@ alias mylarge="ssh -A -i ~/.ssh/jacks-amazon-key-useast.pem ubuntu@$mylarge"
 mylarge2='ec2-54-172-80-175.compute-1.amazonaws.com'
 alias mylarge2="ssh -A -i ~/.ssh/jacks-amazon-key-useast.pem ubuntu@$mylarge2"
 
-riak_test='ec2-54-160-69-211.compute-1.amazonaws.com'
+riak_test='ec2-54-144-131-181.compute-1.amazonaws.com'
 alias riak_test="ssh -A -i ~/.ssh/night-train-keypair.pem ubuntu@$riak_test"
+
+the_troll_ec2='ec2-54-237-55-6.compute-1.amazonaws.com'
+alias the_troll_ec2="ssh -A -i ~/.ssh/dev-skeleton01.pem ubuntu@$the_troll_ec2"
+
+bandai='ec2-54-237-118-82.compute-1.amazonaws.com'
+alias bandai="ssh -A -i ~/.ssh/night-train-keypair.pem ubuntu@$bandai"
+
+burnside='ec2-54-145-193-254.compute-1.amazonaws.com'
+alias burnside="ssh -A -i ~/.ssh/dev-skeleton01.pem ubuntu@$burnside"
+alias un='cd ~/gopath/src/github.com/unzipper'
 
 # GoLang
 export GOPATH="$HOME/gopath"
