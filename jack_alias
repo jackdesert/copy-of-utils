@@ -50,7 +50,7 @@ rack='dev@209.20.74.96'
 # Digital Ocean
 DO_IP='162.243.156.90'
 dodaily_lager="dev@$DO_IP"
-alias dodaily_lager='ssh -A dev@$DO_IP'
+alias dodaily_lager="ssh -A dev@$DO_IP"
 
 alias docass='ssh -A dev@192.241.224.60'
 
