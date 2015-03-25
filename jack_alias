@@ -273,6 +273,8 @@ burnside='ec2-54-145-193-254.compute-1.amazonaws.com'
 alias burnside="ssh -A -i ~/.ssh/dev-skeleton01.pem ubuntu@$burnside"
 alias un='cd ~/gopath/src/github.com/unzipper'
 
+alias riak_024='ssh -i ~/.ssh/skeleton01.pem ubuntu@ec2-54-147-151-152.compute-1.amazonaws.com'
+
 # GoLang
 export GOPATH="$HOME/gopath"
 export PATH="$GOPATH/bin:$PATH"
