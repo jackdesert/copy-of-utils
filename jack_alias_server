@@ -6,6 +6,7 @@ alias start_jacklisted='nohup /home/dev/jacklisted/current/script/run_jacklisted
 
 alias start_daily_lager='cd /home/dev/daily_lager && nohup script/run_daily_lager_indefinitely.sh &'
 alias start_poetry='cd /home/dev/poetry && nohup script/run_poetry_indefinitely.sh &'
+alias start_dancer='cd /home/dev/dancer && nohup script/run_dancer_indefinitely.sh &'
 alias start_freecinc='nohup /home/dev/freecinc/script/run_freecinc_indefinitely.sh &'
 alias start_taskd='cd /home/dev/freecinc && nohup /home/dev/freecinc/script/run_taskd_indefinitely.sh &'
 
