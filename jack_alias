@@ -60,6 +60,8 @@ dofreecinc='107.170.212.250'
 alias dofreecinc="ssh -A dev@$dofreecinc"
 dofreecinc_staging='dev@107.170.222.159'
 alias dofreecinc_staging="ssh -A $dofreecinc_staging"
+dodancer='104.236.128.172'
+alias dodancer="ssh -A dev@$dodancer"
 
 alias grab_db="scp -i ~/.ssh/id_rsa $dofreecinc_staging:dancer/db/production.db ~/r/dancer/db/development.db"
 
@@ -275,9 +277,14 @@ alias burnside="ssh -A -i ~/.ssh/dev-skeleton01.pem ubuntu@$burnside"
 alias un='cd ~/gopath/src/github.com/unzipper'
 
 alias riak_024='ssh -i ~/.ssh/skeleton01.pem ubuntu@ec2-54-147-151-152.compute-1.amazonaws.com'
+pweb="ubuntu@ec2-54-80-237-5.compute-1.amazonaws.com"
+alias pweb="ssh -i ~/.ssh/skeleton01.pem $pweb"
+
+alias emr='ssh -i ~/.ssh/skeleton01.pem hadoop@ec2-54-167-88-56.compute-1.amazonaws.com'
 
 # GoLang
 export GOPATH="$HOME/gopath"
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 alias nt='cd $GOPATH/src/github.com/cloudability/night-train'
+alias brn='cd $GOPATH/src/github.com/cloudability/burnside'
