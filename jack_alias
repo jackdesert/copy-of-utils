@@ -12,7 +12,20 @@ alias h='cd ~/h'
 alias alt1='TEST_ENV_NUMBER=1'
 alias alt2='TEST_ENV_NUMBER=2'
 alias rc='bundle exec rails console'
-alias rs='USING_SERVER=true bundle exec rails server'
+#alias rs='USING_SERVER=true bundle exec rails server -b 0.0.0.0'
+
+# Note when using the "thin" invocation, you must tail the logs if you want to see them
+# (they don't automatically show up in the console where you started thin)
+alias rss='bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000'
+
+# Run locally in production mode
+# Note must run over ssl
+# Note assets will be served locally
+alias rssp="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=production rss"
+
+# alias rsi='echo "to enable logging, use rails server instead of thin start";ALLOW_NON_SSL=1 bundle exec thin start -a 0.0.0.0 -p 3000'
+alias rsi='ALLOW_NON_SSL=1 bundle exec rails server -b 0.0.0.0 -p 5000'
+
 alias uni='PORT=5000 bundle exec unicorn -c config/unicorns/default.rb -p 5000'
 alias sin='bundle exec rerun -b "ruby app.rb"'
 #alias cl='cd ~/r/sinatra_scraper'
@@ -23,6 +36,8 @@ alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake 
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
 alias p='cd ~/r/poetry'
 alias da='cd ~/r/dancer'
+alias he='cd ~/r/healing'
+
 
 
 # Git
@@ -60,46 +75,33 @@ dofreecinc='107.170.212.250'
 alias dofreecinc="ssh -A dev@$dofreecinc"
 dofreecinc_staging='dev@107.170.222.159'
 alias dofreecinc_staging="ssh -A $dofreecinc_staging"
-dodancer='104.236.128.172'
-alias dodancer="ssh -A dev@$dodancer"
 
 alias grab_db="scp -i ~/.ssh/id_rsa $dofreecinc_staging:dancer/db/production.db ~/r/dancer/db/development.db"
+alias export_db="sudo -u postgres pg_dump -f /var/lib/postgresql/backups/bip-development-`date +'%Y-%m-%dT%H:%M:%S'`.sql bip_development"
+alias import_db="sudo -u postgres psql -d bip_development  -f"
 
 alias fr='cd ~/gopath/src/freecinc'
+alias mg='cd ~/gopath/src/github.com/jackdesert/memgo'
+
+# Conversation Timer
+alias rcc='cd ~/r/relationship_chess_clock'
 
 # Private IP Addresses
-sassie='192.168.1.100'
-bitch='192.168.1.101'
-nickel='192.168.1.102'
 
-# Public IP Address
-#router='76.115.175.209'
-router='jackdesert.no-ip.biz'
-alias myip='nslookup jackdesert.no-ip.biz'
 
 
 # MAC Addresses
-sassie_mac='00:14:5E:7A:81:EC'
-bitch_mac='00:16:EB:11:78:06'
 nickel_wifi_mac='00:16:EB:11:78:06'
 
 # Local SSH Aliases
-alias sassie='ssh -A jd@$sassie'
-alias bitch='ssh -A jd@$bitch'
 alias nickel='ssh -A jd@$nickel'
 
 # Remote SSH Aliases
-alias rsassie='ssh -A jd@$router -p 22'
-alias rbitch='ssh -A jd@$router -p 23'
 alias rnickel='ssh -A jd@$router -p 24'
 
 # Remote ENV VARS (for scp) (Note capital 'P')
-rsassie='-P 22 jd@$router'
-rbitch='-P 23 jd@$router'
 rnickel='-P 24 jd@$router'
 
-alias wake_sassie='sudo etherwake -i wlan0  $sassie_mac'
-alias wake_bitch='sudo etherwake -i wlan0 $bitch_mac'
 alias wake_nickel='sudo etherwake -i wlan0 $nickel_wifi_mac'
 #alias push='gem build breadnbutter.gemspec && gem install breadnbutter-0.0.1.gem'
 #alias ff='find -iname'
@@ -125,6 +127,9 @@ alias acce='vi /vagrant/secret/accounts'
 
 alias accc='view /vagrant/secret/accounts_cloudability'
 alias accce='vi /vagrant/secret/accounts_cloudability'
+
+alias accb='view /vagrant/secret/accounts_elite_care'
+alias accbe='vi /vagrant/secret/accounts_elite_care'
 
 alias acck='view /vagrant/secret/accounts_kids'
 alias accke='vi /vagrant/secret/accounts_kids'
@@ -174,12 +179,12 @@ alias ff='find . | grep'
 # my external hdd
 #alias linux='sudo mount -t ext2 /dev/sdb2 /media/jd/linux && cd /media/jd/linux'
 
-# xmodmap
-xmodmap ~/.Xmodmap
+# Remap Keyboard
+# xmodmap ~/.Xmodmap
 
 # set repeat rate manually
 # (Note that on osx using KeyRemap4MacBook 240/30 feels the same as 240/50 through xset)
-xset r rate 240 60
+# xset r rate 240 60
 
 
 # Mount Apple File Protocol Shares
@@ -251,8 +256,8 @@ alias clutil='ssh -A -i ~/.ssh/skeleton01.pem jd@ec2-54-90-85-238.compute-1.amaz
 alias nic='cd /vagrant/secret/letters/nicole'
 
 # Amazon
-mymicro='ec2-54-186-45-78.us-west-2.compute.amazonaws.com'
-alias mymicro="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mymicro"
+mymicro='ubuntu@ec2-52-27-211-251.us-west-2.compute.amazonaws.com'
+alias mymicro="ssh -A -i ~/.ssh/jacks-amazon-key.pem $mymicro"
 mysmall='ec2-54-191-148-125.us-west-2.compute.amazonaws.com'
 alias mysmall="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mysmall"
 mymedium='ec2-54-200-191-207.us-west-2.compute.amazonaws.com'
@@ -288,3 +293,56 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 alias nt='cd $GOPATH/src/github.com/cloudability/night-train'
 alias brn='cd $GOPATH/src/github.com/cloudability/burnside'
+alias fc='cd $GOPATH/src/github.com/jackdesert/freecinc'
+
+# TaskWarrior
+#alias t='task -private'
+export TASKDDATA=~/taskddata
+
+# Jazz
+alias ireal='cd ~/r/ireal'
+
+alias start_babel='babel --watch jsx/ --out-dir static/'
+
+# EliteCare
+alias el='cd ~/elitecare/elitecarerails'
+alias f='cd ~/elitecare/elitecarerails/app/views/family_members/feed'
+alias ad='view ~/elitecare/company_notes/advocate.md'
+alias ade='vi  ~/elitecare/company_notes/advocate.md'
+alias q='view  ~/elitecare/company_notes/questions.md'
+alias qe='vi  ~/elitecare/company_notes/questions.md'
+
+biptech='biptech@oe.scrapping.cc'
+alias biptech="ssh -A $biptech"
+
+# Biptech2 is used for when on same network
+biptech2='biptech@10.10.4.20'
+alias biptech2="ssh -A $biptech2"
+
+
+# Public IP Address using dynamic dns
+# https://71.59.147.69:6001
+router='jackdesert.no-ip.biz'
+alias myip='nslookup jackdesert.no-ip.biz'
+alias router_address='echo "jackdesert.no-ip.biz:6001"'
+
+eloise="pi@$router"
+eloise_port=2201
+alias eloise="ssh -A $eloise -p $eloise_port"
+
+hank="pi@$router"
+hank_port=2202
+alias hank="ssh -A $hank -p $hank_port"
+
+alias scp_help='echo "scp -P \$eloise_port <file> \$eloise:."'
+
+alias catch_eloise="echo 'CATCHING ELOISE'; ssh -p $eloise_port -R 5000:localhost:5000 pi@$router"
+alias catch_eloise_udp="echo 'CATCHING ELOISE UDP'; ssh -p $eloise_port -R 50005:localhost:50005 pi@$router"
+
+bipproto='ubuntu@bipproto.biptech.org'
+alias bipproto="ssh -A $bipproto"
+
+
+
+jdbip='jdbip@oe.scrapping.cc'
+alias jdbip="ssh -A $jdbip"
