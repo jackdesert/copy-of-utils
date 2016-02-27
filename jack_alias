@@ -50,13 +50,13 @@ alias tags='git show-ref --tags'
 alias housecleaning='git branch --merge | grep -v master | xargs git branch -d'
 
 # Sass
-alias sassw='cd /vagrant/r/freecinc && bundle exec sass --watch /vagrant/r/freecinc/public/sass:/vagrant/r/freecinc/public'
+alias sassw='cd ~/r/freecinc && bundle exec sass --watch ~/r/freecinc/public/sass:/vagrant/r/freecinc/public'
 
 # freecinc_rackup
 alias ru_freecinc='bundle exec rackup config-freecinc.ru -p 9952'
 
 # rerun
-alias re='cd /vagrant/r/freecinc && bundle exec rerun freecinc.rb -i *.css -i *.sass --background'
+alias re='cd ~/r/freecinc && bundle exec rerun freecinc.rb -i *.css -i *.sass --background'
 
 # Rackspace
 alias rackdev='ssh -A dev@209.20.74.96'
@@ -122,20 +122,20 @@ alias rr='bundle exec rake routes | grep'
 alias pass="git commit -am'placeholder--Its RUNNING'"
 
 # Oft-edited Accounts files
-alias acc='view /vagrant/secret/accounts'
-alias acce='vi /vagrant/secret/accounts'
+alias acc='view ~/.secret/accounts'
+alias acce='vi ~/.secret/accounts'
 
-alias accc='view /vagrant/secret/accounts_cloudability'
-alias accce='vi /vagrant/secret/accounts_cloudability'
+alias accc='view ~/.secret/accounts_cloudability'
+alias accce='vi ~/.secret/accounts_cloudability'
 
-alias accb='view /vagrant/secret/accounts_elite_care'
-alias accbe='vi /vagrant/secret/accounts_elite_care'
+alias accb='view ~/.secret/accounts_elite_care'
+alias accbe='vi ~/.secret/accounts_elite_care'
 
-alias acck='view /vagrant/secret/accounts_kids'
-alias accke='vi /vagrant/secret/accounts_kids'
+alias acck='view ~/.secret/accounts_kids'
+alias accke='vi ~/.secret/accounts_kids'
 
-alias ali='view /vagrant/utils/jack_alias'
-alias alie='vi /vagrant/utils/jack_alias'
+alias ali='view ~/.utils/jack_alias'
+alias alie='vi ~/.utils/jack_alias'
 
 
 #   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds
@@ -184,7 +184,7 @@ alias ff='find . | grep'
 
 # set repeat rate manually
 # (Note that on osx using KeyRemap4MacBook 240/30 feels the same as 240/50 through xset)
-# xset r rate 240 60
+xset r rate 240 60
 
 
 # Mount Apple File Protocol Shares
@@ -224,8 +224,8 @@ alias day='cd ~/r/day'
 alias gui='cd ~/cl/gui'
 alias luc='cd ~/cl/lucinda'
 # JAVA
-export JAVA_HOME=/usr
-export CLASSPATH='.:/home/vagrant/j/class_files/algs4_files/:/home/vagrant/j/class_files/stdlib/:/home/vagrant/j/class_files/testng/:/home/vagrant/j/class_files/jcommander/src/main/java/com/beust/jcommander:/home/vagrant/j/class_files/junit'
+#export JAVA_HOME=/usr
+#export CLASSPATH='.:/home/vagrant/j/class_files/algs4_files/:/home/vagrant/j/class_files/stdlib/:/home/vagrant/j/class_files/testng/:/home/vagrant/j/class_files/jcommander/src/main/java/com/beust/jcommander:/home/vagrant/j/class_files/junit'
 
 #TEMP
 alias fstop='pkill -f unicorn ; pkill -f zookeeper ; pkill -f mailcatcher ; pkill -f ruby; sudo service mysql start'
@@ -253,7 +253,6 @@ clutil='jd@ec2-54-90-85-238.compute-1.amazonaws.com'
 alias clutil='ssh -A -i ~/.ssh/skeleton01.pem jd@ec2-54-90-85-238.compute-1.amazonaws.com'
 
 # Letters
-alias nic='cd /vagrant/secret/letters/nicole'
 
 # Amazon
 mymicro='ubuntu@ec2-52-27-211-251.us-west-2.compute.amazonaws.com'
