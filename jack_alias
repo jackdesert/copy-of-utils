@@ -1,6 +1,14 @@
+
+# Remap Keyboard
+# xmodmap ~/.Xmodmap
+
+# set keyboard repeat rate manually
+# (Note that on osx using KeyRemap4MacBook 240/30 feels the same as 240/50 through xset)
+# Keyboard tweaks including repeat rate and caps lock to escape are set in "on_resume.sh"
+source ~/.utils/on_resume.sh
+
 # Manually tell Xfce to use capslock as escape
 alias caps='/usr/bin/setxkbmap -option "caps:escape"'
-caps
 # Allow a manual override to completely null out the capslock (Useful while using Jira)
 alias nocaps='/usr/bin/setxkbmap -option "caps:none"'
 
@@ -17,14 +25,17 @@ alias rc='bundle exec rails console'
 # Note when using the "thin" invocation, you must tail the logs if you want to see them
 # (they don't automatically show up in the console where you started thin)
 alias rss='bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000'
+alias rssp='bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3456'
 
 # Run locally in production mode
 # Note must run over ssl
 # Note assets will be served locally
-alias rssp="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=production rss"
+alias rssproduction="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=production rss"
 
 # alias rsi='echo "to enable logging, use rails server instead of thin start";ALLOW_NON_SSL=1 bundle exec thin start -a 0.0.0.0 -p 3000'
 alias rsi='ALLOW_NON_SSL=1 bundle exec rails server -b 0.0.0.0 -p 5000'
+
+alias db='cd ~/r/elitecarerails && bundle exec rails dbconsole -p'
 
 alias uni='PORT=5000 bundle exec unicorn -c config/unicorns/default.rb -p 5000'
 alias sin='bundle exec rerun -b "ruby app.rb"'
@@ -36,6 +47,7 @@ alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake 
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
 alias p='cd ~/r/poetry'
 alias da='cd ~/r/dancer'
+alias sho='cd ~/r/shoelaces'
 alias he='cd ~/r/healing'
 
 
@@ -145,6 +157,7 @@ alias c='cd $(ruby ~/.utils/nav.rb c)'
 alias r='cd $(ruby ~/.utils/nav.rb r)'
 alias j='cd $(ruby ~/.utils/nav.rb j)'
 alias s='cd $(ruby ~/.utils/nav.rb s)'
+alias h='cd $(ruby ~/.utils/nav.rb h)'
 
 alias pp='ps aux | grep '
 alias sb='source ~/.bashrc'
@@ -179,12 +192,6 @@ alias ff='find . | grep'
 # my external hdd
 #alias linux='sudo mount -t ext2 /dev/sdb2 /media/jd/linux && cd /media/jd/linux'
 
-# Remap Keyboard
-# xmodmap ~/.Xmodmap
-
-# set repeat rate manually
-# (Note that on osx using KeyRemap4MacBook 240/30 feels the same as 240/50 through xset)
-xset r rate 240 60
 
 
 # Mount Apple File Protocol Shares
@@ -304,15 +311,19 @@ alias ireal='cd ~/r/ireal'
 alias start_babel='babel --watch jsx/ --out-dir static/'
 
 # EliteCare
-alias el='cd ~/elitecare/elitecarerails'
+alias el='cd ~/r/elitecarerails'
 alias f='cd ~/elitecare/elitecarerails/app/views/family_members/feed'
 alias ad='view ~/elitecare/company_notes/advocate.md'
 alias ade='vi  ~/elitecare/company_notes/advocate.md'
 alias q='view  ~/elitecare/company_notes/questions.md'
 alias qe='vi  ~/elitecare/company_notes/questions.md'
 
-biptech='biptech@oe.scrapping.cc'
+biptech='biptech@tabor.elitecare.com'
+biptech_local='biptech@10.10.4.20'
 alias biptech="ssh -A $biptech"
+alias biptech_local="ssh -A $biptech_local"
+alias b="ssh -A $biptech"
+alias bl="ssh -A $biptech_local"
 
 # Biptech2 is used for when on same network
 biptech2='biptech@10.10.4.20'
@@ -333,9 +344,14 @@ hank="pi@$router"
 hank_port=2202
 alias hank="ssh -A $hank -p $hank_port"
 
+
+sassie='pi@192.168.1.68'
+alias sassie="ssh -A $sassie"
+alias catch_sassie="echo 'CATCHING SASSIE ON LOCAL NETWORK ONLY USING PORT 22'; ssh -R 3000:localhost:3000 $sassie"
+
 alias scp_help='echo "scp -P \$eloise_port <file> \$eloise:."'
 
-alias catch_eloise="echo 'CATCHING ELOISE'; ssh -p $eloise_port -R 5000:localhost:5000 pi@$router"
+alias catch_eloise="echo 'CATCHING ELOISE'; ssh -p $eloise_port -R 3000:localhost:3000 pi@$router"
 alias catch_eloise_udp="echo 'CATCHING ELOISE UDP'; ssh -p $eloise_port -R 50005:localhost:50005 pi@$router"
 
 bipproto='ubuntu@bipproto.biptech.org'
@@ -343,5 +359,23 @@ alias bipproto="ssh -A $bipproto"
 
 
 
-jdbip='jdbip@oe.scrapping.cc'
+jdbip='jdbip@tabor.elitecare.com'
 alias jdbip="ssh -A $jdbip"
+
+alias sleepytime='sleep 1800 && amixer set Master 0%'
+alias jen='cd ~/.secret/letters/jen_gates'
+alias jenu='vi ~/.secret/user_guides/jennifer.md'
+alias jacku='vi ~/.secret/user_guides/jack.md'
+alias real='vi ~/.secret/user_guides/getting_real_notes.md'
+alias kids='vi ~/.kids'
+
+alias jrn='vi /home/jd/.secret/journal/013_reconnection_with_jennifer.txt'
+alias hrp='vi /home/jd/.secret/herpes.txt'
+alias jack='vi ~/.secret/user_guides/jack.md'
+
+# Volume
+alias plus='amixer set 'Master' 5%+'
+alias minus='amixer set 'Master' 5%-'
+
+# Downloads
+alias d='cd ~/downloads'

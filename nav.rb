@@ -15,6 +15,7 @@
 #   alias j='cd $(ruby /path/to/nav.rb j)'
 #   alias s='cd $(ruby /path/to/nav.rb s)'
 #   alias r='cd $(ruby /path/to/nav.rb r)'
+#   alias h='cd $(ruby /path/to/nav.rb h)'
 #
 # then run
 #   source ~/.bashrc
@@ -30,7 +31,8 @@ class Nav
            v: 'app/views',
            j: 'app/assets/javascripts',
            s: 'app/assets/stylesheets',
-           r: ''}
+           r: '',
+           h: 'app/helpers'}
 
   def initialize(token)
     @desired_path = get_path_from_token(token)

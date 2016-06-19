@@ -3,7 +3,7 @@ set nocompatible
 set expandtab
 set sts=2
 set tabstop=2
-syntax on
+syntax enable
 "set number
 set autoindent
 set foldmethod=syntax
@@ -15,6 +15,10 @@ autocmd FileType sass set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType ruby,css set autoindent shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType golang set autoindent shiftwidth=2 softtabstop=2
 "autocmd FileType ruby,sass set autoindent shiftwidth=4 softtabstop=4 expandtab
+
+"Interpret .md as markdown so apostrophes do not show up as a start of string
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 
 
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
@@ -74,6 +78,7 @@ autocmd BufLeave,FocusLost * wall
 
 " ****************************************
 
+" see https://github.com/tpope/vim-pathogen for how to install pathogen
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -104,3 +109,7 @@ imap jj <Esc>
 "set runtimepath+=/usr/local/go/misc/vim
 "filetype plugin indent on
 "syntax on
+
+" auto-save
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
