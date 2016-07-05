@@ -117,3 +117,4 @@ imap jj <Esc>
 " Automatically set spelling on certain file types
 autocmd BufNewFile,BufRead *.txt set spell
 autocmd BufNewFile,BufRead *.jd  set spell
+
