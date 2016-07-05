@@ -111,5 +111,9 @@ imap jj <Esc>
 "syntax on
 
 " auto-save
-let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+"let g:auto_save = 1  " enable AutoSave on Vim startup
+"let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+
+" Automatically set spelling on certain file types
+autocmd BufNewFile,BufRead *.txt set spell
+autocmd BufNewFile,BufRead *.jd  set spell

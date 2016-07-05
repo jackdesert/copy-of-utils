@@ -83,8 +83,8 @@ alias dodaily_lager="ssh -A $dodaily_lager"
 alias docass='ssh -A dev@192.241.224.60'
 
 # FreeCinc
-dofreecinc='107.170.212.250'
-alias dofreecinc="ssh -A dev@$dofreecinc"
+dofreecinc='dev@107.170.212.250'
+alias dofreecinc="ssh -A $dofreecinc"
 dofreecinc_staging='dev@107.170.222.159'
 alias dofreecinc_staging="ssh -A $dofreecinc_staging"
 
@@ -300,6 +300,7 @@ export PATH=$PATH:/usr/local/go/bin
 alias nt='cd $GOPATH/src/github.com/cloudability/night-train'
 alias brn='cd $GOPATH/src/github.com/cloudability/burnside'
 alias fc='cd $GOPATH/src/github.com/jackdesert/freecinc'
+alias ca='cd $GOPATH/src/github.com/jackdesert/calendar'
 
 # TaskWarrior
 #alias t='task -private'
@@ -357,6 +358,8 @@ alias catch_eloise_udp="echo 'CATCHING ELOISE UDP'; ssh -p $eloise_port -R 50005
 bipproto='ubuntu@bipproto.biptech.org'
 alias bipproto="ssh -A $bipproto"
 
+oe_backups='oe_backups@bipproto.biptech.org'
+alias oe_backups="ssh -A -i ~/.ssh/biptech_key $oe_backups"
 
 
 jdbip='jdbip@tabor.elitecare.com'
@@ -379,3 +382,27 @@ alias minus='amixer set 'Master' 5%-'
 
 # Downloads
 alias d='cd ~/downloads'
+
+# Sleep later
+alias sleep30='sleep 1800 && sudo pm-suspend'
+alias sleep40='sleep 2400 && sudo pm-suspend'
+alias sleep60='sleep 3600 && sudo pm-suspend'
+alias sleep120='sleep 7200 && sudo pm-suspend'
+
+alias transparency='vi ~/r/transparency/index.txt'
+
+# Photos
+alias sync_photos="rsync -avr --exclude 'all-photos' --exclude '.git' ~/Pictures /media/jd/NAS1_FAT/"
+alias sync_code="rsync -avr jackdesert@jackdesert.webfactional.com:webapps/all_git/repos /media/jd/NAS1_FAT/"
+
+# Calendar
+alias deploy_calendar="rsync -avr bin config README.md static index.html $dofreecinc:calendar && curl calendar.jackdesert.com:3501/restart"
+
+# Clipboard
+alias copy_to_clipboard='xclip -sel clip <'
+
+# Record Secret
+export REVEAL_FILE=~/r/reveal/data.txt
+alias reveal="echo $@ >> $REVEAL_FILE; echo '' >> $REVEAL_FILE "
+alias reveals="cat $REVEAL_FILE"
+
