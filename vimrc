@@ -98,8 +98,6 @@ nnoremap ; :
 " Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Coworkers' Hacks:
-imap jj <Esc>
 
 " GoLang
 "if exists("g:did_load_filetypes")

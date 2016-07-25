@@ -14,6 +14,7 @@ alias nocaps='/usr/bin/setxkbmap -option "caps:none"'
 
 alias start_postgres='/usr/lib/postgresql/9.1/bin/postgres -D /var/lib/postgresql/9.1/main -c config_file=/etc/postgresql/9.1/main/postgresql.conf &
 '
+alias gdiff="GIT_PAGER='' git diff"
 alias be='bundle exec'
 alias bs='git branch && git status'
 alias h='cd ~/h'
@@ -162,6 +163,7 @@ alias h='cd $(ruby ~/.utils/nav.rb h)'
 alias pp='ps aux | grep '
 alias sb='source ~/.bashrc'
 jj='jackdesert@jackdesert.webfactional.com'
+gg='git@github.com:jackdesert'
 jjr='jackdesert@jackdesert.webfactional.com:webapps/all_git/repos'
 alias blog='cd ~/r/blog'
 alias startpostgres='sudo -u postgres /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &'
@@ -262,7 +264,9 @@ alias clutil='ssh -A -i ~/.ssh/skeleton01.pem jd@ec2-54-90-85-238.compute-1.amaz
 # Letters
 
 # Amazon
-mymicro='ubuntu@ec2-52-27-211-251.us-west-2.compute.amazonaws.com'
+mytest='ubuntu@ec2-52-42-179-80.us-west-2.compute.amazonaws.com'
+alias mytest="ssh -A -i ~/.ssh/jacks-amazon-key.pem $mytest"
+mymicro='ubuntu@ec2-52-40-185-132.us-west-2.compute.amazonaws.com'
 alias mymicro="ssh -A -i ~/.ssh/jacks-amazon-key.pem $mymicro"
 mysmall='ec2-54-191-148-125.us-west-2.compute.amazonaws.com'
 alias mysmall="ssh -A -i ~/.ssh/jacks-amazon-key.pem ubuntu@$mysmall"
@@ -301,6 +305,7 @@ alias nt='cd $GOPATH/src/github.com/cloudability/night-train'
 alias brn='cd $GOPATH/src/github.com/cloudability/burnside'
 alias fc='cd $GOPATH/src/github.com/jackdesert/freecinc'
 alias ca='cd $GOPATH/src/github.com/jackdesert/calendar'
+alias tra='cd ~/r/transparency'
 
 # TaskWarrior
 #alias t='task -private'
@@ -382,12 +387,21 @@ alias minus='amixer set 'Master' 5%-'
 
 # Downloads
 alias d='cd ~/downloads'
+alias t='cd ~/tmp'
 
 # Sleep later
-alias sleep30='sleep 1800 && sudo pm-suspend'
-alias sleep40='sleep 2400 && sudo pm-suspend'
-alias sleep60='sleep 3600 && sudo pm-suspend'
-alias sleep120='sleep 7200 && sudo pm-suspend'
+alias sleep10='~/.utils/sleeper.sh 10'
+alias sleep20='~/.utils/sleeper.sh 20'
+alias sleep30='~/.utils/sleeper.sh 30'
+alias sleep40='~/.utils/sleeper.sh 40'
+alias sleep50='~/.utils/sleeper.sh 50'
+alias sleep60='~/.utils/sleeper.sh 60'
+alias sleep70='~/.utils/sleeper.sh 70'
+alias sleep80='~/.utils/sleeper.sh 80'
+alias sleep90='~/.utils/sleeper.sh 90'
+alias sleep100='~/.utils/sleeper.sh 100'
+alias sleep110='~/.utils/sleeper.sh 110'
+alias sleep120='~/.utils/sleeper.sh 120'
 
 alias transparency='vi ~/r/transparency/index.txt'
 
@@ -397,6 +411,8 @@ alias sync_code="rsync -avr jackdesert@jackdesert.webfactional.com:webapps/all_g
 
 # Calendar
 alias deploy_calendar="rsync -avr bin config README.md static index.html $dofreecinc:calendar && curl calendar.jackdesert.com:3501/restart"
+alias deploy_barechested="rsync -avr index.html static $jj:webapps/barechested"
+alias deploy_coda="rsync -avr index.html guide.fodt exports $jj:webapps/coda"
 
 # Clipboard
 alias copy_to_clipboard='xclip -sel clip <'
@@ -405,4 +421,9 @@ alias copy_to_clipboard='xclip -sel clip <'
 export REVEAL_FILE=~/r/reveal/data.txt
 alias reveal="echo $@ >> $REVEAL_FILE; echo '' >> $REVEAL_FILE "
 alias reveals="cat $REVEAL_FILE"
+alias nightshift='redshift -l 34:-92 -t 3500:3500 &'
+alias dayshift='pkill -f redshift'
 
+# Mount usb
+alias usb='mount /media/jd/usb'
+alias usbu='umount /media/jd/usb'
