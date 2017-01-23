@@ -37,4 +37,8 @@ done
 
 echo 'Sweet Dreams'
 
-sudo pm-suspend
+# Xubuntu used pm-suspend
+#sudo pm-suspend
+
+# Elementary use systemctl
+sudo systemctl suspend

@@ -21,17 +21,28 @@ alias h='cd ~/h'
 alias alt1='TEST_ENV_NUMBER=1'
 alias alt2='TEST_ENV_NUMBER=2'
 alias rc='bundle exec rails console'
+alias tos='vi ~/.secret/todo.md && echo "pushing todo.md to oe" && rsync -av ~/.secret/todo.md jdbip@tabor.elitecare.com:/opt/elitecarerails/doc/'
+alias to='vi ~/.secret/todo.md'
+alias dai='vi ~/r/elitecarerails/doc/address-with-dain.md'
+alias ru='vi ~/r/wiki/content/russian/vocabulary.md'
+alias muh='vi    ~/r/wiki/content/russian/poems/muha*txt'
+alias muhe='view ~/r/wiki/content/russian/poems/muha*txt'
+alias ruc='vi ~/r/wiki/content/russian/characters.md'
+alias deploy_to='rsync -avr ~/.secret/todo.md $jj:webapps/todo/index.txt'
+alias z='vi ~/r/elitecarerails/doc/zazu_issues.md'
 #alias rs='USING_SERVER=true bundle exec rails server -b 0.0.0.0'
+alias tomato='ssh root@192.168.2.1'
 
 # Note when using the "thin" invocation, you must tail the logs if you want to see them
 # (they don't automatically show up in the console where you started thin)
 alias rss='bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000'
-alias rssp='bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3456'
+alias rsspublic_on_3456='bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3456'
 
 # Run locally in production mode
 # Note must run over ssl
 # Note assets will be served locally
 alias rssproduction="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=production rss"
+alias rssstaging="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=staging rss"
 
 # alias rsi='echo "to enable logging, use rails server instead of thin start";ALLOW_NON_SSL=1 bundle exec thin start -a 0.0.0.0 -p 3000'
 alias rsi='ALLOW_NON_SSL=1 bundle exec rails server -b 0.0.0.0 -p 5000'
@@ -242,26 +253,8 @@ alias fstop='pkill -f unicorn ; pkill -f zookeeper ; pkill -f mailcatcher ; pkil
 alias gu='echo use with caution; git fetch origin && git rebase origin/master'
 # Coworkers' aliases
 
-alias ga="git add"
-alias gc="git commit"
-alias cbe='CARDENIO_DEVELOPMENT=true bundle exec'
-alias gst='git status'
-#grr(){
-#  CARDENIO_DEVELOPMENT=true bundle exec $@
-#}
-#
-
 # Tell zsh not to autocorrect
 DISABLE_CORRECTION='true'
-
-# Cloud
-alias whats_on_staging='git branch -r --contains $(curl https://s.cloudability.com/sha -s)'
-alias whats_on_prod='git branch -r --contains $(curl https://app.cloudability.com/sha -s)'
-auth_token='pyCDemcw6BNPAriuPzTv'
-clutil='jd@ec2-54-90-85-238.compute-1.amazonaws.com'
-alias clutil='ssh -A -i ~/.ssh/skeleton01.pem jd@ec2-54-90-85-238.compute-1.amazonaws.com'
-
-# Letters
 
 # Amazon
 mytest='ubuntu@ec2-52-42-179-80.us-west-2.compute.amazonaws.com'
@@ -278,23 +271,6 @@ alias mylarge="ssh -A -i ~/.ssh/jacks-amazon-key-useast.pem ubuntu@$mylarge"
 mylarge2='ec2-54-172-80-175.compute-1.amazonaws.com'
 alias mylarge2="ssh -A -i ~/.ssh/jacks-amazon-key-useast.pem ubuntu@$mylarge2"
 
-riak_test='ec2-54-144-131-181.compute-1.amazonaws.com'
-alias riak_test="ssh -A -i ~/.ssh/night-train-keypair.pem ubuntu@$riak_test"
-
-the_troll_ec2='ec2-54-237-55-6.compute-1.amazonaws.com'
-alias the_troll_ec2="ssh -A -i ~/.ssh/dev-skeleton01.pem ubuntu@$the_troll_ec2"
-
-bandai='ec2-54-237-118-82.compute-1.amazonaws.com'
-alias bandai="ssh -A -i ~/.ssh/night-train-keypair.pem ubuntu@$bandai"
-
-burnside='ec2-54-145-193-254.compute-1.amazonaws.com'
-alias burnside="ssh -A -i ~/.ssh/dev-skeleton01.pem ubuntu@$burnside"
-alias un='cd ~/gopath/src/github.com/unzipper'
-
-alias riak_024='ssh -i ~/.ssh/skeleton01.pem ubuntu@ec2-54-147-151-152.compute-1.amazonaws.com'
-pweb="ubuntu@ec2-54-80-237-5.compute-1.amazonaws.com"
-alias pweb="ssh -i ~/.ssh/skeleton01.pem $pweb"
-
 alias emr='ssh -i ~/.ssh/skeleton01.pem hadoop@ec2-54-167-88-56.compute-1.amazonaws.com'
 
 # GoLang
@@ -304,7 +280,7 @@ export PATH=$PATH:/usr/local/go/bin
 alias nt='cd $GOPATH/src/github.com/cloudability/night-train'
 alias brn='cd $GOPATH/src/github.com/cloudability/burnside'
 alias fc='cd $GOPATH/src/github.com/jackdesert/freecinc'
-alias ca='cd $GOPATH/src/github.com/jackdesert/calendar'
+alias ca='cd $GOPATH/src/github.com/jackdesert/whichfriday'
 alias tra='cd ~/r/transparency'
 
 # TaskWarrior
@@ -324,16 +300,7 @@ alias ade='vi  ~/elitecare/company_notes/advocate.md'
 alias q='view  ~/elitecare/company_notes/questions.md'
 alias qe='vi  ~/elitecare/company_notes/questions.md'
 
-biptech='biptech@tabor.elitecare.com'
-biptech_local='biptech@10.10.4.20'
-alias biptech="ssh -A $biptech"
-alias biptech_local="ssh -A $biptech_local"
-alias b="ssh -A $biptech"
-alias bl="ssh -A $biptech_local"
 
-# Biptech2 is used for when on same network
-biptech2='biptech@10.10.4.20'
-alias biptech2="ssh -A $biptech2"
 
 
 # Public IP Address using dynamic dns
@@ -342,13 +309,16 @@ router='jackdesert.no-ip.biz'
 alias myip='nslookup jackdesert.no-ip.biz'
 alias router_address='echo "jackdesert.no-ip.biz:6001"'
 
-eloise="pi@$router"
-eloise_port=2201
-alias eloise="ssh -A $eloise -p $eloise_port"
+# Raspberry Pi on home network
+mypih=pi@192.168.1.95
+alias mypih='ssh -A $mypih'
 
-hank="pi@$router"
-hank_port=2202
-alias hank="ssh -A $hank -p $hank_port"
+# Raspberry Pi at office
+#mypi=pi@172.16.74.15
+#alias mypi='ssh -A $mypi'
+mypi=pi@pi-from-scratch.local
+alias mypi='ssh -A $mypi'
+
 
 
 sassie='pi@192.168.1.68'
@@ -360,26 +330,49 @@ alias scp_help='echo "scp -P \$eloise_port <file> \$eloise:."'
 alias catch_eloise="echo 'CATCHING ELOISE'; ssh -p $eloise_port -R 3000:localhost:3000 pi@$router"
 alias catch_eloise_udp="echo 'CATCHING ELOISE UDP'; ssh -p $eloise_port -R 50005:localhost:50005 pi@$router"
 
-bipproto='ubuntu@bipproto.biptech.org'
-alias bipproto="ssh -A $bipproto"
+staging='ubuntu@staging.elitecare.com'
+alias staging="ssh -A $staging"
+
+# Moscow, Russia Server
+#vstoike='jd@2a00:1838:36:29d::2e85'
+vstoike='jd@77.73.64.209'
+vstoike_scp='jd@[2a00:1838:36:29d::2e85]'
+# Not using agent forwarding because more secure
+alias vstoike='ssh $vstoike'
+# Proxy so that ivi.ru thinks I'm in Russia
+# Note this requires SOCKS proxy to be enabled
+# by adding localhost:5678 in SOCKS_HOST
+alias prx="ssh -vv -D 5678  -C -N $vstoike"
+
 
 oe_backups='oe_backups@bipproto.biptech.org'
 alias oe_backups="ssh -A -i ~/.ssh/biptech_key $oe_backups"
 
 
+# maintain three logins to oe server
+# first is for обычное use
+# (Passwordless sudo)
 jdbip='jdbip@tabor.elitecare.com'
-alias jdbip="ssh -A $jdbip"
+alias b="ssh -A $jdbip"
+# Second is in case you can't log in to first one
+# (Password required for sudo, and is same as on my laptop.)
+# Second is accessibly by either of two public keys:
+# either jack's normal key (jd@u)
+# or the auxiliary key, which is disposable and used only
+# for this so if he has to send it to somebody
+# as a rescue key, he can. Key stored in ~/.ssh/bip_auxiliary_for_jdbip
+# Password for key is "fiarplace" (note misspelling)
+jdbip2='jdbip2@tabor.elitecare.com'
+alias b2="ssh -A $jdbip2"
+# Third is the old bipech one
+jdbip_biptech_user='biptech@tabor.elitecare.com'
+alias b3="ssh -A $jdbip_biptech_user"
 
 alias sleepytime='sleep 1800 && amixer set Master 0%'
-alias jen='cd ~/.secret/letters/jen_gates'
-alias jenu='vi ~/.secret/user_guides/jennifer.md'
 alias jacku='vi ~/.secret/user_guides/jack.md'
 alias real='vi ~/.secret/user_guides/getting_real_notes.md'
 alias kids='vi ~/.kids'
 
-alias jrn='vi /home/jd/.secret/journal/013_reconnection_with_jennifer.txt'
-alias hrp='vi /home/jd/.secret/herpes.txt'
-alias jack='vi ~/.secret/user_guides/jack.md'
 
 # Volume
 alias plus='amixer set 'Master' 5%+'
@@ -388,10 +381,16 @@ alias minus='amixer set 'Master' 5%-'
 # Downloads
 alias d='cd ~/downloads'
 alias t='cd ~/tmp'
+alias sk='cd ~/r/skating-master'
+
 
 # Sleep later
+alias sleep1='~/.utils/sleeper.sh 1'
+alias sleep5='~/.utils/sleeper.sh 5'
 alias sleep10='~/.utils/sleeper.sh 10'
+alias sleep15='~/.utils/sleeper.sh 15'
 alias sleep20='~/.utils/sleeper.sh 20'
+alias sleep25='~/.utils/sleeper.sh 25'
 alias sleep30='~/.utils/sleeper.sh 30'
 alias sleep40='~/.utils/sleeper.sh 40'
 alias sleep50='~/.utils/sleeper.sh 50'
@@ -406,13 +405,15 @@ alias sleep120='~/.utils/sleeper.sh 120'
 alias transparency='vi ~/r/transparency/index.txt'
 
 # Photos
-alias sync_photos="rsync -avr --exclude 'all-photos' --exclude '.git' ~/Pictures /media/jd/NAS1_FAT/"
-alias sync_code="rsync -avr jackdesert@jackdesert.webfactional.com:webapps/all_git/repos /media/jd/NAS1_FAT/"
+# I'm not sure which hard drive these were originally backed up to
+# Now backing up to fat hard drive in unitek labeled "apple-pie-01"
+alias sync_photos="rsync -avr --exclude 'all-photos' --exclude '.git' ~/Pictures /media/jd/linux/rsync_backups/"
+alias sync_webfaction="rsync -avr jackdesert@jackdesert.webfactional.com:webapps/all_git/repos /media/jd/linux/rsync_backups/"
 
 # Calendar
-alias deploy_calendar="rsync -avr bin config README.md static index.html $dofreecinc:calendar && curl calendar.jackdesert.com:3501/restart"
+alias deploy_whichfriday="rsync -avr bin config README.md static index.html $dofreecinc:whichfriday && curl whichfriday.com:3501/restart"
 alias deploy_barechested="rsync -avr index.html static $jj:webapps/barechested"
-alias deploy_coda="rsync -avr index.html guide.fodt exports $jj:webapps/coda"
+alias deploy_coda="echo Please use the build script for this"
 
 # Clipboard
 alias copy_to_clipboard='xclip -sel clip <'
@@ -426,4 +427,12 @@ alias dayshift='pkill -f redshift'
 
 # Mount usb
 alias usb='mount /media/jd/usb'
-alias usbu='umount /media/jd/usb'
+alias usbu='echo "syncing"; sync; echo "unmounting";  umount /media/jd/usb'
+
+# Sconsify (command-line Spotify player)
+alias sc='sconsify -username=jackdesert'
+export SCONSIFY_PASSWORD='password'
+
+
+# ssh-agent
+alias rk='ssh-add ~/.ssh/id_rsa'
