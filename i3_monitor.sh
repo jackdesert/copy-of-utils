@@ -1,11 +1,19 @@
 #!/bin/bash
 # Source: https://faq.i3wm.org/question/5312/how-to-toggle-onoff-external-and-internal-monitors.1.html
+# run `xrandr` to see connected displays
 
-EXTERNAL_OUTPUT="DisplayPort-2"
+
+# Set these two variables based on the displays listed when you run `xrandr`
 INTERNAL_OUTPUT="LVDS"
+EXTERNAL_OUTPUT="DisplayPort-2"
+EXTERNAL_ROTATION="--rotate left"
+
+
+
+FILE=/tmp/monitor_mode.dat
 
 # if we don't have a file, start at zero
-if [ ! -f "/tmp/monitor_mode.dat" ] ; then
+if [ ! -f "$FILE" ] ; then
   monitor_mode="all"
 
 # otherwise read the value from the file
@@ -14,19 +22,22 @@ else
 fi
 
 if [ $monitor_mode = "all" ]; then
-        monitor_mode="EXTERNAL"
-        xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto
-elif [ $monitor_mode = "EXTERNAL" ]; then
-        monitor_mode="INTERNAL"
-        xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --off
-elif [ $monitor_mode = "INTERNAL" ]; then
-        monitor_mode="CLONES"
-        xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT
+        monitor_mode="external"
+        COMMAND="xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto $EXTERNAL_ROTATION"
+elif [ $monitor_mode = "external" ]; then
+        monitor_mode="internal"
+        COMMAND="xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --off"
+elif [ $monitor_mode = "internal" ]; then
+        monitor_mode="clones"
+        COMMAND="xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --auto $EXTERNAL_ROTATION --same-as $INTERNAL_OUTPUT"
 else
         monitor_mode="all"
-        xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --left-of $INTERNAL_OUTPUT
+        COMMAND="xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --auto $EXTERNAL_ROTATION --above $INTERNAL_OUTPUT"
 fi
-echo "${monitor_mode}" > /tmp/monitor_mode.dat
+echo "${monitor_mode}" > $FILE
+echo writing "$monitor_mode" to $FILE
+echo running command: $COMMAND
+$COMMAND
 
 
 # Test
