@@ -436,3 +436,19 @@ export SCONSIFY_PASSWORD='password'
 
 # ssh-agent
 alias rk='ssh-add ~/.ssh/id_rsa'
+
+# JACK (for Ardour4)
+alias start_jack='jackd -d alsa -P hw:PCH -C hw:U18dB'
+
+alias  ast='offlineimap -c ~/.offlineimaprc-jworky     && NOTMUCH_CONFIG=~/.notmuch-config-jworky     notmuch new && astroid -c ~/.config/astroid/config-jworky'
+alias astw='offlineimap -c ~/.offlineimaprc-jackdesert && NOTMUCH_CONFIG=~/.notmuch-config-jackdesert notmuch new && astroid -c ~/.config/astroid/config-jackdesert'
+
+alias  asts='astroid -c ~/.config/astroid/config-jworky'
+alias astws='astroid -c ~/.config/astroid/config-jackdesert'
+
+alias  offlineimap-jworky='offlineimap -c ~/.offlineimaprc-jworky'
+alias  offlineimap-jackdesert='offlineimap -c ~/.offlineimaprc-jackdesert'
+alias astw='offlineimap -c ~/.offlineimaprc-jackdesert && NOTMUCH_CONFIG=~/.notmuch-config-jackdesert notmuch new && astroid -c ~/.config/astroid/config-jackdesert'
+
+
+
