@@ -2,6 +2,11 @@
 # Remap Keyboard
 # xmodmap ~/.Xmodmap
 
+# Set keyboards to US and Russian
+setxkbmap -layout us,ru
+# Toggle between keyboard layouts with ALT+SPACE
+setxkbmap -option 'grp:alt_space_toggle'
+
 # set keyboard repeat rate manually
 # (Note that on osx using KeyRemap4MacBook 240/30 feels the same as 240/50 through xset)
 # Keyboard tweaks including repeat rate and caps lock to escape are set in "on_resume.sh"
@@ -449,6 +454,9 @@ alias astws='astroid -c ~/.config/astroid/config-jackdesert'
 alias  offlineimap-jworky='offlineimap -c ~/.offlineimaprc-jworky'
 alias  offlineimap-jackdesert='offlineimap -c ~/.offlineimaprc-jackdesert'
 alias astw='offlineimap -c ~/.offlineimaprc-jackdesert && NOTMUCH_CONFIG=~/.notmuch-config-jackdesert notmuch new && astroid -c ~/.config/astroid/config-jackdesert'
+
+alias mon='~/.utils/i3_monitor.sh'
+alias susp='sudo systemctl suspend && echo "                   Got your SUSPENDERS on?"'
 
 
 
