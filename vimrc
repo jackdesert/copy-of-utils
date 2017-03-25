@@ -10,11 +10,11 @@ set foldmethod=syntax
 set shiftwidth=2
 filetype plugin indent on
 autocmd FileType javascript set autoindent shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType html set autoindent shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType haml set autoindent shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType sass set autoindent shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType ruby,css set autoindent shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType golang set autoindent shiftwidth=2 softtabstop=2
+autocmd FileType html       set autoindent shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType haml       set autoindent shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType sass       set autoindent shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType ruby,css   set autoindent shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType golang     set autoindent shiftwidth=2 softtabstop=2
 "autocmd FileType ruby,sass set autoindent shiftwidth=4 softtabstop=4 expandtab
 
 "Interpret .md as markdown so apostrophes do not show up as a start of string

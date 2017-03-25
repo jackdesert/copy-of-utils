@@ -6,6 +6,7 @@
 # Set these two variables based on the displays listed when you run `xrandr`
 INTERNAL_OUTPUT="LVDS"
 EXTERNAL_OUTPUT="DisplayPort-2"
+# EXTERNAL_OUTPUT="VGA-0"
 EXTERNAL_ROTATION="--rotate left"
 
 

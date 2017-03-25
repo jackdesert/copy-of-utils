@@ -40,7 +40,7 @@ alias tomato='ssh root@192.168.2.1'
 
 # Note when using the "thin" invocation, you must tail the logs if you want to see them
 # (they don't automatically show up in the console where you started thin)
-alias rss='bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000'
+alias rss='echo "livereload requires unencrypted connections" && bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000'
 alias rsspublic_on_3456='bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3456'
 
 # Run locally in production mode
@@ -107,7 +107,7 @@ alias dofreecinc_staging="ssh -A $dofreecinc_staging"
 
 alias grab_db="scp -i ~/.ssh/id_rsa $dofreecinc_staging:dancer/db/production.db ~/r/dancer/db/development.db"
 alias export_db="sudo -u postgres pg_dump -f /var/lib/postgresql/backups/bip-development-`date +'%Y-%m-%dT%H:%M:%S'`.sql bip_development"
-alias import_db="sudo -u postgres psql -d bip_development  -f"
+alias import_db="sudo -u postgres psql -d bip_development -f /tmp/backup.sql"
 
 alias fr='cd ~/gopath/src/freecinc'
 alias mg='cd ~/gopath/src/github.com/jackdesert/memgo'
@@ -455,8 +455,17 @@ alias  offlineimap-jworky='offlineimap -c ~/.offlineimaprc-jworky'
 alias  offlineimap-jackdesert='offlineimap -c ~/.offlineimaprc-jackdesert'
 alias astw='offlineimap -c ~/.offlineimaprc-jackdesert && NOTMUCH_CONFIG=~/.notmuch-config-jackdesert notmuch new && astroid -c ~/.config/astroid/config-jackdesert'
 
+# Use this script to toggle between external and internal monitor
 alias mon='~/.utils/i3_monitor.sh'
+# Explicitly set xrandr options for internal, external, or external rotated
+# LVDS:          internal
+# DisplayPort-2: DVI
+alias mon1='xrandr --output LVDS --auto --output DisplayPort-2 --off'
+alias mon2='xrandr --output LVDS --off --output DisplayPort-2 --auto --rotate left'
+alias mon3='xrandr --output LVDS --off --output DisplayPort-2 --auto --rotate normal'
 alias susp='sudo systemctl suspend && echo "                   Got your SUSPENDERS on?"'
 
 
-
+alias art='vi ~/r/wiki/content/graphic_design/color.md'
+alias artt='vi ~/r/wiki/content/graphic_design/color-tech.md'
+alias net='sudo systemctl restart network-manager.service && echo Restarted network-manager'

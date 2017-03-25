@@ -57,7 +57,7 @@ class Nav
   end
 
   def up_one_dir
-    raise 'Reached root of filesystem, and no Gemfile found' if Dir.pwd == '/'
+    raise 'Reached root of filesystem, and no git repo found' if Dir.pwd == '/'
     Dir.chdir '..'
   end
 
