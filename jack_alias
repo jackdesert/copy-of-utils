@@ -1,6 +1,6 @@
 
 # Remap Keyboard
-# xmodmap ~/.Xmodmap
+xmodmap ~/.Xmodmap
 
 # Set keyboards to US and Russian
 setxkbmap -layout us,ru
@@ -11,6 +11,9 @@ setxkbmap -option 'grp:alt_space_toggle'
 # (Note that on osx using KeyRemap4MacBook 240/30 feels the same as 240/50 through xset)
 # Keyboard tweaks including repeat rate and caps lock to escape are set in "on_resume.sh"
 source ~/.utils/on_resume.sh
+
+
+
 
 # Manually tell Xfce to use capslock as escape
 alias caps='/usr/bin/setxkbmap -option "caps:escape"'
@@ -30,6 +33,7 @@ alias tos='rsync -av -e "ssh -i ~/.ssh/bip-a.pem" ~/.secret/todo-rails.md ubuntu
 alias to='vi ~/.secret/todo-rails.md'
 alias tom=' vi ~/.secret/todo-mine.gpg'
 alias ap='vi ~/r/bip-job-applicants.md'
+alias tos='vi ~/.secret/todo.md && echo "pushing todo.md to oe" && rsync -av ~/.secret/todo.md jdbip@tabor.elitecare.com:/opt/elitecarerails/doc/'
 alias dai='vi ~/r/elitecarerails/doc/address-with-dain.md'
 alias ru='vi ~/r/wiki/content/russian/vocabulary.md'
 alias muh='vi    ~/r/wiki/content/russian/poems/muha*txt'
@@ -351,6 +355,9 @@ alias scp_help='echo "scp -P \$eloise_port <file> \$eloise:."'
 alias catch_eloise="echo 'CATCHING ELOISE'; ssh -p $eloise_port -R 3000:localhost:3000 pi@$router"
 alias catch_eloise_udp="echo 'CATCHING ELOISE UDP'; ssh -p $eloise_port -R 50005:localhost:50005 pi@$router"
 
+staging='ubuntu@staging.elitecare.com'
+alias staging="ssh -A -i ~/.ssh/bip-a.pem $staging"
+
 # Moscow, Russia Server
 veesp='77.73.67.86'
 veesp_scp='jd@[2a00:1838:37:f0::e47d]'
@@ -483,8 +490,8 @@ alias nightshift='redshift -l 34:-92 -t 3500:3500 &'
 alias dayshift='pkill -f redshift'
 
 # Mount usb
-alias usb='mount /media/jd/usb'
-alias usbu='echo "syncing"; sync; echo "unmounting";  umount /media/jd/usb'
+alias usb='mount /media/usb'
+alias usbu='echo "syncing"; sync; echo "unmounting";  umount /media/usb'
 
 alias hb=' cd ~/r/heartbeat'
 
@@ -531,7 +538,9 @@ alias mon3='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate normal'
 #alias mon2='xrandr --output LVDS1 --off --output HDMI1 --auto --rotate left'
 #alias mon3='xrandr --output LVDS1 --off --output HDMI1 --auto --rotate normal'
 
-alias susp='sudo systemctl suspend && echo "                   Got your SUSPENDERS on?"'
+#alias susp='sudo systemctl suspend && echo "                   Got your SUSPENDERS on?"'
+alias susp='i3lock -u --color=103000  & sleep 1 && echo mem | sudo tee /sys/power/state'
+alias lock='i3lock -u --color=103000'
 
 
 alias art='vi ~/r/wiki/content/graphic_design/color.md'
