@@ -397,7 +397,7 @@ alias import_db="echo 'copying file to /tmp' && cp ~/tmp/backup.sql /tmp/backup.
 
 # REMEMBER if you can't ssh in as user "ubuntu", ssh in as user "jdbip" with same password and keys
 
-production_aws='ubuntu@34.213.117.184'
+production_aws='ubuntu@bip.elitecare.com'  # ip is 34.213.117.184
 alias production_aws="ssh -i ~/.ssh/bip-a.pem -A $production_aws"
 
 production_old='ubuntu@96.65.199.133'
@@ -417,10 +417,10 @@ alias swede='ssh root@185.217.0.244'
 # for this so if he has to send it to somebody
 # as a rescue key, he can. Key stored in ~/.ssh/bip_auxiliary_for_jdbip
 # Password for key is "fiarplace" (note misspelling)
-jdbip2='jdbip2@tabor.elitecare.com'
+jdbip2='jdbip2@bip.elitecare.com'
 alias b2="ssh -A $jdbip2"
 # Third is the old bipech one
-jdbip_biptech_user='biptech@tabor.elitecare.com'
+jdbip_biptech_user='biptech@bip.elitecare.com'
 alias b3="ssh -A $jdbip_biptech_user"
 
 alias sleepytime='sleep 1800 && amixer set Master 0%'
