@@ -9,7 +9,7 @@ set autoindent
 set foldmethod=syntax
 set shiftwidth=2
 filetype plugin indent on
-autocmd FileType javascript set autoindent shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType javascript set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType erb        set autoindent shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType html       set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType haml       set autoindent shiftwidth=2 softtabstop=2 expandtab
@@ -81,8 +81,8 @@ autocmd BufLeave,FocusLost * wall
 " ****************************************
 
 " see https://github.com/tpope/vim-pathogen for how to install pathogen
-call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#helptags()
 
 " not working:
 " map <F2> :NERDTreeToggle<CR>

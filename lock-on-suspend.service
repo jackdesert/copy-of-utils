@@ -1,0 +1,12 @@
+# source: https://bbs.archlinux.org/viewtopic.php?id=185301
+
+[Unit]
+Description=Lock the screen before suspend
+
+[Service]
+User=jd
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/slock
+
+[Install]
+WantedBy=sleep.target

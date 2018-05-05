@@ -12,6 +12,10 @@ setxkbmap -option 'grp:alt_space_toggle'
 # Keyboard tweaks including repeat rate and caps lock to escape are set in "on_resume.sh"
 source ~/.utils/on_resume.sh
 
+# Re-enable caps lock
+# (in case if you accidentally disable capslock when capslock is still ON)
+alias enable-caps='xmodmap -e "keycode 0x42 = Caps_Lock"'
+
 
 
 
@@ -20,8 +24,9 @@ alias caps='/usr/bin/setxkbmap -option "caps:escape"'
 # Allow a manual override to completely null out the capslock (Useful while using Jira)
 alias nocaps='/usr/bin/setxkbmap -option "caps:none"'
 
-alias start_postgres='/usr/lib/postgresql/9.1/bin/postgres -D /var/lib/postgresql/9.1/main -c config_file=/etc/postgresql/9.1/main/postgresql.conf &
-'
+alias start_postgres='sudo -u postgres /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/postgresql-9.5-main.log start'
+alias stop_postgres='sudo -u postgres /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/postgresql-9.5-main.log stop'
+
 alias gdiff="GIT_PAGER='' git diff"
 alias be='bundle exec'
 alias bs='git branch && git status'
@@ -31,9 +36,9 @@ alias alt2='TEST_ENV_NUMBER=2'
 alias rc='bundle exec rails console'
 alias tos='rsync -av -e "ssh -i ~/.ssh/bip-a.pem" ~/.secret/todo-rails.md ubuntu@bip.elitecare.com:/opt/elitecarerails/doc'
 alias to='vi ~/.secret/todo-rails.md'
+alias toa='vi ~/.secret/todo-archive.md'
 alias tom=' vi ~/.secret/todo-mine.gpg'
 alias ap='vi ~/r/bip-job-applicants.md'
-alias tos='vi ~/.secret/todo.md && echo "pushing todo.md to oe" && rsync -av ~/.secret/todo.md jdbip@tabor.elitecare.com:/opt/elitecarerails/doc/'
 alias dai='vi ~/r/elitecarerails/doc/address-with-dain.md'
 alias ru='vi ~/r/wiki/content/russian/vocabulary.md'
 alias muh='vi    ~/r/wiki/content/russian/poems/muha*txt'
@@ -49,19 +54,22 @@ alias co='cd ~/r/color'
 # (they don't automatically show up in the console where you started thin)
 alias rss_thin='echo "livereload requires unencrypted connections" && bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000'
 alias rss_puma='echo "livereload requires unencrypted connections" && bundle exec puma -w `grep -c processor /proc/cpuinfo` -b "ssl://0.0.0.0:3000?key=/home/jd/.ssh/elitecare/server.key&cert=/home/jd/.ssh/elitecare/server.crt"'
+alias rss_puma='echo "livereload requires unencrypted connections" && bundle exec puma -w `grep -c processor /proc/cpuinfo` -b "ssl://0.0.0.0:3000?key=/home/jd/.ssh/elitecare/server.key&cert=/home/jd/.ssh/elitecare/server.crt"'
 alias rsspublic_on_3456='bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3456'
 alias rsipublic_on_3456='bundle exec rails server -b 0.0.0.0 -p 3456'
 
 # Run locally in production mode
 # Note must run over ssl
 # Note assets will be served locally
-alias rssproduction="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=production rss"
-alias rssstaging="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=staging rss"
+alias rssproduction="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=production bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000"
+alias rss_puma_production_single='bundle exec puma -w 1 -b "ssl://0.0.0.0:3000?key=/home/jd/.ssh/elitecare/server.key&cert=/home/jd/.ssh/elitecare/server.crt" -e production'
+alias rssstaging="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=staging bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000"
 alias assets='cd ~/r/elitecarerails && rm -rf tmp/cache/ && rm -rf public/assets/ && RAILS_ENV=production be rake assets:precompile'
 
 
 # alias rsi='echo "to enable logging, use rails server instead of thin start";ALLOW_NON_SSL=1 bundle exec thin start -a 0.0.0.0 -p 3000'
 alias rsi='ALLOW_NON_SSL=1 bundle exec rails server -b 0.0.0.0 -p 5000'
+alias rsiproduction='ALLOW_NON_SSL=1 RAILS_ENV=production bundle exec rails server -b 0.0.0.0 -p 5000'
 alias rsi2='bundle exec rails server -b 0.0.0.0 -p 5000'
 
 alias db='cd ~/r/elitecarerails && bundle exec rails dbconsole -p'
@@ -85,6 +93,7 @@ alias rn='vi ~/r/elitecarerails/doc/person-data-to-rename.rb'
 # Git
 alias gu='git fetch origin && git rebase origin/master'
 alias log='git log --name-status'
+alias logs='tail -n 0 -f ~/r/elitecarerails/log/development.log'
 alias keep="git add . && git commit -am'placeholder'"
 alias keeps='keep; git push origin master'
 alias keeph='keep; git push origin HEAD'
@@ -318,10 +327,12 @@ alias start_babel='babel --watch jsx/ --out-dir static/'
 
 # EliteCare
 alias el='cd ~/r/elitecarerails'
+alias an='cd ~/r/elitecare-android/rest-android/app/src/main/java/org/biptech/rest'
+alias and='vi ~/r/elitecare-android/rest-android/app/src/main/java/org/biptech/rest/network/ServerApi.java'
 alias f='cd ~/elitecare/elitecarerails/app/views/family_members/feed'
 alias ad='view ~/elitecare/company_notes/advocate.md'
 alias ade='vi  ~/elitecare/company_notes/advocate.md'
-alias q='view  ~/elitecare/company_notes/questions.md'
+alias q='cd ~/r/music_theory_quiz && bundle exec ruby play.rb'
 alias qe='vi  ~/elitecare/company_notes/questions.md'
 alias e='cd ~/r/autocross-panes'
 
@@ -358,6 +369,9 @@ alias catch_eloise_udp="echo 'CATCHING ELOISE UDP'; ssh -p $eloise_port -R 50005
 staging='ubuntu@staging.elitecare.com'
 alias staging="ssh -A -i ~/.ssh/bip-a.pem $staging"
 
+stagclone='ubuntu@35.160.58.210'
+alias stagclone="ssh -A -i ~/.ssh/bip-a.pem $stagclone"
+
 # Moscow, Russia Server
 veesp='77.73.67.86'
 veesp_scp='jd@[2a00:1838:37:f0::e47d]'
@@ -391,7 +405,8 @@ alias errbit="ssh -A -i ~/.ssh/bip-a.pem $errbit"
 
 
 alias download_db="scp -i ~/.ssh/bip-a.pem $backups:/backups/oe_production_files/postgres_backups/`date +%d`th-day.sql ~/tmp/backup.sql && echo 'Remember to be rake db:drop db:create. Then run import_db'"
-alias import_db="echo 'copying file to /tmp' && cp ~/tmp/backup.sql /tmp/backup.sql && sudo -u postgres psql -d bip_development -f /tmp/backup.sql && echo 'remember to Session.fresh_start'"
+#alias import_db="echo 'copying file to /tmp' && cp ~/tmp/backup.sql /tmp/backup.sql && sudo -u postgres psql -d bip_development -f /tmp/backup.sql && echo 'remember to Session.fresh_start'"
+alias import_db_kali="echo 'copying file to /tmp' && cp ~/tmp/backup.sql /tmp/backup.sql && sudo -u postgres /usr/local/pgsql/bin/psql -d bip_development -f /tmp/backup.sql && echo 'remember to Session.fresh_start'"
 
 
 # maintain three logins to oe server
@@ -404,11 +419,23 @@ alias import_db="echo 'copying file to /tmp' && cp ~/tmp/backup.sql /tmp/backup.
 
 # REMEMBER if you can't ssh in as user "ubuntu", ssh in as user "jdbip" with same password and keys
 
-production_aws='ubuntu@bip.elitecare.com'  # ip is 34.213.117.184
-alias production_aws="ssh -i ~/.ssh/bip-a.pem -A $production_aws"
+production='ubuntu@bip.elitecare.com'  # ip is 34.213.117.184
+alias production="ssh -i ~/.ssh/bip-a.pem -A $production"
+
+demo='ubuntu@52.41.174.145'
+alias demo="ssh -i ~/.ssh/bip-a.pem -A $demo"
 
 production_old='ubuntu@96.65.199.133'
 alias production_old="ssh -A $production_old"
+
+
+
+
+rbx16='ubuntu@35.167.137.255'
+alias rbx16="ssh -i ~/.ssh/bip-a.pem -A $rbx16"
+
+
+
 
 #alias nagios_box='ssh administrator@192.168.13.14'
 nagios_box='jack@192.168.13.14'
@@ -539,8 +566,10 @@ alias mon3='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate normal'
 #alias mon3='xrandr --output LVDS1 --off --output HDMI1 --auto --rotate normal'
 
 #alias susp='sudo systemctl suspend && echo "                   Got your SUSPENDERS on?"'
-alias susp='i3lock -u --color=103000  & sleep 1 && echo mem | sudo tee /sys/power/state'
-alias lock='i3lock -u --color=103000'
+#alias susp='i3lock -u --color=203000  & sleep 1 && echo mem | sudo tee /sys/power/state'
+#alias lock='i3lock -u --color=203000'
+alias susp='slock  & sleep 1 && echo mem | sudo tee /sys/power/state'
+alias lock='slock'
 
 
 alias art='vi ~/r/wiki/content/graphic_design/color.md'
@@ -548,3 +577,41 @@ alias artt='vi ~/r/wiki/content/graphic_design/color-tech.md'
 alias net='sudo systemctl restart network-manager.service && echo Restarted network-manager'
 
 alias tt='bundle exec ruby -I test'
+
+alias courtney='vi /home/jd/.secret/letters/okc/courtney'
+alias julia='vi /home/jd/.secret/letters/okc/julia'
+
+alias bird='thunderbird -P jdtzn'
+alias msg='cat ~/r/elitecarerails/doc/api/amazon-iot.md'
+
+# Set the name of the default printer so you can print from command line using `lp <file>`
+# without needing to specify "-d <printer>"
+export LPDEST=hp-envy
+
+alias htopm='htop --sort-key PERCENT_MEM'
+alias htopp='htop --sort-key PERCENT_CPU'
+
+# Temporary Aliases
+alias print_scales='cd ~/r/music_theory_quiz && bundle exec ruby shuffler.rb 34 | lp -o page-left=95 -o cpi=8 -o page-top=95 -o lpi=4'
+alias gn='cd ~/downloads && mv billing--2018* billing.txt && gnumeric billing.txt'
+alias htop_copy='mkdir -p /tmp/htop && cd /tmp/htop && rsync -av -e "ssh -i ~/.ssh/bip-a.pem" $production:/opt/elitecarerails/tmp/htop_snapshots/* .'
+alias rs='cd ~/r/rubinius'
+alias rb='cd ~/r/rubinius-book/manuscript'
+
+
+alias rbundle='~/.rbenv/versions/rbx-3.100-from-ubuntu-14.04/gems/bin/bundle'
+alias rbe='~/.rbenv/versions/rbx-3.100-from-ubuntu-14.04/gems/bin/bundle exec'
+
+# Memory Dumps
+alias pull_memory="rm -rf /tmp/memory_dumps && mkdir /tmp/memory_dumps && scp -i ~/.ssh/bip-a.pem $production:/opt/elitecarerails/memory_dump_for_pid_* /tmp/memory_dumps"
+
+
+
+# Production Load Testing
+vv='ubuntu@54.200.117.168'
+alias vv="ssh -A -i ~/.ssh/bip-a.pem $vv"
+
+# GPU
+gp='ubuntu@34.209.62.38'
+alias gp="ssh -A -i ~/.ssh/bip-a.pem $gp"
+
