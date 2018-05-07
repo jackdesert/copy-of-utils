@@ -38,6 +38,7 @@ alias tos='rsync -av -e "ssh -i ~/.ssh/bip-a.pem" ~/.secret/todo-rails.md ubuntu
 alias to='vi ~/.secret/todo-rails.md'
 alias toa='vi ~/.secret/todo-archive.md'
 alias tom=' vi ~/.secret/todo-mine.gpg'
+alias toi=' vi ~/.secret/todo-mine'
 alias ap='vi ~/r/bip-job-applicants.md'
 alias dai='vi ~/r/elitecarerails/doc/address-with-dain.md'
 alias ru='vi ~/r/wiki/content/russian/vocabulary.md'
@@ -597,6 +598,7 @@ alias gn='cd ~/downloads && mv billing--2018* billing.txt && gnumeric billing.tx
 alias htop_copy='mkdir -p /tmp/htop && cd /tmp/htop && rsync -av -e "ssh -i ~/.ssh/bip-a.pem" $production:/opt/elitecarerails/tmp/htop_snapshots/* .'
 alias rs='cd ~/r/rubinius'
 alias rb='cd ~/r/rubinius-book/manuscript'
+alias netflix=~/.firefox-esr/firefox
 
 
 alias rbundle='~/.rbenv/versions/rbx-3.100-from-ubuntu-14.04/gems/bin/bundle'

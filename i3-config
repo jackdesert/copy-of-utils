@@ -158,3 +158,4 @@ bar {
 
 # Lock screen after 10 minutes
 exec --no-startup-id xautolock -time 30 -locker 'slock'
+exec --no-startup-id nm-applet
