@@ -557,9 +557,9 @@ alias mon2='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate left'
 alias mon3='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate normal'
 
 # 2-core i5
-#alias mon1='xrandr --output LVDS --auto --output DisplayPort-2 --off'
-#alias mon2='xrandr --output LVDS --off --output DisplayPort-2 --auto --rotate left'
-#alias mon3='xrandr --output LVDS --off --output DisplayPort-2 --auto --rotate normal'
+alias mon1p='xrandr --output LVDS --auto --output DisplayPort-2 --off'
+alias mon2p='xrandr --output LVDS --off --output DisplayPort-2 --auto --rotate left'
+alias mon3p='xrandr --output LVDS --off --output DisplayPort-2 --auto --rotate normal'
 
 # Tiny Laptop (core 2 duo)
 #alias mon1='xrandr --output LVDS1 --auto --output HDMI1 --off'
@@ -617,3 +617,6 @@ alias vv="ssh -A -i ~/.ssh/bip-a.pem $vv"
 gp='ubuntu@34.209.62.38'
 alias gp="ssh -A -i ~/.ssh/bip-a.pem $gp"
 
+# Xulu
+alias xu='ssh -A jd@192.168.2.127'
+alias wake='wakeonlan -i 192.168.2.255 4c:cc:6a:f4:ad:fe'
