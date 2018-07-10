@@ -618,7 +618,8 @@ gp='ubuntu@34.209.62.38'
 alias gp="ssh -A -i ~/.ssh/bip-a.pem $gp"
 
 # Xulu
-alias xu='ssh -A jd@192.168.2.127'
+xu=jd@192.168.2.127
+alias xu='ssh -A $xu'
 alias wake='wakeonlan -i 192.168.2.255 4c:cc:6a:f4:ad:fe'
 
 # PRINTING
