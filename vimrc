@@ -20,6 +20,7 @@ autocmd FileType golang     set autoindent shiftwidth=2 softtabstop=2
 
 "Interpret .md as markdown so apostrophes do not show up as a start of string
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.jinja2 set filetype=html
 
 
 
@@ -151,3 +152,4 @@ augroup encrypted
   " after the file has been written.
   autocmd BufWritePost,FileWritePost *.gpg u
 augroup END
+
