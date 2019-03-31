@@ -28,6 +28,8 @@ alias        CAPS='/usr/bin/setxkbmap -option "caps:none"'
 
 alias start_postgres='sudo -u postgres /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/postgresql-9.5-main.log start'
 alias stop_postgres='sudo -u postgres /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/postgresql-9.5-main.log stop'
+# Create symlink for source-built postgres
+if [ ! -d /var/run/postgresql ]; then sudo ln -s /tmp /var/run/postgresql; fi
 
 alias gdiff="GIT_PAGER='' git diff"
 alias be='bundle exec'
@@ -79,6 +81,7 @@ alias rsiproduction='ALLOW_NON_SSL=1 RAILS_ENV=production bundle exec rails serv
 alias rsi2='bundle exec rails server -b 0.0.0.0 -p 5000'
 
 alias db='cd ~/r/elitecarerails && bundle exec rails dbconsole -p'
+alias dbo='sudo -u postgres psql bip_olap_development'
 
 alias uni='PORT=5000 bundle exec unicorn -c config/unicorns/default.rb -p 5000'
 alias sin='bundle exec rerun -b "ruby app.rb"'
@@ -129,8 +132,6 @@ alias dodaily_lager="ssh -A $dodaily_lager"
 alias docass='ssh -A dev@192.241.224.60'
 
 # FreeCinc
-dofreecinc='dev@107.170.212.250'
-alias dofreecinc="ssh -A $dofreecinc"
 dofreecinc_staging='dev@107.170.222.159'
 alias dofreecinc_staging="ssh -A $dofreecinc_staging"
 
@@ -201,6 +202,8 @@ alias accd='  view ~/.secret/disconnected_accounts'
 alias accde=' vi   ~/.secret/disconnected_accounts'
 
 alias lies=' vi ~/.secret/lies'
+
+alias don='vi ~/.secret/donations'
 
 
 #   Aliases using my Nav class, which goes upward until it finds a gemfile, then cds
@@ -423,6 +426,7 @@ alias errbit="ssh -A -i ~/.ssh/bip-a.pem $errbit"
 
 
 alias download_db="scp -i ~/.ssh/bip-a.pem $backups:/backups/oe_production_files/postgres_backups/`date +%d`th-day.sql ~/tmp/backup.sql && echo 'Remember to be rake db:drop db:create. Then run import_db'"
+alias download_db_from_production_instead_of_from_backups_server="scp -i ~/.ssh/bip-a.pem $production:/oe_production_files/postgres_backups/`date +%d`th-day.sql ~/tmp/backup.sql && echo 'Remember to be rake db:drop db:create. Then run import_db'"
 alias download_db_yesterday="scp -i ~/.ssh/bip-a.pem $backups:/backups/oe_production_files/postgres_backups/`date +%d --date yesterday`th-day.sql ~/tmp/backup-yesterday.sql && echo 'Remember to be rake db:drop db:create. Then run import_db'"
 #alias import_db="echo 'copying file to /tmp' && cp ~/tmp/backup.sql /tmp/backup.sql && sudo -u postgres psql -d bip_development -f /tmp/backup.sql && echo 'remember to Session.fresh_start'"
 alias import_db_kali="echo 'copying file to /tmp' && cp ~/tmp/backup.sql /tmp/backup.sql && sudo -u postgres /usr/local/pgsql/bin/psql -d bip_development -f /tmp/backup.sql && echo 'remember to Session.fresh_start'"
@@ -453,11 +457,12 @@ alias production_old="ssh -A $production_old"
 steth1='ubuntu@54.191.253.67'
 alias steth1="ssh -i ~/.ssh/bip-a.pem -A $steth1"
 
-steth2='ubuntu@35.164.167.43'
-alias steth2="ssh -i ~/.ssh/bip-a.pem -A $steth2"
+steth='ubuntu@35.164.167.43'
+alias steth="ssh -i ~/.ssh/bip-a.pem -A $steth"
 
 alias download_stethoscope_db="scp -i ~/.ssh/bip-a.pem $steth:stethoscope/stethoscope.sqlite ~/r/stethoscope/stethoscope.sqlite"
 
+# arscca, etc
 monitor='ubuntu@54.190.220.179'
 alias monitor="ssh -i ~/.ssh/bip-a.pem -A $monitor"
 
@@ -629,6 +634,8 @@ alias htopp='htop --sort-key PERCENT_CPU'
 
 # Temporary Aliases
 alias print_scales='cd ~/r/music_theory_quiz && bundle exec ruby shuffler.rb 34 | lp -o page-left=95 -o cpi=8 -o page-top=95 -o lpi=4'
+alias print_ansible='cat ~/r/ansible-presentation/TUTORIAL.md | lp -o page-left=50 -o cpi=10 -o page-top=50 -o lpi=6'
+alias print_ansible_test='cat ~/r/ansible-presentation/TUTORIAL.md | lp -o page-left=50 -o cpi=10 -o page-top=50 -o lpi=8 -P "1"'
 alias gn='cd ~/downloads && mv billing--2018* billing.txt && gnumeric billing.txt'
 alias htop_copy='mkdir -p /tmp/htop && cd /tmp/htop && rsync -av -e "ssh -i ~/.ssh/bip-a.pem" $production:/opt/elitecarerails/tmp/htop_snapshots/* .'
 alias rs='cd ~/r/rubinius'
@@ -692,12 +699,33 @@ seiu=ubuntu@54.245.216.219
 alias seiu="ssh -A $seiu"
 
 
-alias mon='cd ~/r/website-monitor'
+alias mona='cd ~/r/price-monitor'
+alias mon='cd ~/r/price-monitor/simpletire'
 alias pyr='vi /home/jd/r/pyramid-presentation/presentation.md'
 
 alias pi1='echo password barks; ssh -A pi@96.65.199.134'
+alias pitest='echo password barks; ssh -A pi@10.0.0.4'
 alias bl='cd ~/r/bluetooth-suite'
 
 dock='ubuntu@54.213.252.218'
 alias dock='ssh -i ~/.ssh/bip-a.pem -A $dock'
 alias bl='cd ~/r/bluetooth-suite'
+
+
+alias done='ogg123 ~/.utils/sounds/tibetan-bowl.ogg'
+
+alias export_db_price_monitor="sudo -u postgres pg_dump -f /tmp/price_monitor.sql price_monitor && cp /tmp/price_monitor.sql ~/.archive/price-monitor-`date +'%Y-%m-%dT%H:%M:%S'`.sql"
+
+alias win="rdesktop -K -u Administrator -p 'ApgP9e4Slu;G.FSQ6.rkDVvZPq@@NHGS' -g workarea ec2-3-18-246-56.us-east-2.compute.amazonaws.com"
+
+
+# price-monitor (Hosted on BIP AWS account, but in Northern California)
+pm=54.183.123.61
+alias pm="ssh -A -i ~/.ssh/bip-django.pem ubuntu@$pm"
+
+
+alias mm='PAGER=less DJANGO_SETTINGS_MODULE=monitor.settings_development env/bin/python manage.py'
+
+# Stethoscope
+pserve='TZ=America/Los_Angeles env/bin/pserve development.ini'
+alias pserve="echo $pserve && $pserve"
