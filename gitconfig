@@ -12,3 +12,5 @@
   a = add
   d = rm
   sh = show
+[core]
+	autocrlf = input

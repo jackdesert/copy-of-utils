@@ -1,4 +1,4 @@
-
+#echo REMEMBER you are using dnsmasq. See /etc/dnsmasq.conf for applied rules.
 # Remap Keyboard
 xmodmap ~/.Xmodmap
 
@@ -80,7 +80,7 @@ alias rsi='ALLOW_NON_SSL=1 bundle exec rails server -b 0.0.0.0 -p 5000'
 alias rsiproduction='ALLOW_NON_SSL=1 RAILS_ENV=production bundle exec rails server -b 0.0.0.0 -p 5000'
 alias rsi2='bundle exec rails server -b 0.0.0.0 -p 5000'
 
-alias db='cd ~/r/elitecarerails && bundle exec rails dbconsole -p'
+alias db='cd ~/r/elitecarerails && PAGER=less bundle exec rails dbconsole -p'
 alias dbo='sudo -u postgres psql bip_olap_development'
 
 alias uni='PORT=5000 bundle exec unicorn -c config/unicorns/default.rb -p 5000'
@@ -375,15 +375,6 @@ alias mypi='ssh -A $mypi'
 
 
 
-sassie='pi@192.168.1.68'
-alias sassie="ssh -A $sassie"
-alias catch_sassie="echo 'CATCHING SASSIE ON LOCAL NETWORK ONLY USING PORT 22'; ssh -R 3000:localhost:3000 $sassie"
-
-alias scp_help='echo "scp -P \$eloise_port <file> \$eloise:."'
-
-alias catch_eloise="echo 'CATCHING ELOISE'; ssh -p $eloise_port -R 3000:localhost:3000 pi@$router"
-alias catch_eloise_udp="echo 'CATCHING ELOISE UDP'; ssh -p $eloise_port -R 50005:localhost:50005 pi@$router"
-
 staging='ubuntu@staging.elitecare.com'
 alias staging="ssh -A -i ~/.ssh/bip-a.pem $staging"
 
@@ -465,6 +456,10 @@ alias download_stethoscope_db="scp -i ~/.ssh/bip-a.pem $steth:stethoscope/stetho
 # arscca, etc
 monitor='ubuntu@54.190.220.179'
 alias monitor="ssh -i ~/.ssh/bip-a.pem -A $monitor"
+arscca='arscca@54.190.220.179'
+alias arscca="ssh -A $arscca"
+tires=172.245.224.126
+alias tires="ssh -A ubuntu@$tires"
 
 
 rbx16='ubuntu@35.167.137.255'
@@ -564,6 +559,9 @@ export SCONSIFY_PASSWORD='password'
 # ARSCCA
 alias sca='cd ~/r/arscca'
 alias sc='cd ~/r/arscca/arscca'
+alias tw='cd ~/r/arscca-twisted'
+export ARSCCA_TWISTED_SLACK_HOOK='https://hooks.slack.com/services/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'
+#export ARSCCA_SLACK_HOOK='https://hooks.slack.com/services/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'
 
 # ssh-agent
 alias rk='ssh-add ~/.ssh/id_rsa'
@@ -592,8 +590,10 @@ alias astw='offlineimap -c ~/.offlineimaprc-jackdesert && NOTMUCH_CONFIG=~/.notm
 alias mon1='xrandr --output LVDS-1 --auto --output DP-3 --off'
 alias mon2='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate left'
 alias mon3='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate normal'
+alias mon5='xrandr --output LVDS-1 --off --output VGA-1 --auto --rotate normal'
 alias mon4='xrandr --output LVDS-1 --auto --output DP-3 --off; echo sleeping 5; sleep 5;xrandr --output LVDS-1  --mode 1366x768  --output DP-3 --mode 1360x768'
 
+alias mon6='xrandr --output LVDS-1 --off --output DP-1 --auto --rotate left'
 
 
 # 2-core i5
@@ -636,6 +636,8 @@ alias htopp='htop --sort-key PERCENT_CPU'
 alias print_scales='cd ~/r/music_theory_quiz && bundle exec ruby shuffler.rb 34 | lp -o page-left=95 -o cpi=8 -o page-top=95 -o lpi=4'
 alias print_ansible='cat ~/r/ansible-presentation/TUTORIAL.md | lp -o page-left=50 -o cpi=10 -o page-top=50 -o lpi=6'
 alias print_ansible_test='cat ~/r/ansible-presentation/TUTORIAL.md | lp -o page-left=50 -o cpi=10 -o page-top=50 -o lpi=8 -P "1"'
+alias print_live_event_prep='cat ~/r/arscca/doc/event_prep.md | lp -o page-left=40 -o cpi=10 -o page-top=40 -o lpi=6'
+alias print_live_event_prep2='cat ~/r/arscca/doc/event_prep.md | lp -o page-left=30 -o cpi=10 -o page-top=30 -o lpi=6'
 alias gn='cd ~/downloads && mv billing--2018* billing.txt && gnumeric billing.txt'
 alias htop_copy='mkdir -p /tmp/htop && cd /tmp/htop && rsync -av -e "ssh -i ~/.ssh/bip-a.pem" $production:/opt/elitecarerails/tmp/htop_snapshots/* .'
 alias rs='cd ~/r/rubinius'
@@ -685,7 +687,7 @@ alias wh='cd ~/r/whaletail'
 
 alias shop='vi ~/r/shop/items.txt && ~/r/shop/bin/publish.sh'
 
-alias profit='xhost +local:profit && sudo -H -u profit /usr/bin/firefox & exit'
+alias profit='xhost +local:profit && sudo -H -u profit /usr/bin/firefox fnbank.net & exit'
 alias bserve='cd ~/r/blog && rm -rf _site && bundle exec jekyll serve'
 
 alias docs='make html SPHINXBUILD=../env/bin/sphinx-build'
@@ -703,7 +705,7 @@ alias mona='cd ~/r/price-monitor'
 alias mon='cd ~/r/price-monitor/simpletire'
 alias pyr='vi /home/jd/r/pyramid-presentation/presentation.md'
 
-alias pi1='echo password barks; ssh -A pi@96.65.199.134'
+alias pi1='echo password barks;echo Larch on Ethernet; ssh -A pi@96.65.199.134'
 alias pitest='echo password barks; ssh -A pi@10.0.0.4'
 alias bl='cd ~/r/bluetooth-suite'
 
@@ -716,10 +718,18 @@ alias done='ogg123 ~/.utils/sounds/tibetan-bowl.ogg'
 
 alias export_db_price_monitor="sudo -u postgres pg_dump -f /tmp/price_monitor.sql price_monitor && cp /tmp/price_monitor.sql ~/.archive/price-monitor-`date +'%Y-%m-%dT%H:%M:%S'`.sql"
 
-alias win="rdesktop -K -u Administrator -p 'ApgP9e4Slu;G.FSQ6.rkDVvZPq@@NHGS' -g workarea ec2-3-18-246-56.us-east-2.compute.amazonaws.com"
+# old passwordalias win="echo 'Only accessible from vpn IP';rdesktop -K -u Administrator -p 'ApgP9e4Slu;G.FSQ6.rkDVvZPq@@NHGS' -g workarea ec2-3-18-246-56.us-east-2.compute.amazonaws.com"
+# old password: ApgP7e4Blu;G.FsQ6.r5DVv@ZPq@NHGS
+# new password: Busters86@Cafe
+alias win="echo 'Only accessible from vpn IP';rdesktop -K -u Administrator -p 'Busters86@Cafe' -g workarea ec2-3-18-246-56.us-east-2.compute.amazonaws.com"
+alias assetto_redis="echo 'Only accessible from vpn IP';ssh -i ~/.ssh/assetto-ohio.pem ubuntu@18.223.132.78"
+
+#alias curotek="rdesktop -K -u 'elitecare\Administrator' -p 'NeedforSp33d!' -g workarea 96.65.199.129:3391"
+# If the Win7 box goes down, ask Andrew to restart it
+alias curotek="echo 'Use PUTTY to access curotek box from here\n192.168.13.13 user: jack pass: rackspace OR user:root port: 22 password: the old catfood password \n If Win7 machine hangs, turn it off, turn it back on, and get Andrew to log in to it locally '; rdesktop -K -u 'elitecare\Administrator' -p 'NeedforSp33d!' -g workarea 96.65.199.129:3391"
 
 
-# price-monitor (Hosted on BIP AWS account, but in Northern California)
+# price-monitor (Hosted on BIP AWS account, but in Northern California) (simpletire)
 pm=54.183.123.61
 alias pm="ssh -A -i ~/.ssh/bip-django.pem ubuntu@$pm"
 
@@ -729,3 +739,29 @@ alias mm='PAGER=less DJANGO_SETTINGS_MODULE=monitor.settings_development env/bin
 # Stethoscope
 pserve='TZ=America/Los_Angeles env/bin/pserve development.ini'
 alias pserve="echo $pserve && $pserve"
+
+# elasticsearch.elitecare.com
+ES=elasticsearch.elitecare.com
+alias ES="ssh -i ~/.ssh/bip-a.pem ubuntu@$ES"
+
+
+alias recordmydesktop='recordmydesktop --on-the-fly-encoding'
+
+export PYTHONPATH=.
+
+# Not yet on an elastic IP
+# in ohio
+myjre=18.221.255.140
+alias myjre="echo $myjre:8080; ssh -i ~/.ssh/assetto-ohio.pem ubuntu@$myjre"
+
+alias pdf='cd ~/r/arscca-pdf'
+alias int='vi ~/.secret/intuition.txt'
+alias au='cd ~/r/bip-audit-code-sample'
+
+alias elitecare-web='ssh -i ~/.ssh/lightsail.pem ubuntu@elitecare.com'
+
+alias joomla='ssh -i ~/.ssh/bip-joomla.pem ubuntu@18.237.15.252'
+
+maria='ubuntu@54.149.58.139'
+alias maria="ssh -i ~/.ssh/bip-a.pem $maria"
+# ssh -i ~/.ssh/bip-a.pem ubuntu@54.149.58.139

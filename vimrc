@@ -1,3 +1,6 @@
+
+
+"
 set encoding=utf-8
 set nocompatible
 set expandtab
@@ -21,6 +24,9 @@ autocmd FileType golang     set autoindent shiftwidth=2 softtabstop=2
 "Interpret .md as markdown so apostrophes do not show up as a start of string
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.jinja2 set filetype=html
+
+"Interpret .slim as slim
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
 
 
@@ -153,3 +159,15 @@ augroup encrypted
   autocmd BufWritePost,FileWritePost *.gpg u
 augroup END
 
+
+
+" Slim see https://github.com/slim-template/vim-slim
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'slim-template/vim-slim.git'
+
+call vundle#end()
+syntax enable
+filetype plugin indent on
