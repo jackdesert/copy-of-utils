@@ -45,18 +45,18 @@ alias toneuro='vi ~/.secret/health/02_appt_with_dr_natasha_hameed_neuro.md'
 alias tor='vi ~/.secret/recurring_expenses.md'
 alias tom=' vi ~/.secret/todo-mine.gpg'
 alias toi=' vi ~/.secret/todo-mine'
-alias ap='vi ~/r/bip-job-applicants.md'
-alias dai='vi ~/r/elitecarerails/doc/address-with-dain.md'
-alias ru='vi ~/r/wiki/content/russian/vocabulary.md'
-alias muh='vi    ~/r/wiki/content/russian/poems/muha*txt'
-alias muhe='view ~/r/wiki/content/russian/poems/muha*txt'
-alias ruc='vi ~/r/wiki/content/russian/characters.md'
+alias ap='vi ~/p/bip-job-applicants.md'
+alias dai='vi ~/p/elitecarerails/doc/address-with-dain.md'
+alias ru='vi ~/p/wiki/content/russian/vocabulary.md'
+alias muh='vi    ~/p/wiki/content/russian/poems/muha*txt'
+alias muhe='view ~/p/wiki/content/russian/poems/muha*txt'
+alias ruc='vi ~/p/wiki/content/russian/characters.md'
 alias deploy_to='rsync -avr ~/.secret/todo.md $jj:webapps/todo/index.txt'
-alias z='vi ~/r/elitecarerails/doc/zazu_issues.md'
+alias z='vi ~/p/elitecarerails/doc/zazu_issues.md'
 #alias rs='USING_SERVER=true bundle exec rails server -b 0.0.0.0'
 alias tomato='ssh root@192.168.2.1'
-alias co='cd ~/r/color'
-alias ark='vi ~/r/jobs/arkansas_employers.md'
+alias co='cd ~/p/color'
+alias ark='vi ~/p/jobs/arkansas_employers.md'
 
 # Note when using the "thin" invocation, you must tail the logs if you want to see them
 # (they don't automatically show up in the console where you started thin)
@@ -72,7 +72,7 @@ alias rsipublic_on_3456='bundle exec rails server -b 0.0.0.0 -p 3456'
 alias rssproduction="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=production bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000"
 alias rss_puma_production_single='bundle exec puma -w 1 -b "ssl://0.0.0.0:3000?key=/home/jd/.ssh/elitecare/server.key&cert=/home/jd/.ssh/elitecare/server.crt" -e production'
 alias rssstaging="RAILS_SERVE_STATIC_FILES=1 RAILS_ENV=staging bundle exec thin start --ssl --ssl-key-file ~/.ssh/elitecare/server.key --ssl-cert-file ~/.ssh/elitecare/server.crt -a 0.0.0.0 -p 3000"
-alias assets='cd ~/r/elitecarerails && rm -rf tmp/cache/ && rm -rf public/assets/ && RAILS_ENV=production be rake assets:precompile'
+alias assets='cd ~/p/elitecarerails && rm -rf tmp/cache/ && rm -rf public/assets/ && RAILS_ENV=production be rake assets:precompile'
 
 
 # alias rsi='echo "to enable logging, use rails server instead of thin start";ALLOW_NON_SSL=1 bundle exec thin start -a 0.0.0.0 -p 3000'
@@ -80,23 +80,23 @@ alias rsi='ALLOW_NON_SSL=1 bundle exec rails server -b 0.0.0.0 -p 5000'
 alias rsiproduction='ALLOW_NON_SSL=1 RAILS_ENV=production bundle exec rails server -b 0.0.0.0 -p 5000'
 alias rsi2='bundle exec rails server -b 0.0.0.0 -p 5000'
 
-alias db='cd ~/r/elitecarerails && PAGER=less bundle exec rails dbconsole -p'
+alias db='cd ~/p/elitecarerails && PAGER=less bundle exec rails dbconsole -p'
 alias dbo='sudo -u postgres psql bip_olap_development'
 
 alias uni='PORT=5000 bundle exec unicorn -c config/unicorns/default.rb -p 5000'
 alias sin='bundle exec rerun -b "ruby app.rb"'
 #alias cl='cd ~/r/sinatra_scraper'
 alias cl='cd ~/cl'
-alias wi='cd ~/r/wiki/content'
-alias py='cd ~/r/wiki/content/python'
+alias wi='cd ~/p/wiki/content'
+alias py='cd ~/p/wiki/content/python'
 alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
 alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake db:migrate:redo'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
-alias p='cd ~/r/poetry'
-alias da='cd ~/r/dancer'
-alias sho='cd ~/r/shoelaces'
-alias he='cd ~/r/healing'
-alias rn='vi ~/r/elitecarerails/doc/person-data-to-rename.rb'
+alias p='cd ~/p/poetry'
+alias da='cd ~/p/dancer'
+alias sho='cd ~/p/shoelaces'
+alias he='cd ~/p/healing'
+alias rn='vi ~/p/elitecarerails/doc/person-data-to-rename.rb'
 
 
 
@@ -111,17 +111,14 @@ alias tags='git show-ref --tags'
 alias housecleaning='git branch --merge | grep -v master | xargs git branch -d'
 
 # Sass
-alias sassw='cd ~/r/freecinc && bundle exec sass --watch ~/r/freecinc/public/sass:/vagrant/r/freecinc/public'
+alias sassw='cd ~/p/freecinc && bundle exec sass --watch ~/p/freecinc/public/sass:/vagrant/p/freecinc/public'
 
 # freecinc_rackup
 alias ru_freecinc='bundle exec rackup config-freecinc.ru -p 9952'
 
 # rerun
-alias re='cd ~/r/freecinc && bundle exec rerun freecinc.rb -i *.css -i *.sass --background'
+alias re='cd ~/p/freecinc && bundle exec rerun freecinc.rb -i *.css -i *.sass --background'
 
-# Rackspace
-alias rackdev='ssh -A dev@209.20.74.96'
-rack='dev@209.20.74.96'
 
 # Digital Ocean
 DO_IP='162.243.156.90'
@@ -142,30 +139,12 @@ alias fr='cd ~/gopath/src/freecinc'
 alias mg='cd ~/gopath/src/github.com/jackdesert/memgo'
 
 # Conversation Timer
-alias rcc='cd ~/r/relationship_chess_clock'
+alias rcc='cd ~/p/relationship_chess_clock'
 
 # Private IP Addresses
 
 
 
-# MAC Addresses
-nickel_wifi_mac='00:16:EB:11:78:06'
-
-# Local SSH Aliases
-alias nickel='ssh -A jd@$nickel'
-
-# Remote SSH Aliases
-alias rnickel='ssh -A jd@$router -p 24'
-
-# Remote ENV VARS (for scp) (Note capital 'P')
-rnickel='-P 24 jd@$router'
-
-alias wake_nickel='sudo etherwake -i wlan0 $nickel_wifi_mac'
-#alias push='gem build breadnbutter.gemspec && gem install breadnbutter-0.0.1.gem'
-#alias ff='find -iname'
-#alias hint='grunt jshint'
-#alias turn_on_ssh_agent='eval $(ssh-agent)'
-#alias remember='eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa'
 
 # Vagrant
 alias vs='vagrant ssh -- -A'
@@ -220,7 +199,7 @@ alias sb='source ~/.bashrc'
 jj='jackdesert@jackdesert.webfactional.com'
 gg='git@github.com:jackdesert'
 jjr='jackdesert@jackdesert.webfactional.com:webapps/all_git/repos'
-alias blog='cd ~/r/blog'
+alias blog='cd ~/p/blog'
 alias startpostgres='sudo -u postgres /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &'
 
 # Sup uses the system ruby, so there's a folder where rbenv is set to use system ruby locally
@@ -251,19 +230,6 @@ alias ff='find . | grep'
 
 
 
-# Mount Apple File Protocol Shares
-# Example:
-#   apple technology
-#alias apple='ruby ~/.utils/applemount.rb'
-#alias applec='gvfs-mount afp://jack@10.1.10.10/Creative/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative/'
-#alias applet='gvfs-mount afp://jack@10.1.10.10/Technology/ && cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Technology/'
-#alias appleu='gvfs-mount -e'  # unmounts all
-#alias applego='cd /run/user/jd/gvfs/afp-volume:host=10.1.10.10,user=jack,volume=Creative'
-#alias applego='cd Juniper/_New\ Network\ Innovators\ \(2012\)/JUN12351\ Campus\ -\ Simply\ connected\ Tool/Photoshop/'
-
-# Enable Palm Detection
-#synclient PalmDetect=1
-
 # Set keyboard map since Ubuntu loses it after suspend
 #setxkbmap 'us(altgr-intl)'
 
@@ -281,18 +247,6 @@ alias scr='screen -D -R jack'
 alias scrc='screen -D -R jack_server'
 alias irc="ssh $rack 'screen -D -R irc'"
 
-alias jl='cd ~/r/jacklisted'
-alias dl='cd ~/r/daily_lager'
-alias th='cd ~/r/freecinc'
-alias day='cd ~/r/day'
-alias gui='cd ~/cl/gui'
-alias luc='cd ~/cl/lucinda'
-# JAVA
-#export JAVA_HOME=/usr
-#export CLASSPATH='.:/home/vagrant/j/class_files/algs4_files/:/home/vagrant/j/class_files/stdlib/:/home/vagrant/j/class_files/testng/:/home/vagrant/j/class_files/jcommander/src/main/java/com/beust/jcommander:/home/vagrant/j/class_files/junit'
-
-#TEMP
-alias fstop='pkill -f unicorn ; pkill -f zookeeper ; pkill -f mailcatcher ; pkill -f ruby; sudo service mysql start'
 
 alias gu='echo use with caution; git fetch origin && git rebase origin/master'
 # Coworkers' aliases
@@ -325,47 +279,31 @@ alias nt='cd $GOPATH/src/github.com/cloudability/night-train'
 alias brn='cd $GOPATH/src/github.com/cloudability/burnside'
 alias fc='cd $GOPATH/src/github.com/jackdesert/freecinc'
 alias ca='cd $GOPATH/src/github.com/jackdesert/whichfriday'
-alias tra='cd ~/r/transparency'
 
-# TaskWarrior
-#alias t='task -private'
-export TASKDDATA=~/taskddata
 
-# Jazz
-alias ireal='cd ~/r/ireal'
 
 alias start_babel='babel --watch jsx/ --out-dir static/'
 
 # EliteCare
-alias el='cd ~/r/elitecarerails'
-alias st='cd ~/r/stethoscope/stethoscope'
-alias sta='cd ~/r/stethoscope'
+alias el='cd ~/p/elitecarerails'
+alias st='cd ~/p/stethoscope/stethoscope'
+alias sta='cd ~/p/stethoscope'
 
 
-alias dr='cd ~/r/drive/drive'
-alias dra='cd ~/r/drive'
+alias dr='cd ~/p/drive/drive'
+alias dra='cd ~/p/drive'
 
-alias an='cd ~/r/elitecare-android/rest-android/app/src/main/java/org/biptech/rest'
-alias and='vi ~/r/elitecare-android/rest-android/app/src/main/java/org/biptech/rest/network/ServerApi.java'
+alias an='cd ~/p/elitecare-android/rest-android/app/src/main/java/org/biptech/rest'
+alias and='vi ~/p/elitecare-android/rest-android/app/src/main/java/org/biptech/rest/network/ServerApi.java'
 alias f='cd ~/elitecare/elitecarerails/app/views/family_members/feed'
 alias ad='view ~/elitecare/company_notes/advocate.md'
 alias ade='vi  ~/elitecare/company_notes/advocate.md'
-alias q='cd ~/r/music_theory_quiz && bundle exec ruby play.rb'
+alias q='cd ~/p/music_theory_quiz && bundle exec ruby play.rb'
 alias qe='vi  ~/elitecare/company_notes/questions.md'
-alias e='cd ~/r/autocross-panes'
+alias e='cd ~/p/autocross-panes'
 
 
 
-
-# Public IP Address using dynamic dns
-# https://71.59.147.69:6001
-router='jackdesert.no-ip.biz'
-alias myip='nslookup jackdesert.no-ip.biz'
-alias router_address='echo "jackdesert.no-ip.biz:6001"'
-
-# Raspberry Pi on home network
-mypih=pi@192.168.1.95
-alias mypih='ssh -A $mypih'
 
 # Raspberry Pi at office
 #mypi=pi@172.16.74.15
@@ -381,11 +319,6 @@ alias staging="ssh -A -i ~/.ssh/bip-a.pem $staging"
 stagclone='ubuntu@35.160.58.210'
 alias stagclone="ssh -A -i ~/.ssh/bip-a.pem $stagclone"
 
-# Moscow, Russia Server
-veesp='77.73.67.86'
-veesp_scp='jd@[2a00:1838:37:f0::e47d]'
-# Not using agent forwarding because more secure
-alias veesp="ssh root@$veesp"
 # Proxy so that ivi.ru thinks I'm in Russia
 # Note this requires SOCKS proxy to be enabled
 # by adding localhost:5678 in SOCKS_HOST
@@ -399,9 +332,6 @@ alias staging="ssh  -i ~/.ssh/bip-a.pem -A $staging"
 network_tester='ubuntu@34.216.80.139'
 alias network_tester="ssh  -i ~/.ssh/bip-a.pem -A $network_tester"
 
-
-stagingmicro='ubuntu@54.69.247.181'
-alias stagingmicro="ssh -vvv  -i ~/.ssh/bip-a.pem -A $stagingmicro"
 
 cascade='ubuntu@cascade.elitecare.com'
 alias cascade="ssh -i ~/.ssh/bip-a.pem -A $cascade"
@@ -423,7 +353,7 @@ alias download_db_yesterday="scp -i ~/.ssh/bip-a.pem $backups:/backups/oe_produc
 alias import_db_kali="echo 'copying file to /tmp' && cp ~/tmp/backup.sql /tmp/backup.sql && sudo -u postgres /usr/local/pgsql/bin/psql -d bip_development -f /tmp/backup.sql && echo 'remember to Session.fresh_start'"
 alias import_db_kali_yesterday="echo 'copying file to /tmp' && cp ~/tmp/backup-yesterday.sql /tmp/backup-yesterday.sql && sudo -u postgres /usr/local/pgsql/bin/psql -d bip_development -f /tmp/backup-yesterday.sql && echo 'remember to Session.fresh_start'"
 
-alias sq='sqlite3 ~/r/stethoscope/stethoscope.sqlite'
+alias sq='sqlite3 ~/p/stethoscope/stethoscope.sqlite'
 
 # maintain three logins to oe server
 # first is for обычное use
@@ -440,13 +370,6 @@ alias production="ssh -i ~/.ssh/bip-a.pem -A $production"
 
 demo='ubuntu@52.41.174.145'
 alias demo="ssh -i ~/.ssh/bip-a.pem -A $demo"
-
-production_old='ubuntu@96.65.199.133'
-alias production_old="ssh -A $production_old"
-
-
-steth1='ubuntu@54.191.253.67'
-alias steth1="ssh -i ~/.ssh/bip-a.pem -A $steth1"
 
 steth='ubuntu@35.164.167.43'
 alias steth="ssh -i ~/.ssh/bip-a.pem -A $steth"
@@ -468,23 +391,6 @@ alias rbx16="ssh -i ~/.ssh/bip-a.pem -A $rbx16"
 
 
 
-#alias nagios_box='ssh administrator@192.168.13.14'
-nagios_box='jack@192.168.13.14'
-alias nagios_box='ssh -A $nagios_box'
-
-# Second is in case you can't log in to first one
-# (Password required for sudo, and is same as on my laptop.)
-# Second is accessibly by either of two public keys:
-# either jack's normal key (jd@u)
-# or the auxiliary key, which is disposable and used only
-# for this so if he has to send it to somebody
-# as a rescue key, he can. Key stored in ~/.ssh/bip_auxiliary_for_jdbip
-# Password for key is "fiarplace" (note misspelling)
-jdbip2='jdbip2@bip.elitecare.com'
-alias b2="ssh -A $jdbip2"
-# Third is the old bipech one
-jdbip_biptech_user='biptech@bip.elitecare.com'
-alias b3="ssh -A $jdbip_biptech_user"
 
 alias sleepytime='sleep 1800 && amixer set Master 0%'
 alias jacku='vi ~/.secret/user_guides/jack.md'
@@ -501,7 +407,6 @@ alias minus='amixer set 'Master' 5%-'
 # Downloads
 alias d='cd ~/downloads'
 alias t='cd ~/tmp'
-alias sk='cd ~/r/skating-master'
 
 
 # Sleep later
@@ -522,7 +427,6 @@ alias sleep100='~/.utils/sleeper.sh 100'
 alias sleep110='~/.utils/sleeper.sh 110'
 alias sleep120='~/.utils/sleeper.sh 120'
 
-alias transparency='vi ~/r/transparency/index.txt'
 
 # Photos
 # I'm not sure which hard drive these were originally backed up to
@@ -549,17 +453,16 @@ alias dayshift='pkill -f redshift'
 alias usb='mount /media/usb'
 alias usbu='echo "syncing"; sync; echo "unmounting";  umount /media/usb'
 
-alias hb=' cd ~/r/heartbeat'
-
 # Sconsify (command-line Spotify player)
 alias sc1='sconsify -username=jackdesert'
 export SCONSIFY_PASSWORD='password'
 
 
 # ARSCCA
-alias sca='cd ~/r/arscca'
-alias sc='cd ~/r/arscca/arscca'
-alias tw='cd ~/r/arscca-twisted'
+alias sca='cd ~/p/arscca'
+alias sc='cd ~/p/arscca/arscca'
+alias scm='cd ~/p/arscca/arscca/models'
+alias tw='cd ~/p/arscca-twisted'
 export ARSCCA_TWISTED_SLACK_HOOK='https://hooks.slack.com/services/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'
 #export ARSCCA_SLACK_HOOK='https://hooks.slack.com/services/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'
 
@@ -613,24 +516,11 @@ alias susp='slock  & sleep 1 && echo mem | sudo tee /sys/power/state'
 alias lock='slock'
 
 
-alias art='vi ~/r/wiki/content/graphic_design/color.md'
-alias artt='vi ~/r/wiki/content/graphic_design/color-tech.md'
-alias net='sudo systemctl restart network-manager.service && echo Restarted network-manager'
-
 alias tt='bundle exec ruby -I test'
-
-alias courtney='vi /home/jd/.secret/letters/okc/courtney'
-alias julia='vi /home/jd/.secret/letters/okc/julia'
-
-alias bird='thunderbird -P jdtzn'
-alias msg='cat ~/r/elitecarerails/doc/api/amazon-iot.md'
 
 # Set the name of the default printer so you can print from command line using `lp <file>`
 # without needing to specify "-d <printer>"
 export LPDEST=hp-envy
-
-alias htopm='htop --sort-key PERCENT_MEM'
-alias htopp='htop --sort-key PERCENT_CPU'
 
 # Temporary Aliases
 alias print_scales='cd ~/r/music_theory_quiz && bundle exec ruby shuffler.rb 34 | lp -o page-left=95 -o cpi=8 -o page-top=95 -o lpi=4'
@@ -640,40 +530,16 @@ alias print_live_event_prep='cat ~/r/arscca/doc/event_prep.md | lp -o page-left=
 alias print_live_event_prep2='cat ~/r/arscca/doc/event_prep.md | lp -o page-left=30 -o cpi=10 -o page-top=30 -o lpi=6'
 alias gn='cd ~/downloads && mv billing--2018* billing.txt && gnumeric billing.txt'
 alias htop_copy='mkdir -p /tmp/htop && cd /tmp/htop && rsync -av -e "ssh -i ~/.ssh/bip-a.pem" $production:/opt/elitecarerails/tmp/htop_snapshots/* .'
-alias rs='cd ~/r/rubinius'
-alias rb='cd ~/r/rubinius-book/manuscript'
-alias netflix=~/.firefox-esr/firefox
-
-spot='ubuntu@52.37.237.120'
-alias spot='ssh -A -i ~/.ssh/bip-a.pem $spot'
-
-spot2='ubuntu@52.12.249.108'
-alias spot2='ssh -A -i ~/.ssh/bip-a.pem $spot2'
 
 
-alias rbundle='~/.rbenv/versions/rbx-3.100-from-ubuntu-14.04/gems/bin/bundle'
-alias rbe='~/.rbenv/versions/rbx-3.100-from-ubuntu-14.04/gems/bin/bundle exec'
-
-alias fire='/home/jd/r/stethoscope/tools/throw_test_data.sh'
-alias fire_production='/home/jd/r/stethoscope/tools/production_throw_test_data.sh'
+alias fire='/home/jd/p/stethoscope/tools/throw_test_data.sh'
+alias fire_production='/home/jd/p/stethoscope/tools/production_throw_test_data.sh'
 
 # Memory Dumps
 alias pull_memory="rm -rf /tmp/memory_dumps && mkdir /tmp/memory_dumps && scp -i ~/.ssh/bip-a.pem $production:/opt/elitecarerails/memory_dump_for_pid_* /tmp/memory_dumps"
 
 
 
-# Production Load Testing
-vv='ubuntu@54.200.117.168'
-alias vv="ssh -A -i ~/.ssh/bip-a.pem $vv"
-
-# GPU
-gp='ubuntu@34.209.62.38'
-alias gp="ssh -A -i ~/.ssh/bip-a.pem $gp"
-
-# Xulu
-xu=jd@192.168.2.127
-alias xu='ssh -A $xu'
-alias wake='wakeonlan -i 192.168.2.255 4c:cc:6a:f4:ad:fe'
 
 # PRINTING
 # To print, pipe content to `lp`
@@ -754,14 +620,5 @@ export PYTHONPATH=.
 myjre=18.221.255.140
 alias myjre="echo $myjre:8080; ssh -i ~/.ssh/assetto-ohio.pem ubuntu@$myjre"
 
-alias pdf='cd ~/r/arscca-pdf'
-alias int='vi ~/.secret/intuition.txt'
-alias au='cd ~/r/bip-audit-code-sample'
-
 alias elitecare-web='ssh -i ~/.ssh/lightsail.pem ubuntu@elitecare.com'
 
-alias joomla='ssh -i ~/.ssh/bip-joomla.pem ubuntu@18.237.15.252'
-
-maria='ubuntu@54.149.58.139'
-alias maria="ssh -i ~/.ssh/bip-a.pem $maria"
-# ssh -i ~/.ssh/bip-a.pem ubuntu@54.149.58.139
