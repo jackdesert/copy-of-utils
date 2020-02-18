@@ -17,6 +17,8 @@ source ~/.utils/on_resume.sh
 alias enable-caps='xmodmap -e "keycode 0x42 = Caps_Lock"'
 
 
+# This was called "done" but that broke bash autocompletion
+alias beep='ogg123 ~/.utils/sounds/tibetan-bowl.ogg'
 
 
 # Manually tell Xfce to use capslock as escape
@@ -563,9 +565,6 @@ alias docs='make html SPHINXBUILD=../env/bin/sphinx-build'
 #alias seiu="ssh -A $seiu"
 
 
-seiu=ubuntu@54.245.216.219
-alias seiu="ssh -A $seiu"
-
 
 alias mona='cd ~/r/price-monitor'
 alias mon='cd ~/r/price-monitor/simpletire'
@@ -575,12 +574,9 @@ alias pi1='echo password barks;echo Larch on Ethernet; ssh -A pi@96.65.199.134'
 alias pitest='echo password barks; ssh -A pi@10.0.0.4'
 alias bl='cd ~/r/bluetooth-suite'
 
-dock='ubuntu@54.213.252.218'
-alias dock='ssh -i ~/.ssh/bip-a.pem -A $dock'
 alias bl='cd ~/r/bluetooth-suite'
 
 
-alias done='ogg123 ~/.utils/sounds/tibetan-bowl.ogg'
 
 alias export_db_price_monitor="sudo -u postgres pg_dump -f /tmp/price_monitor.sql price_monitor && cp /tmp/price_monitor.sql ~/.archive/price-monitor-`date +'%Y-%m-%dT%H:%M:%S'`.sql"
 
@@ -593,11 +589,6 @@ alias assetto_redis="echo 'Only accessible from vpn IP';ssh -i ~/.ssh/assetto-oh
 #alias curotek="rdesktop -K -u 'elitecare\Administrator' -p 'NeedforSp33d!' -g workarea 96.65.199.129:3391"
 # If the Win7 box goes down, ask Andrew to restart it
 alias curotek="echo 'Use PUTTY to access curotek box from here\n192.168.13.13 user: jack pass: rackspace OR user:root port: 22 password: the old catfood password \n If Win7 machine hangs, turn it off, turn it back on, and get Andrew to log in to it locally '; rdesktop -K -u 'elitecare\Administrator' -p 'NeedforSp33d!' -g workarea 96.65.199.129:3391"
-
-
-# price-monitor (Hosted on BIP AWS account, but in Northern California) (simpletire)
-pm=54.183.123.61
-alias pm="ssh -A -i ~/.ssh/bip-django.pem ubuntu@$pm"
 
 
 alias mm='PAGER=less DJANGO_SETTINGS_MODULE=monitor.settings_development env/bin/python manage.py'
