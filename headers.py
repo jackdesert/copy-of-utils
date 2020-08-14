@@ -19,9 +19,24 @@ parser.add_argument(
 
 args = parser.parse_args()
 
+COMMA = ','
+TAB = '\t'
+PIPE = '|'
+delimiter = COMMA
+
+with open(args.filename) as ff:
+    line = ff.readline()
+    if TAB in line:
+        delimiter = TAB
+    elif COMMA in line:
+        delimiter = COMMA
+    elif PIPE in line:
+        delimiter = PIPE
+    else:
+        raise NotImplementedError('This type of delimiter is not yet supported')
 
 with open(args.filename, newline='') as csvfile:
-    reader = csv.reader(csvfile, delimiter='\t', quotechar='|')
+    reader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
     for row in reader:
         headers = row
         break
