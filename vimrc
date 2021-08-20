@@ -18,6 +18,7 @@ autocmd FileType html       set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType haml       set autoindent shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType sass       set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType ruby,css   set autoindent shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType java       set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType golang     set autoindent shiftwidth=2 softtabstop=2
 "autocmd FileType ruby,sass set autoindent shiftwidth=4 softtabstop=4 expandtab
 
@@ -167,7 +168,15 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'slim-template/vim-slim.git'
+Plugin 'https://github.com/psf/black.git'
+Plugin 'codota/tabnine-vim'
+autocmd BufWritePre *.py execute ':Black'
 
 call vundle#end()
 syntax enable
 filetype plugin indent on
+
+" Macro to insert REPL
+let @2='ifrom ptpython.repl import embed;embed(globals(), locals());1'
+let @3='ifrom ptpython.entry_points.run_ptpython import run;run()'
+
