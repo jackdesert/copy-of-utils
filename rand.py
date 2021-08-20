@@ -1,5 +1,16 @@
 """
 Builds a `pytest` incantation based on a downloaded log from a bitbucket pipeline
+
+
+Setup:
+
+    alias rand='python3 ~/.utils/rand.py'
+
+Usage:
+
+    cd ~/downloads
+    rm *txt
+    rand
 """
 
 import sys
@@ -29,8 +40,9 @@ class Rand:
 
     def _locate_file(self):
         fnames = glob(self.FNAME_GLOB)
-        if len(fnames) > 1:
-            print("ERROR: More than one log file")
+        count = len(fnames)
+        if count != 1:
+            print(f"ERROR: Expected 1 log file, but got {count}")
             sys.exit()
         return fnames[0]
 
