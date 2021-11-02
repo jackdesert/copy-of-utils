@@ -25,7 +25,9 @@ class Rand:
     FNAME_GLOB = "pipeline*.txt"
 
     BUCKET_REGEX = re.compile(r"Using (--random-order-bucket=[a-z]+)")
-    SEED_REGEX = re.compile(r"Using (--random-order-seed=\d+)")
+
+    # Git sha is being used as seed
+    SEED_REGEX = re.compile(r"Using (--random-order-seed=[0-9a-f]+)")
 
     __slots__ = (
         "_bucket",
