@@ -159,24 +159,10 @@ augroup END
 
 
 
-" Slim see https://github.com/slim-template/vim-slim
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'https://github.com/psf/black.git'
-Plugin 'codota/tabnine-vim'
-"autocmd BufWritePre *.py execute ':Black'
-
-call vundle#end()
 syntax enable
 filetype plugin indent on
 
 " Macro to insert REPL
-" (SHIFT @ 2) (meaning release shift halfway through)
-" ESCAPE is ^[
-let @2='oimport ipdb; ipdb.set_trace();1^['
-"let @2='ifrom ptpython.repl import embed;embed(globals(), locals());1'
-"let @3='ifrom ptpython.entry_points.run_ptpython import run;run()'
+let @2='ifrom ptpython.repl import embed;embed(globals(), locals());1'
+let @3='ifrom ptpython.entry_points.run_ptpython import run;run()'
 

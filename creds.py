@@ -9,10 +9,14 @@ import re
 
 class Creds:
 
-    SPACE = ' '
+    SPACES = '    '
     LEADING_SPACE_REGEX = re.compile(r'\A ')
     FILENAME = pathlib.Path.home().joinpath('.aws', 'credentials')
-    BASE_LINE = ' export HISTCONTROL=ignorespace'
+    INTRO_LINE = f'{SPACES}# Paste these into terminal to access AWS'
+    BASE_LINE = f'{SPACES}export HISTCONTROL=ignorespace'
+    BLANK_LINE = SPACES
+    COPY_LINE = f'{SPACES}sudo cp /root/.docker/config.json ~/.docker/config.json'
+    OWNER_LINE = f'{SPACES}sudo chown jack.desert:jack.desert ~/.docker/config.json'
     OUTPUT = []
     SPLITTER = '[default]'
     KEYS_OF_INTEREST = (
@@ -40,21 +44,28 @@ class Creds:
         if match is None:
             raise ValueError(f'content does not match regex for {key}')
         value = match.groups()[0]
-        line = f'{self.SPACE} {key}={value}'
+        line = f'{self.SPACES}export {key.upper()}={value}'
         return line
 
     def print(self):
         lines = []
+        lines.append(self.INTRO_LINE)
+        lines.append(self.BLANK_LINE)
         lines.append(self.BASE_LINE)
 
         for key in self.KEYS_OF_INTEREST:
             lines.append(self._line_from_key(key))
 
+        lines.append(self.COPY_LINE)
+        lines.append(self.OWNER_LINE)
+
         for line in lines:
             if not self.LEADING_SPACE_REGEX.match(line):
                 raise ValueError(f'Line "{line}" must have a leading space')
-        for line in lines:
-            print(line)
+
+        output = '\n'.join(lines)
+        output = f'\n\n{output}\n\n'
+        print(output)
 
 
 if __name__ == '__main__':
