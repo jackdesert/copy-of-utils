@@ -9,7 +9,7 @@ set tabstop=2
 syntax enable
 "set number
 set autoindent
-set foldmethod=syntax
+set foldmethod=indent
 set shiftwidth=2
 filetype plugin indent on
 autocmd FileType javascript set autoindent shiftwidth=4 softtabstop=4 expandtab
@@ -95,6 +95,8 @@ autocmd BufLeave,FocusLost * wall
 " also not working:
 " nmap <silent> <F2> :execute 'NERDTreeToggle ' . getcwd()<CR>
 "
+
+" Save file with either semicolon or colon
 nnoremap ; :
 
 " Leader
@@ -162,13 +164,16 @@ augroup END
 " Slim see https://github.com/slim-template/vim-slim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" NOTE You must run :PluginInstall from inside vim to actually install these
+" vundle plugins
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'https://github.com/psf/black.git'
-Plugin 'codota/tabnine-vim'
+"Plugin 'slim-template/vim-slim.git'
+"Plugin 'https://github.com/psf/black.git'
+"Plugin 'codota/tabnine-vim'
 "autocmd BufWritePre *.py execute ':Black'
 
+Plugin 'dense-analysis/ale'
 call vundle#end()
 syntax enable
 filetype plugin indent on
@@ -179,4 +184,34 @@ filetype plugin indent on
 let @2='oimport ipdb; ipdb.set_trace();1^['
 "let @2='ifrom ptpython.repl import embed;embed(globals(), locals());1'
 "let @3='ifrom ptpython.entry_points.run_ptpython import run;run()'
+
+
+" From Jonathan
+" ALE for Python and Cloud Dev
+"Note ruff tells you if annotations missing, but
+"pyright can also tell you if you are calling function with incorrect type
+let g:ale_linters = {'python': ['ruff', 'pyright']}
+"let g:ale_linter_aliases = {'yaml': ['cloudformation']}
+"let g:ale_fixers = {'python': ['isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace', 'black', 'ruff']}
+let g:ale_fixers = {'python': ['black', 'ruff']}
+" Force ruff to use the config in my home directory (because otherwise it
+" appears to only look in the current directory for config)
+let g:ale_python_ruff_options = '--config ~/pyproject.toml'
+let g:ale_python_pyright_options = '--project ~/pyrightconfig.json'
+let g:ale_fix_on_save = 1
+
+
+" The following: I'm not sure if these are necessary. i got them from Jonathan
+let g:ale_lsp_suggestions = 1
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] [%severity%] %code: %%s'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_virtualtext_cursor=0
+"
+"autocmd VimEnter * highlight ALEVirtualTextError guifg=red
+"
 
