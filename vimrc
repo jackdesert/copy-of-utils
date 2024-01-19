@@ -215,3 +215,7 @@ let g:ale_sign_warning = '⚠'
 "autocmd VimEnter * highlight ALEVirtualTextError guifg=red
 "
 
+
+
+" Tread hyphens like underscores
+set iskeyword+=-
