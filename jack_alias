@@ -31,7 +31,7 @@ alias        CAPS='/usr/bin/setxkbmap -option "caps:none"'
 alias start_postgres='sudo -u postgres /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/postgresql-9.5-main.log start'
 alias stop_postgres='sudo -u postgres /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/postgresql-9.5-main.log stop'
 # Create symlink for source-built postgres
-if [ ! -d /var/run/postgresql ]; then sudo ln -s /tmp /var/run/postgresql; fi
+#if [ ! -d /var/run/postgresql ]; then sudo ln -s /tmp /var/run/postgresql; fi
 
 alias gdiff="GIT_PAGER='' git diff"
 alias be='bundle exec'
@@ -89,16 +89,18 @@ alias uni='PORT=5000 bundle exec unicorn -c config/unicorns/default.rb -p 5000'
 alias sin='bundle exec rerun -b "ruby app.rb"'
 #alias cl='cd ~/r/sinatra_scraper'
 alias cl='cd ~/cl'
-alias wi='cd ~/p/wiki/content'
-alias py='cd ~/p/wiki/content/python'
+alias wi='cd ~/p/wiki'
+alias py='cd ~/p/wiki/python'
 alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
 alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake db:migrate:redo'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
-alias p='cd ~/p/poetry'
+alias p='cd ~/p'
 alias da='cd ~/p/dancer'
 alias sho='cd ~/p/shoelaces'
 alias he='cd ~/p/healing'
 alias rn='vi ~/p/elitecarerails/doc/person-data-to-rename.rb'
+alias eo='pylint --errors-only `git ls-files | grep .py$`'
+alias showme='echo "\`git ls-files | grep .py$\`"'
 
 
 
@@ -164,6 +166,10 @@ alias pass="git commit -am'--placeholder--Tests PASSING'"
 # Space prepend keeps it out of history
 alias acc=' view ~/.secret/accounts'
 alias acce=' vi ~/.secret/accounts'
+
+
+alias fin=' vi ~/.secret/accounts_financial'
+alias fine=' vi ~/.secret/accounts_financial'
 
 alias accc=' view ~/.secret/accounts_cloudability'
 alias accce=' vi ~/.secret/accounts_cloudability'
@@ -287,9 +293,7 @@ alias ca='cd $GOPATH/src/github.com/jackdesert/whichfriday'
 alias start_babel='babel --watch jsx/ --out-dir static/'
 
 # EliteCare
-alias el='cd ~/p/elitecarerails'
-alias st='cd ~/p/stethoscope/stethoscope'
-alias sta='cd ~/p/stethoscope'
+alias st='cd ~/p/mattstohrer'
 
 
 alias dr='cd ~/p/drive/drive'
@@ -386,6 +390,9 @@ alias arscca="ssh -A $arscca"
 tires=172.245.224.126
 alias tires="ssh -A ubuntu@$tires"
 
+raceroot=root@107.173.15.17
+alias raceroot="ssh -A $raceroot"
+alias race="ssh -A ubuntu@107.173.15.17"
 
 rbx16='ubuntu@35.167.137.255'
 alias rbx16="ssh -i ~/.ssh/bip-a.pem -A $rbx16"
@@ -491,25 +498,15 @@ alias astw='offlineimap -c ~/.offlineimaprc-jackdesert && NOTMUCH_CONFIG=~/.notm
 # DisplayPort-2: DVI
 #
 
-# 4-core i7
-alias mon1='xrandr --output LVDS-1 --auto --output DP-3 --off'
-alias mon2='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate left'
-alias mon3='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate normal'
-alias mon5='xrandr --output LVDS-1 --off --output VGA-1 --auto --rotate normal'
-alias mon4='xrandr --output LVDS-1 --auto --output DP-3 --off; echo sleeping 5; sleep 5;xrandr --output LVDS-1  --mode 1366x768  --output DP-3 --mode 1360x768'
+# Note for 4-core-i7, use LVDS-1 instead of LVDS
+# Note the game here is to tell the monitor you want to be used and the monitor you don't to be off
+alias mon1='xrandr --output LVDS --auto --output DisplayPort-2 --off'
+#alias mon2='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate left'
+#alias mon3='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate normal'
+# Note --gamma sets red, green, blue levels (like redshift)
+alias mon2='xrandr --output DisplayPort-2 --brightness 0.7 --gamma 1.0:0.5:0.5 --auto --mode 1920x1080 --output LVDS --off '
 
-alias mon6='xrandr --output LVDS-1 --off --output DP-1 --auto --rotate left'
 
-
-# 2-core i5
-alias mon1p='xrandr --output LVDS --auto --output DisplayPort-2 --off'
-alias mon2p='xrandr --output LVDS --off --output DisplayPort-2 --auto --rotate left'
-alias mon3p='xrandr --output LVDS --off --output DisplayPort-2 --auto --rotate normal'
-
-# Tiny Laptop (core 2 duo)
-#alias mon1='xrandr --output LVDS1 --auto --output HDMI1 --off'
-#alias mon2='xrandr --output LVDS1 --off --output HDMI1 --auto --rotate left'
-#alias mon3='xrandr --output LVDS1 --off --output HDMI1 --auto --rotate normal'
 
 #alias susp='sudo systemctl suspend && echo "                   Got your SUSPENDERS on?"'
 #alias susp='i3lock -u --color=203000  & sleep 1 && echo mem | sudo tee /sys/power/state'
@@ -612,4 +609,79 @@ myjre=18.221.255.140
 alias myjre="echo $myjre:8080; ssh -i ~/.ssh/assetto-ohio.pem ubuntu@$myjre"
 
 alias elitecare-web='ssh -i ~/.ssh/lightsail.pem ubuntu@elitecare.com'
+xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 'libinput Tapping Enabled' 1
 
+alias pushf='git push --force-with-lease --force-if-includes origin HEAD'
+
+# kuyu also has an account, so he can run perforce
+export my=68.183.202.162
+alias my="echo remember to ssh-add;ssh -A jd@$my"
+
+alias sax='ffmpeg -f v4l2 -i /dev/video0'
+
+alias v='cd ~/Videos/osb'
+export P4PORT=ssl:68.183.202.162:1666
+
+alias life='vi ~/.secret/life.log'
+
+echo 'Periodically make sure chromium-browser is set up to discard all cookies and site data when you close'
+echo 'This way you can log in to bank and feel secure'
+
+alias words='less /usr/share/dict/words'
+# Grep for words starting with lowercase B and having five characters
+alias b_words="grep -E '^b[a-z]{1,4}$' /usr/share/dict/words | less "
+alias c_words="grep -E '^c[a-z]{1,4}$' /usr/share/dict/words | less "
+alias d_words="grep -E '^d[a-z]{1,4}$' /usr/share/dict/words | less "
+alias e_words="grep -E '^e[a-z]{1,4}$' /usr/share/dict/words | less "
+
+# D: draft,
+
+
+# bluetooth connections
+export living_room='F0:41:C8:30:2A:BC' # BT HiFi
+export flip5='28:FA:19:90:01:04'
+export soundcore='E8:EE:CC:6F:2A:72'
+# Note connect before disconnecting the other one ensure seamless playback
+# Note using && because if it does not connect, why switch??
+alias bed="bluetoothctl connect $living_room && bluetoothctl disconnect $flip5 && bluetoothctl disconnect $soundcore"
+alias liv="bluetoothctl connect $flip5 && bluetoothctl disconnect $living_room && bluetoothctl disconnect $soundcore"
+alias sou="bluetoothctl connect $soundcore && bluetoothctl disconnect $living_room && bluetoothctl disconnect $flip5"
+alias rs='sudo systemctl restart bluetooth'
+
+# Disconnect_all
+alias disconnect-all="bluetoothctl disconnect $flip5; bluetoothctl disconnect $soundcore; bluetoothctl disconnect $living_room"
+
+alias custom-stylesheet='cd ~/.mozilla/firefox/08lor31i.default-release/chrome'
+alias ac='source env/bin/activate'
+
+export SPOTIFY_CLIENT_ID=8ccfa569a41842f8b573f9d6a52b8cfb
+export SPOTIFY_CLIENT_SECRET=4b76bf62b81040038f091decfb7e45bd
+alias c='cd ~/p/volume && env/bin/python run.py --no-sleep'
+
+# Log changes in health
+alias ch='vi ~/.secret/health/changes/2024.md'
+
+alias s='cd ~/p/wiki/sax'
+
+export PYTHONBREAKPOINT=ipdb.set_trace
+
+export FISHMAN_PASSWORD=s0prano1
+
+
+
+function push_file() {
+    # Deploy to files site
+    if [ $# -ne 1 ]; then
+        echo "\nUsage:\n\n    push_file <filename>"
+        return 1
+    fi
+
+    local filename="$1"
+    BASENAME=`basename $filename`
+
+    scp "$filename" jd@68.183.202.162:/var/www/files/.
+
+    if [ $? -eq 0 ]; then
+        echo "Uploaded to https://files.jackdesert.com/$BASENAME"
+    fi
+}
