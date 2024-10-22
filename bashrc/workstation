@@ -1,3 +1,20 @@
+#################   PROMPT    ###################
+export PS1='@ws \W\$ '
+
+
+
+################  DIRECTORY `ls` DISPLAY  ######
+# Display directories with trailing slash and with color
+# (This is most needed on macOS, but I like it everywhere)
+alias ls='ls -pG --color'
+alias ll='ls -alpG --color'
+
+
+###################   COLORS   ##################
+# See https://geoff.greer.fm/lscolors/
+export LSCOLORS=bxfxcxdxdxegedabagacad
+
+
 #################################################
 # PATHS I EDIT OFTEN
 #################################################
@@ -27,7 +44,9 @@ alias lies=' vi ~/.secret/lies'
 alias don='vi ~/.secret/donations'
 
 alias pp='ps aux | grep '
-alias sb='source ~/.bashrc'
+# Bash and Zsh have different config files
+alias sb='[ -f ~/.bashrc ] && source ~/.bashrc || [ -f ~/.zshrc ] && source ~/.zshrc'
+
 
 alias s='cd ~/p/wiki/sax'
 
@@ -37,10 +56,16 @@ alias s='cd ~/p/wiki/sax'
 alias ac='source env/bin/activate'
 export PYTHONPATH=.
 export PYTHONBREAKPOINT=ipdb.set_trace
+alias eo='echo "pylint --errors-only" && pylint --errors-only `git ls-files | grep \.py$`'
 
 ##############  DEBIAN   ###############
 # Tell apt-get to do as its told
 export DEBIAN_FRONTEND=noninteractive
+
+################  CASE SENSITIVITY  ################
+export PAGER='less -i'
+alias less='less -i'
+
 
 
 #########################################################
@@ -130,15 +155,15 @@ alias bserve='cd ~/r/blog && rm -rf _site && bundle exec jekyll serve'
 
 
 #######################################################################3
-################  DJANGO                           
+################  DJANGO
 #######################################################################
 alias mm='PAGER=less DJANGO_SETTINGS_MODULE=monitor.settings_development env/bin/python manage.py'
 #######################################################################
 
-# Screencast 
+# Screencast
 alias recordmydesktop='recordmydesktop --on-the-fly-encoding'
 
-# 
+#
 
 
 
@@ -203,3 +228,9 @@ function push_file() {
         echo "Uploaded to https://files.jackdesert.com/$BASENAME"
     fi
 }
+
+
+#######################  EMPLOYER  #################################
+export td=git@bitbucket.org:targetsmart_devops
+
+
