@@ -1,20 +1,11 @@
 Utils
 =====
 
-These are linux file system helpers written in ruby
+Config files go in the root directory.
 
-nav.rb
-------
+Scripts and other types of files go in subdirectories
 
-Keyboard shortcuts to get you from wherever you are in your rails directory to someplace cool, like
 
-<pre>
-  app/controllers
-  app/models/
-  app/views
-  app/assets/javascripts
-  RAILS_ROOT
-</pre>
-
-See source code for setup instructions
-
+Make sure that you build a config file that can be used across multiple operating systems.
+Otherwise, keep multiple config files.
+Composition may work well for some types.
