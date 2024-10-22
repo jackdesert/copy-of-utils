@@ -1,0 +1,203 @@
+#################################################
+# PATHS I EDIT OFTEN
+#################################################
+# Space prepend may keep it out of history
+alias acc=' view ~/.secret/accounts'
+alias acce=' vi ~/.secret/accounts'
+
+alias fin=' vi ~/.secret/accounts_financial'
+alias fine=' vi ~/.secret/accounts_financial'
+
+alias accb=' view ~/.secret/accounts_elite_care'
+alias accbe=' vi ~/.secret/accounts_elite_care'
+
+alias acck=' view ~/.secret/accounts_kids'
+alias accke=' vi ~/.secret/accounts_kids'
+
+alias accw=' vi ~/.secret/accounts_upwork'
+
+alias ali=' view ~/.utils/jack_alias'
+alias alie=' vi ~/.utils/jack_alias'
+
+alias accd='  view ~/.secret/disconnected_accounts'
+alias accde=' vi   ~/.secret/disconnected_accounts'
+
+alias lies=' vi ~/.secret/lies'
+
+alias don='vi ~/.secret/donations'
+
+alias pp='ps aux | grep '
+alias sb='source ~/.bashrc'
+
+alias s='cd ~/p/wiki/sax'
+
+
+
+##############   PYTHON   ###############
+alias ac='source env/bin/activate'
+export PYTHONPATH=.
+export PYTHONBREAKPOINT=ipdb.set_trace
+
+##############  DEBIAN   ###############
+# Tell apt-get to do as its told
+export DEBIAN_FRONTEND=noninteractive
+
+
+#########################################################
+# Touchpad
+########################################################
+#alias on='synclient TouchpadOff=0'
+#alias off='synclient TouchpadOff=1'
+
+# Find
+alias ff='find . | grep'
+
+# Screen
+# screen
+alias jack1='screen -D -R jack1'
+alias jack2='screen -D -R jack2'
+alias jack3='screen -D -R jack3'
+alias jack4='screen -D -R jack4'
+alias jack5='screen -D -R jack5'
+
+
+# Coworkers' aliases
+
+# Tell zsh not to autocorrect
+DISABLE_CORRECTION='true'
+
+##############################################################
+############  SERVERS I LOG IN TO  ###########################
+##############################################################
+# arscca, etc
+monitor='ubuntu@54.190.220.179'
+alias monitor="ssh -i ~/.ssh/bip-a.pem -A $monitor"
+arscca='arscca@54.190.220.179'
+alias arscca="ssh -A $arscca"
+
+
+# Toronto
+# kuyu also has an account, so he can run perforce
+export my=jd@68.183.202.162
+alias my="echo remember to ssh-add;ssh -A $my"
+###############################################################
+
+# Volume
+alias plus='amixer set 'Master' 5%+'
+alias minus='amixer set 'Master' 5%-'
+
+# Downloads
+alias d='cd ~/downloads'
+alias t='cd ~/tmp'
+
+# Clipboard
+alias copy_to_clipboard='xclip -sel clip <'
+
+
+# Mount usb
+alias usb='mount /usb'
+alias usbu='echo "syncing"; sync; echo "unmounting";  umount /usb'
+
+# ARSCCA
+alias sca='cd ~/p/arscca'
+alias sc='cd ~/p/arscca/arscca'
+alias scm='cd ~/p/arscca/arscca/models'
+alias tw='cd ~/p/arscca-twisted'
+export ARSCCA_TWISTED_SLACK_HOOK='https://hooks.slack.com/services/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'
+#export ARSCCA_SLACK_HOOK='https://hooks.slack.com/services/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'
+
+# ssh-agent
+alias rk='ssh-add ~/.ssh/id_rsa'
+
+
+#########################################################################
+################  EXTERNAL MONITOR  #####################################
+# Note for 4-core-i7, use LVDS-1 instead of LVDS
+# Note the game here is to tell the monitor you want to be used and the monitor you don't to be off
+alias mon1='xrandr --output LVDS --auto --output DisplayPort-2 --off'
+#alias mon2='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate left'
+#alias mon3='xrandr --output LVDS-1 --off --output DP-3 --auto --rotate normal'
+# Note --gamma sets red, green, blue levels (like redshift)
+alias mon2='xrandr --output DisplayPort-2 --brightness 0.7 --gamma 1.0:0.5:0.5 --auto --mode 1920x1080 --output LVDS --off '
+
+
+
+# Use separate user account for banking software
+alias profit='xhost +local:profit && sudo -H -u profit /usr/bin/firefox fnbank.net & exit'
+alias bserve='cd ~/r/blog && rm -rf _site && bundle exec jekyll serve'
+
+
+#######################################################################3
+################  DJANGO                           
+#######################################################################
+alias mm='PAGER=less DJANGO_SETTINGS_MODULE=monitor.settings_development env/bin/python manage.py'
+#######################################################################
+
+# Screencast 
+alias recordmydesktop='recordmydesktop --on-the-fly-encoding'
+
+# 
+
+
+
+
+
+##############  VARIOUS LOGGERS   ###############
+alias life='vi ~/.secret/life.log'
+# Log changes in health
+alias ch='vi ~/.secret/health/changes/2024.md'
+
+###############   DICTIONARY  #####################
+alias words='less /usr/share/dict/words'
+# Grep for words starting with lowercase B and having five characters
+alias b_words="grep -E '^b[a-z]{1,4}$' /usr/share/dict/words | less "
+alias c_words="grep -E '^c[a-z]{1,4}$' /usr/share/dict/words | less "
+alias d_words="grep -E '^d[a-z]{1,4}$' /usr/share/dict/words | less "
+alias e_words="grep -E '^e[a-z]{1,4}$' /usr/share/dict/words | less "
+
+
+#################### BLUETOOTH ON LINUX ###################
+# bluetooth connections
+export living_room='F0:41:C8:30:2A:BC' # BT HiFi
+export flip5='28:FA:19:90:01:04'
+export soundcore='E8:EE:CC:6F:2A:72'
+# Note connect before disconnecting the other one ensure seamless playback
+# Note using && because if it does not connect, why switch??
+alias bed="bluetoothctl connect $living_room && bluetoothctl disconnect $flip5 && bluetoothctl disconnect $soundcore"
+alias liv="bluetoothctl connect $flip5 && bluetoothctl disconnect $living_room && bluetoothctl disconnect $soundcore"
+alias sou="bluetoothctl connect $soundcore && bluetoothctl disconnect $living_room && bluetoothctl disconnect $flip5"
+alias rs='sudo systemctl restart bluetooth'
+
+# Disconnect_all
+alias disconnect-all="bluetoothctl disconnect $flip5; bluetoothctl disconnect $soundcore; bluetoothctl disconnect $living_room"
+
+############################################################
+
+
+####################  FIREFOX CUSTOM STYLESHEET    ################
+alias custom-stylesheet='cd ~/.mozilla/firefox/08lor31i.default-release/chrome'
+###################################################################
+
+
+
+
+
+
+######################  DEPLOY A FILE  ###############################
+
+function push_file() {
+    # Deploy to files site
+    if [ $# -ne 1 ]; then
+        echo "\nUsage:\n\n    push_file <filename>"
+        return 1
+    fi
+
+    local filename="$1"
+    BASENAME=`basename $filename`
+
+    scp "$filename" jd@68.183.202.162:/var/www/files/.
+
+    if [ $? -eq 0 ]; then
+        echo "Uploaded to https://files.jackdesert.com/$BASENAME"
+    fi
+}
