@@ -9,7 +9,7 @@ set tabstop=2
 syntax enable
 "set number
 set autoindent
-set foldmethod=indent
+set foldmethod=manual
 set shiftwidth=2
 filetype plugin indent on
 autocmd FileType javascript set autoindent shiftwidth=4 softtabstop=4 expandtab
@@ -19,6 +19,7 @@ autocmd FileType haml       set autoindent shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType sass       set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType ruby,css   set autoindent shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType java       set autoindent shiftwidth=4 softtabstop=4 expandtab
+
 " Go fmt uses tabs instead of spaces
 autocmd FileType go         set noexpandtab tabstop=4 shiftwidth=4
 "autocmd FileType ruby,sass set autoindent shiftwidth=4 softtabstop=4 expandtab
@@ -97,7 +98,6 @@ autocmd BufLeave,FocusLost * wall
 " also not working:
 " nmap <silent> <F2> :execute 'NERDTreeToggle ' . getcwd()<CR>
 "
-
 " Save file with either semicolon or colon
 nnoremap ; :
 
@@ -111,6 +111,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 
 " GoLang
+" `go fmt` on save (causes problems on workspaces)
+"autocmd BufWritePre *.go :silent! execute '!go fmt %'
+"
 "if exists("g:did_load_filetypes")
 "  filetype off
 "  filetype plugin indent off
@@ -164,63 +167,43 @@ augroup END
 
 
 " Slim see https://github.com/slim-template/vim-slim
+syntax enable
+filetype plugin indent on
+
+" Slim see https://github.com/slim-template/vim-slim
 set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
+call vundle#begin()
 " NOTE You must run :PluginInstall from inside vim to actually install these
 " vundle plugins
 
-"Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 "Plugin 'slim-template/vim-slim.git'
 "Plugin 'https://github.com/psf/black.git'
 "Plugin 'codota/tabnine-vim'
 "autocmd BufWritePre *.py execute ':Black'
 
-"Plugin 'dense-analysis/ale'
-"call vundle#end()
-syntax enable
-filetype plugin indent on
+Plugin 'dense-analysis/ale'
+call vundle#end()
 
-" Macro to insert REPL
-" (SHIFT @ 2) (meaning release shift halfway through)
-" ESCAPE is ^[
-let @2='oimport ipdb; ipdb.set_trace();1^['
-"let @2='ifrom ptpython.repl import embed;embed(globals(), locals());1'
-"let @3='ifrom ptpython.entry_points.run_ptpython import run;run()'
-
-
-" From Jonathan
-" ALE for Python and Cloud Dev
 "Note ruff tells you if annotations missing, but
 "pyright can also tell you if you are calling function with incorrect type
-"let g:ale_linters = {'python': ['ruff', 'pyright']}
-"let g:ale_linters = {'python': ['ruff', 'mypy']}
+" using mypy instead of pyright because pyright is not working on
+" workspaces....possibly because node/npm not installed
 let g:ale_linters = {'python': ['ruff']}
-"let g:ale_linter_aliases = {'yaml': ['cloudformation']}
-"let g:ale_fixers = {'python': ['isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace', 'black', 'ruff']}
-"let g:ale_fixers = {'python': ['black', 'ruff']}
+"let g:ale_linters = {'python': ['ruff', 'mypy']}
+"
+"let g:ale_fixers = {'python': ['isort', 'black', 'ruff']}
 let g:ale_fixers = {'python': ['ruff']}
+"let g:ale_fixers = {'python': ['ruff_format', 'ruff']}
 " Force ruff to use the config in my home directory (because otherwise it
 " appears to only look in the current directory for config)
-"let g:ale_python_ruff_options = '--config ~/pyproject.toml'
-let g:ale_python_pyright_options = '--project ~/pyrightconfig.json'
+"
+" This is commented out so it hopefully defaults to project directory
+" let g:ale_python_ruff_options = '--config ~/pyproject.toml'
 let g:ale_fix_on_save = 1
 
 
-" The following: I'm not sure if these are necessary. i got them from Jonathan
-let g:ale_lsp_suggestions = 1
-let g:ale_completion_enabled = 1
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] [%severity%] %code: %%s'
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-"let g:ale_lint_on_text_changed = 'never'
-"let g:ale_virtualtext_cursor=0
-"
-"autocmd VimEnter * highlight ALEVirtualTextError guifg=red
-"
 
 
-
-" Treat hyphens like underscores
+" Tread hyphens like underscores
 set iskeyword+=-
