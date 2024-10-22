@@ -19,12 +19,14 @@ autocmd FileType haml       set autoindent shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType sass       set autoindent shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType ruby,css   set autoindent shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType java       set autoindent shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType golang     set autoindent shiftwidth=2 softtabstop=2
+" Go fmt uses tabs instead of spaces
+autocmd FileType go         set noexpandtab tabstop=4 shiftwidth=4
 "autocmd FileType ruby,sass set autoindent shiftwidth=4 softtabstop=4 expandtab
 
 "Interpret .md as markdown so apostrophes do not show up as a start of string
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.jinja2 set filetype=html
+autocmd BufNewFile,BufRead *.vue set filetype=typescript
 
 "Interpret .slim as slim
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
@@ -190,13 +192,16 @@ let @2='oimport ipdb; ipdb.set_trace();1^['
 " ALE for Python and Cloud Dev
 "Note ruff tells you if annotations missing, but
 "pyright can also tell you if you are calling function with incorrect type
-let g:ale_linters = {'python': ['ruff', 'pyright']}
+"let g:ale_linters = {'python': ['ruff', 'pyright']}
+"let g:ale_linters = {'python': ['ruff', 'mypy']}
+let g:ale_linters = {'python': ['ruff']}
 "let g:ale_linter_aliases = {'yaml': ['cloudformation']}
 "let g:ale_fixers = {'python': ['isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace', 'black', 'ruff']}
-let g:ale_fixers = {'python': ['black', 'ruff']}
+"let g:ale_fixers = {'python': ['black', 'ruff']}
+let g:ale_fixers = {'python': ['ruff']}
 " Force ruff to use the config in my home directory (because otherwise it
 " appears to only look in the current directory for config)
-let g:ale_python_ruff_options = '--config ~/pyproject.toml'
+"let g:ale_python_ruff_options = '--config ~/pyproject.toml'
 let g:ale_python_pyright_options = '--project ~/pyrightconfig.json'
 let g:ale_fix_on_save = 1
 
@@ -217,5 +222,5 @@ let g:ale_sign_warning = '⚠'
 
 
 
-" Tread hyphens like underscores
+" Treat hyphens like underscores
 set iskeyword+=-
