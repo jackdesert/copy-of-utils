@@ -163,18 +163,18 @@ augroup END
 
 " Slim see https://github.com/slim-template/vim-slim
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"call vundle#begin()
 " NOTE You must run :PluginInstall from inside vim to actually install these
 " vundle plugins
 
-Plugin 'gmarik/Vundle.vim'
+"Plugin 'gmarik/Vundle.vim'
 "Plugin 'slim-template/vim-slim.git'
 "Plugin 'https://github.com/psf/black.git'
 "Plugin 'codota/tabnine-vim'
 "autocmd BufWritePre *.py execute ':Black'
 
-Plugin 'dense-analysis/ale'
-call vundle#end()
+"Plugin 'dense-analysis/ale'
+"call vundle#end()
 syntax enable
 filetype plugin indent on
 

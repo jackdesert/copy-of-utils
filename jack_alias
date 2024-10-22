@@ -94,6 +94,7 @@ alias py='cd ~/p/wiki/python'
 alias mig='RAILS_ENV=test bundle exec rake db:migrate && bundle exec rake db:migrate'
 alias redo='RAILS_ENV=test bundle exec rake db:migrate:redo && bundle exec rake db:migrate:redo'
 alias mus='mpg123 ~/Music/03\ Fort\ Knox.mp3'
+alias g='cd ~/g'
 alias p='cd ~/p'
 alias da='cd ~/p/dancer'
 alias sho='cd ~/p/shoelaces'
@@ -104,8 +105,12 @@ alias showme='echo "\`git ls-files | grep .py$\`"'
 
 
 
-# Git
-alias gu='git fetch origin && git rebase origin/master'
+
+# Catch topic branch up with main or master or trunk
+# (previously was `git fetch && git rebase origin/master`)
+#   Dynamically check which branch is default
+#   See https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
+alias gu='git fetch && git rebase origin/`git remote show origin | sed -n "/HEAD branch/s/.*: //p"`'
 alias log='git log --name-status'
 alias logs='tail -n 0 -f ~/r/elitecarerails/log/development.log'
 alias keep="git add . && git commit -am'placeholder'"
@@ -218,6 +223,9 @@ alias sup='dir_before_sup=`pwd` && cd ~/sup && sup-mail && cd $dir_before_sup &&
 # This only applies to Crucial hdd on MacBook Pro where I built postgres from source
 export PATH=/usr/local/pgsql/bin:$PATH
 
+# firefox
+export PATH=~/.firefox:$PATH
+
 # Tell git to use vim
 export EDITOR=vim
 
@@ -256,7 +264,6 @@ alias scrc='screen -D -R jack_server'
 alias irc="ssh $rack 'screen -D -R irc'"
 
 
-alias gu='echo use with caution; git fetch origin && git rebase origin/master'
 # Coworkers' aliases
 
 # Tell zsh not to autocorrect
@@ -459,8 +466,8 @@ alias nightshift='redshift -l 34:-92 -t 3500:3500 &'
 alias dayshift='pkill -f redshift'
 
 # Mount usb
-alias usb='mount /media/usb'
-alias usbu='echo "syncing"; sync; echo "unmounting";  umount /media/usb'
+alias usb='mount /usb'
+alias usbu='echo "syncing"; sync; echo "unmounting";  umount /usb'
 
 # Sconsify (command-line Spotify player)
 alias sc1='sconsify -username=jackdesert'
@@ -614,8 +621,8 @@ xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 'libinput Tapping Enabled' 1
 alias pushf='git push --force-with-lease --force-if-includes origin HEAD'
 
 # kuyu also has an account, so he can run perforce
-export my=68.183.202.162
-alias my="echo remember to ssh-add;ssh -A jd@$my"
+export my=jd@68.183.202.162
+alias my="echo remember to ssh-add;ssh -A $my"
 
 alias sax='ffmpeg -f v4l2 -i /dev/video0'
 
