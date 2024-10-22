@@ -1,0 +1,5 @@
+# Create a file called only-this-machine
+# Put things in it that are not to be uses elsewhere.
+#
+# For example, aliases for one-off projects
+alias only='vi ~/.utils/bashrc/only-this-machine'

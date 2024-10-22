@@ -1,0 +1,21 @@
+alias e='cd /k/eav2020'
+alias ea='cd /k/eav2020-alteryx-flows'
+ALTERYX='/c/Program\ Files/Alteryx/bin/AlteryxEngineCmd.exe'
+alias acp2='source /s/platform_deploy/prefect/targetsmart/ts-prefect-1.2/Scripts/activate'
+# autohooks needs this on windows
+export PYTHONIOENCODING=utf8
+# Add location of user-global poetry executable to PATH
+export PATH=$PATH:/c/Users/jack.desert/AppData/Roaming/Python/Scripts
+alias aws='/c/Program\ Files/Amazon/AWSCLIV2/aws.exe'
+export SLACK_CHANNEL=jack-test
+
+
+alias prel='cd /s/platform_deploy/prefect/prefect_releases/ts-prefect-1.2'
+export hd=/s/ts_local_scripts/jack.desert
+alias hd="cd $hd"
+
+alias evav-run='bin/staging/01-dnc-elt.sh && echo "01-dnc-elt complete" && bin/staging/02-internal.sh && echo "02-internal complete" && bin/staging/03-deliver.sh && echo "03-deliver complete"'
+alias py39='/c/program\ files/python39/python'
+alias ls='ls -F --color'
+alias te='cd /s/ts_local_scripts/jack.desert/alteryx_flows/targetearly_daily_v2'
+
