@@ -1,23 +1,70 @@
 ####################   GIT ALIASES   ############################
 
-# GIT ALIASES
-alias bs='git branch && git status'
-alias eo='pylint --errors-only `git ls-files | grep .py$`'
-alias showme='echo "\`git ls-files | grep .py$\`"'
-
-# (previously was `git fetch && git rebase origin/master`)
-#   See https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
-alias gu='git fetch && git rebase origin/`git remote show origin | sed -n "/HEAD branch/s/.*: //p"`'
-
-alias log='git log --name-status'
-alias keep="git add . && git commit -am'placeholder'"
-alias keeps='keep; git push origin master'
-alias keeph='keep; git push origin HEAD'
-
-alias tags='git show-ref --tags'
-
-alias gg='git grep -i'
-alias pushf='git push --force-with-lease --force-if-includes origin HEAD'
 
 # Tell git to use vim
 export EDITOR=vim
+
+
+
+# Status
+alias bs='git branch && git status'
+# Log
+alias log='git log --name-status'
+# Catch topic branch up with main or master or trunk
+# (previously was `git fetch && git rebase origin/master`)
+#   Dynamically check which branch is default
+#   See https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
+alias gu='git fetch && git rebase origin/`git remote show origin | sed -n "/HEAD branch/s/.*: //p"`'
+# Grep (case INsensitive)
+alias gg='git grep -i'
+# Grep for filenames
+alias ff='find . | grep -i'
+# Safer Version of Force Push
+alias pushf='git push --force-with-lease --force-if-includes origin HEAD'
+
+# Safer Version of Force Push, plus amend
+alias amend='git commit -a --amend --no-edit && git push --force-with-lease --force-if-includes origin HEAD'
+# Easy pushes to repos where you are the only committer.
+alias keep="git add .; git commit -am'PLACEHOLDER'"
+alias keeps="git add .; git commit -am'PLACEHOLDER'; git push origin HEAD"
+alias pass="git commit -am'PASSED'"
+# Print an example command to the screen that will run against all python files in repo
+alias showme='echo "some_command \`git ls-files | grep \\.py$\`"'
+
+export td=git@bitbucket.org:targetsmart_devops
+# Alias to a local remote for stashing branches
+export safe=~/tmp/archive/git
+
+
+
+# Also works from subdirectories
+# TODO Add a similar one that actually opens the link
+function gito() {
+    # Find the root of the Git repository
+    local repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+
+    if [[ -z "$repo_root" ]]; then
+        echo "Not in a Git repository."
+        return 1
+    fi
+
+    # Ensure the .git/config file exists
+    if [[ ! -f "$repo_root/.git/config" ]]; then
+        echo "No .git/config file found in the repository root."
+        return 1
+    fi
+
+    # Extract the URL from the .git/config file
+    local git_url=$(grep 'url =' "$repo_root/.git/config" | sed 's/.*url = //')
+
+    # Transform the git URL to a web URL
+    # First replace git@ with blank so we can also strip out the colon without confusion
+    local web_url=$(echo $git_url | sed -e 's/^git@//' -e 's/^git:\/\///' -e 's/:/\//' -e 's/.git$//')
+
+    # Then add back in the https
+    web_url="https://$web_url"
+
+    # Echo the URL
+    echo $web_url
+}
+

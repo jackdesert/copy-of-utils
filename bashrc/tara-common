@@ -1,0 +1,205 @@
+# PROJECT DIRS
+alias a='cd ~/p/anony-mouse/amouse'
+alias aa='cd ~/p/anony-mouse'
+alias ali='view ~/.aliases'
+alias alie='vi ~/.aliases'
+
+alias h='cd /mnt/c/Users/jack.desert/Documents'
+
+alias an='cd ~/p/myts_smartmatch_file_analysis'
+alias d='cd ~/downloads'
+alias e='cd ~/p/eav2020'
+alias ea='cd ~/p/eav2020-alteryx-flows'
+alias g='cd ~/p/eav2020-ga-runoff'
+alias ifg='cd ~/p/install_file_generator'
+alias ifb='cd ~/p/install_file_builder'
+alias jo='cd ~/p/jobber'
+alias kb='cd ~/p/knowledgebase-scraper'
+alias li='cd ~/p/listbuilder_order'
+alias my2='cd ~/tmp/myts2/tsmartweb'
+alias my='cd ~/p/mytargetsmart/tsmartweb'
+alias myd='cd ~/p/mytargetsmart/docker_extras/test_suite_in_docker'
+alias n='cd ~/p/notes'
+alias py='cd ~/p/wiki/content/python'
+alias pys='cd ~/p/wiki/content/python/spark'
+alias sl='cd ~/p/slack2'
+alias sm='cd ~/p/smartmatch'
+alias lb='cd ~/p/listbuilder_order'
+alias ss='cd ~/p/smartstep_framework'
+alias to='vi ~/p/notes/00_todo.md'
+alias wi='cd ~/p/wiki/content'
+alias gl='cd ~/p/glue-on-docker'
+alias ne='cd ~/p/neustar_batch_io'
+alias sa='cd ~/p/satori_batch_io'
+alias no='cd ~/p/notify-on-lambda-error'
+alias ub='cd ~/p/uberbase-field-check'
+alias us='cd ~/p/uberbase-schema-check'
+alias lr='cd ~/p/liveramp_abilitec'
+alias nb='cd ~/p/nbc_voter_files'
+alias jd='cd ~/p/jack-desert-utils'
+alias st='cd ~/p/static_analysis'
+alias headers='python ~/.utils/headers.py'
+alias na='cd ~/p/name_parse_batch_io'
+alias x='cd ~/p/evav-transform'
+alias loa='cd ~/p/evav-load'
+alias fa="cd ~/p/myts_smartmatch_file_analysis"
+alias v='cd ~/p/alteryx_flows/voterbase_weekly_build'
+alias vp='cd ~/p/goalteryx-plugin-vendor-processing'
+alias p='cd ~/p'
+alias m='cd ~/p/mbp_webhooks'
+alias pn='cd ~/p/pinocchio'
+alias xt='cd /home/jack.desert/p/exacttrack_batch_io/exacttrack_batch_io'
+
+
+
+
+
+alias repos='aws s3 cp s3://ts-meta/bitbucket/repos.txt - | less'
+
+
+
+# max duration is 36 hours
+alias aws-login='~/.aws-env/bin/aws-mfa --duration 28800 --device arn:aws:iam::200731153988:mfa/jack.desert'
+
+alias codeartifact-download-login='aws codeartifact login --tool pip --repository pypi-store --domain client-tech --domain-owner 200731153988'
+alias headers='python3 ~/.utils/scripts/headers.py'
+alias rand='python3 ~/.utils/scrupts/rand.py'
+
+
+
+function callme() {
+  set -e
+  blargh
+  echo made it to end
+  }
+
+function redo_migration() {
+  local last_one_to_keep=$1
+  if [ -z ${1+x} ]; then
+    echo 'Please supply the number of last migration to keep';
+    return 1
+  fi
+
+  echo last_one_to_keep is $last_one_to_keep
+  local next_one=0$(( $last_one_to_keep + 1 ))
+  echo migrate
+  python manage.py migrate my_tsmart $last_one_to_keep && \
+    echo Removing `ls my_tsmart/migrations/$next_one*.py` && \
+    rm -f my_tsmart/migrations/$next_one*.py && \
+    echo makemigrations && \
+    python manage.py makemigrations && \
+    echo migrate && \
+    python manage.py migrate
+}
+
+alias makenmigrate='python manage.py makemigrations && python manage.py migrate'
+export MYTS_CHROME_BINARY='/Applications/Chromium.app/Contents/MacOS/Chromium'
+#/usr/local/bin/chromedriver
+#export MYTS_VISIBLE_TESTS=1
+
+
+alias test-most-random='time pytest -s --random-order tests/{models,rest,unit,views,test_*}'
+alias test-most-random-global='time pytest -s --random-order-bucket=global tests/{models,rest,unit,views,test_*}'
+alias test-all-random-global='time pytest -s --random-order-bucket=global tests'
+alias test-most='time pytest tests/{models,rest,unit,views,test_*}'
+
+alias test-slow='time pytest tests/selenium_frontend'
+
+alias fresh='echo "isort" && isort `git ls-files | grep \.py$` && echo "black" && black `git ls-files | grep \.py$`'
+
+
+# S3 Temporary Storage (24 hour lifecycle rule)
+export s3_tmp='s3://ts-temporary-storage-bucket/jack.desert'
+# Note *Capitalized* User directory so others' data is still accessiable via storage gateway
+export D='s3://ts-storagegateway-bucket'
+
+# AWS Elastic Container Registry (ECR)
+alias ecr-login='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 200731153988.dkr.ecr.us-east-1.amazonaws.com'
+#
+# Pushing an image to ECR
+#   docker push $ecr/[IMAGE_NAME]:[VERSION]
+export ecr='200731153988.dkr.ecr.us-east-1.amazonaws.com'
+
+
+
+###########################  SEARCH CONFLUENCE  ###########################
+sr () {
+  # Search on Confluence
+  #
+  # Usage:
+  #
+  #    sr word1 [word2] [word3] [...]
+  #
+
+  # Temporarily set IFS
+  old_ifs=$IFS
+  IFS=+
+  # Concatenate search terms
+  query="'$*'"
+  # Reset IFS
+  IFS=old_ifs
+  echo "https://targetsmart.atlassian.net/wiki/search?text=$query" |  xargs open
+}
+
+##################  WORKSPACES LOGIN (From other)  ########################
+export ws='msad\\jack.desert@10.20.2.48'
+alias ws="ssh $ws"
+
+
+
+##################  EARLY VOTE ############################################
+export POSIX_TIMESTAMP=20241016_160000
+export STATE_CODE=ID
+export DEPLOY_ENV=staging
+
+#####################  JOBBER  ###################################
+export JOBBER_SETTINGS=Jobber.settings.dev
+
+
+export testfiles='s3://ts-storagegateway-bucket/Users/jack.desert/test-files'
+export smartmatch_test_files='s3://ts-storagegateway-bucket/Users/jack.desert/smartmatch-test-files'
+export atlas='s3://ts-storagegateway-bucket/Projects/TargetSmart/AtlasMail'
+
+
+alias uberbase_rds="mysql --host uberbase-parallel-cluster-v2-cluster.cluster-ro-ci5i9oaonr31.us-east-1.rds.amazonaws.com --user=uberbase_ro --password=$UBERBASE_RO_PASSWORD uberbase"
+
+export LOCAL_VENDORBASE_PASSWORD=abc
+export SLACK_CHANNEL=jack-test
+
+# Watch out! When you deploy other places it may not have REGION defined
+export AWS_DEFAULT_REGION=us-east-1
+alias doom='/volumes/user/home/jack.desert/.config/emacs/bin/doom'
+
+
+# Tab Completion (probably only needed on workspaces)
+source /usr/share/bash-completion/completions/git
+
+
+# Ruff equivalent to `pylint --errors-only`
+alias ruffe='echo Simple version like "pylint --errors-only"; ruff --config ~/p/simple_static_analysis/ruff/pyproject.toml'
+alias ruff='echo Make sure you run black after ruff for eventual consistency; sleep 0.5; ruff'
+
+
+alias scylla='cd ~/tmp/scylladb && ./tools/toolchain/dbuild ./build/release/scylla --workdir tmp --smp 1 --developer-mode 1'
+
+
+# Install all requirements.txt files together to improve dependency resolution
+alias pip-all='cat req*.txt | pip install -r /dev/stdin'
+
+
+
+export JOBBER_LOCAL=yes
+export JOBBER_STATUS_DATABASE=tsmartweb
+
+
+function batch(){
+    # Supply the link to the batch job
+    echo "https://us-east-1.console.aws.amazon.com/batch/home?region=us-east-1#jobs/fargate/detail/$1"
+}
+
+export ANY_S3_PATH=s3://ts-temporary-storage-bucket/jack.desert/testing-s3-cache/one.txt
+echo 'Name failures so they are not a surprise to others'
+echo 'Use "PIVOT" issue type for unplanned work that another team needs, and for system recovery??'
+echo 'Add cycle points when you move something to "Released", or leave a note saying status at cycle end'
+
+
