@@ -1,0 +1,40 @@
+# Also supports paths with spaces
+win() {
+    # Given a filepath, echo the absolute filepath using
+    # windows notation.
+    # Example:
+    #   $ win /d/hello/there
+    #   D:\hello\there
+
+    # Get absolute path
+    local input_path
+    local drive_letter
+    local converted_path
+
+    input_path=$(readlink -f "$1")
+
+    # Extract the drive letter from the input path
+    drive_letter="${input_path:1:1}"
+
+    # Convert the drive letter to uppercase
+    drive_letter=$(echo "$drive_letter" | tr [:lower:] [:upper:])
+
+    # Add the drive letter and colon if not present
+    if [[ "$drive_letter" =~ [a-zA-Z] ]]; then
+        converted_path="${drive_letter}:\\${input_path:3}"
+    else
+        converted_path="$input_path"
+    fi
+
+    # With git-bash, you need to replace with DOUBLE backslashes
+    # With macOS, you need to replace with SINGLE backslashes
+    #
+    # Replace forward slashes with double backslashes
+    # converted_path="${converted_path//\//\\\\}"
+    #
+    # Replace forward slashes with single backslashes
+    converted_path="${converted_path//\//\\}"
+
+    echo "$converted_path"
+}
+
