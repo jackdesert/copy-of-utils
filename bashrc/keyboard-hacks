@@ -1,0 +1,44 @@
+########################  KEYBOARD HACKS  ############################
+# Note these are in a separate file because they only apply 
+# to the X window system
+#######################################################################
+
+###################  XMODMAP   #######################################
+# Remap Keyboard
+xmodmap ~/.Xmodmap
+
+
+#########################  TOGGLE KEYBOARD LAYOUTS   ####################
+# Set keyboards to US and Russian
+setxkbmap -layout us,ru
+# Toggle between keyboard layouts with ALT+SPACE
+setxkbmap -option 'grp:alt_space_toggle'
+
+
+
+####################  REPEAT RATE  ##########################################
+# set keyboard repeat rate manually
+# (Note that on osx using KeyRemap4MacBook 240/30 feels the same as 240/50 through xset)
+# Keyboard tweaks including repeat rate and caps lock to escape are set in "on_resume.sh"
+source ~/.utils/on_resume.sh
+
+
+########################  MANUAL CAPS LOCK  ###############################
+# Re-enable caps lock
+# (in case if you accidentally disable capslock when capslock is still ON)
+alias enable-caps='xmodmap -e "keycode 0x42 = Caps_Lock"'
+
+
+########################  SUCCESS CHIME  ################################3
+# (Not sure why this is in keyboard)
+# This was called "done" but that broke bash autocompletion
+alias beep='ogg123 ~/.utils/sounds/tibetan-bowl.ogg'
+
+
+#######################   XFCE   #####################################
+# Manually tell Xfce to use capslock as escape
+alias caps='/usr/bin/setxkbmap -option "caps:escape"'
+# Allow a manual override to completely null out the capslock (Useful while using Jira)
+# OR when you are stuck in all caps mode and you want to turn it off
+alias enable-caps='/usr/bin/setxkbmap -option "caps:none"'
+alias        CAPS='/usr/bin/setxkbmap -option "caps:none"'

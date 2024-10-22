@@ -1,0 +1,23 @@
+####################   GIT ALIASES   ############################
+
+# GIT ALIASES
+alias bs='git branch && git status'
+alias eo='pylint --errors-only `git ls-files | grep .py$`'
+alias showme='echo "\`git ls-files | grep .py$\`"'
+
+# (previously was `git fetch && git rebase origin/master`)
+#   See https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
+alias gu='git fetch && git rebase origin/`git remote show origin | sed -n "/HEAD branch/s/.*: //p"`'
+
+alias log='git log --name-status'
+alias keep="git add . && git commit -am'placeholder'"
+alias keeps='keep; git push origin master'
+alias keeph='keep; git push origin HEAD'
+
+alias tags='git show-ref --tags'
+
+alias gg='git grep -i'
+alias pushf='git push --force-with-lease --force-if-includes origin HEAD'
+
+# Tell git to use vim
+export EDITOR=vim
