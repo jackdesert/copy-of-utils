@@ -63,6 +63,8 @@ alias jack5='screen -D -R jack5'
 
 # Coworkers' aliases
 
+
+###################   ZSH   ##############################3
 # Tell zsh not to autocorrect
 DISABLE_CORRECTION='true'
 
