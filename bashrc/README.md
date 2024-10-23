@@ -16,3 +16,9 @@ Guidelines for Adding
 5. Else if it is custom to a single server only (and you don't need to remember it), put it directly in ~/.bashrc
 
 Commit useful changes so you can use them elsewhere
+
+
+Call setup
+----------
+
+    scripts/01-setup

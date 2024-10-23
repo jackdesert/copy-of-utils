@@ -3,12 +3,21 @@
 alias aliw='vi ~/.utils/bashrc/workstation'
 # Alias to edit the "only-this-machine" file
 alias alio='vi ~/.utils/bashrc/only-this-machine'
-# Alias to edit the actual .bashrc file
-alias alib='vi ~/.bashrc'
+# Alias to edit the actual .bashrc or .zshrc file
+if [[ $SHELL == *"zsh"* ]]; then
+    alias alib='vi ~/.zshrc'
+else
+    alias alib='vi ~/.bashrc'
+fi
+
+# Alias to go to the directory
+alias alid='cd ~/.utils/bashrc'
+
 
 #################   PROMPT    ###################
-# Override this in ~/.bashrc if you want a custom hostname, etc
-export PS1='\w '
+
+# Basic PS1 with current directory in blue
+exportPS1="\w \$ "
 
 
 
