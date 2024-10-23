@@ -1,4 +1,6 @@
 ####################   GIT ALIASES   ############################
+# Alias to edit this file
+alias alig='vi ~/.utils/bashrc/git-alias'
 
 
 # Tell git to use vim

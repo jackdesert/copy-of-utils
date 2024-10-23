@@ -1,5 +1,14 @@
+##################  SELF EDIT  ####################
+# Alias to edit this file
+alias aliw='vi ~/.utils/bashrc/workstation'
+# Alias to edit the "only-this-machine" file
+alias alio='vi ~/.utils/bashrc/only-this-machine'
+# Alias to edit the actual .bashrc file
+alias alib='vi ~/.bashrc'
+
 #################   PROMPT    ###################
-export PS1='@ws \W\$ '
+# Override this in ~/.bashrc if you want a custom hostname, etc
+export PS1='\w '
 
 
 
@@ -45,7 +54,14 @@ alias don='vi ~/.secret/donations'
 
 alias pp='ps aux | grep '
 # Bash and Zsh have different config files
-alias sb='[ -f ~/.bashrc ] && source ~/.bashrc || [ -f ~/.zshrc ] && source ~/.zshrc'
+
+if [[ $SHELL == *"zsh"* ]]; then
+    echo 'Using zsh'
+    alias sb='source ~/.zshrc'
+else
+    echo 'Using bash'
+    alias sb='source ~/.bashrc'
+fi
 
 
 alias s='cd ~/p/wiki/sax'
