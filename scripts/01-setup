@@ -1,0 +1,29 @@
+#! /bin/bash
+set -e
+
+cd ~
+if [[ $SHELL == *"zsh"* ]]; then
+    echo 'Using zsh'
+    CONFIGFILE=~/.zshrc
+else
+    echo 'Using bash'
+    CONFIGFILE=~/.bashrc
+fi
+
+echo "Using CONFIGFILE $CONFIGFILE"
+
+echo '' >> $CONFIGFILE
+echo '# ALIASES from UTILS' >> $CONFIGFILE
+echo 'source ~/.utils/bashrc/git-alias' >> $CONFIGFILE
+echo 'source ~/.utils/bashrc/workstation' >> $CONFIGFILE
+echo '# Uncomment the relevant alias files'
+echo '# source ~/.utils/bashrc/workstation__macos' >> $CONFIGFILE
+echo '# source ~/.utils/bashrc/workstation__windows' >> $CONFIGFILE
+echo '# source ~/.utils/bashrc/workstation__tara' >> $CONFIGFILE
+
+touch ~/.utils/bashrc/only-this-machine
+echo 'source ~/.utils/bashrc/only-this-machine' >> $CONFIGFILE
+source $CONFIGFILE
+echo "Please edit $CONFIGFILE and uncomment any alias files relevant to your machine"
+
+

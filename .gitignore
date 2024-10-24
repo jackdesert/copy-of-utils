@@ -1,0 +1,6 @@
+*.swp
+*.pyc
+
+
+# Files intended to NOT be shared
+only-this-machine
