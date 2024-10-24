@@ -1,4 +1,9 @@
+##################  SELF EDIT  ####################
+# Alias to edit this file
+alias aliwt='vi ~/.utils/bashrc/workstation__tara'
+
 # PROJECT DIRS
+#
 alias a='cd ~/p/anony-mouse/amouse'
 alias aa='cd ~/p/anony-mouse'
 alias ali='view ~/.aliases'
@@ -26,7 +31,7 @@ alias sl='cd ~/p/slack2'
 alias sm='cd ~/p/smartmatch'
 alias lb='cd ~/p/listbuilder_order'
 alias ss='cd ~/p/smartstep_framework'
-alias to='vi ~/p/notes/00_todo.md'
+alias to='vi ~/p/notes/000_todo.md'
 alias wi='cd ~/p/wiki/content'
 alias gl='cd ~/p/glue-on-docker'
 alias ne='cd ~/p/neustar_batch_io'
@@ -43,12 +48,20 @@ alias na='cd ~/p/name_parse_batch_io'
 alias x='cd ~/p/evav-transform'
 alias loa='cd ~/p/evav-load'
 alias fa="cd ~/p/myts_smartmatch_file_analysis"
-alias v='cd ~/p/alteryx_flows/voterbase_weekly_build'
+alias v='cd ~/p/voterbase-weekly-build'
 alias vp='cd ~/p/goalteryx-plugin-vendor-processing'
 alias p='cd ~/p'
 alias m='cd ~/p/mbp_webhooks'
 alias pn='cd ~/p/pinocchio'
 alias xt='cd /home/jack.desert/p/exacttrack_batch_io/exacttrack_batch_io'
+
+########################### Jira ###################################
+alias kac='echo https://targetsmart.atlassian.net/jira/software/c/projects/SE/boards/74 | xargs open'
+
+function se() {
+  # Open a jira blob
+  echo "https://targetsmart.atlassian.net/browse/SE-$1" | xargs open
+}
 
 
 

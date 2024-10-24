@@ -11,7 +11,7 @@ else
 fi
 
 # Alias to go to the directory
-alias alid='cd ~/.utils/bashrc'
+alias alid='echo "Now in directory" && cd ~/.utils/bashrc'
 
 
 #################   PROMPT    ###################
