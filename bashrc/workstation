@@ -75,6 +75,7 @@ fi
 
 alias s='cd ~/p/wiki/sax'
 
+alias py='cd ~/p/wiki/python'
 
 
 ##############   PYTHON   ###############
