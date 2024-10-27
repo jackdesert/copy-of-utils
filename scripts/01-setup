@@ -27,3 +27,11 @@ source $CONFIGFILE
 echo "Please edit $CONFIGFILE and uncomment any alias files relevant to your machine"
 
 
+####################################################
+sudo ln -s /usr/bin/vim /usr/bin/vi
+
+ln -s ~/.utils/Xmodmap ~/.Xmodmap
+
+ln -s ~/.utils/terminator ~/.config/terminator
+
+ln -s ~/.utils/gitconfig ~/.gitconfig

@@ -1,0 +1,27 @@
+[global_config]
+[keybindings]
+  copy = <Primary>c
+  paste = <Primary>v
+  line_up = <Shift>Down
+  line_down = <Shift>Up
+  resize_up = ""
+  resize_down = ""
+  resize_left = ""
+  resize_right = ""
+[profiles]
+  [[default]]
+    font = FreeMono Bold 17
+    foreground_color = "#e53c00"
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]

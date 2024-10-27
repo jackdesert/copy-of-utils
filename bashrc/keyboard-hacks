@@ -2,6 +2,8 @@
 # Note these are in a separate file because they only apply 
 # to the X window system
 #######################################################################
+# Self Edit
+alias alik='vim ~/.utils/bashrc/keyboard-hacks'
 
 ###################  XMODMAP   #######################################
 # Remap Keyboard
@@ -20,7 +22,7 @@ setxkbmap -option 'grp:alt_space_toggle'
 # set keyboard repeat rate manually
 # (Note that on osx using KeyRemap4MacBook 240/30 feels the same as 240/50 through xset)
 # Keyboard tweaks including repeat rate and caps lock to escape are set in "on_resume.sh"
-source ~/.utils/on_resume.sh
+source ~/.utils/bashrc/keyboard__repeat-rate
 
 
 ########################  MANUAL CAPS LOCK  ###############################
