@@ -1,3 +1,5 @@
+# Self edit
+alias alit='vi ~/.utils/bashrc/trackpad'
 
 xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 310 1
 xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 310 1
@@ -6,7 +8,13 @@ xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 310 1
 xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 312 1
 xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 312 1
 
-# Enable natural scrolling
-xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 281 1
-xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 281 1
+# Enable natural scrolling (not sure why 0 is the required value)
+xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 281 0
+xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 281 0
+
+# Make the scrolling smooth by using 2px instead of 15
+xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 307 10
+xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 307 10
+
+
 

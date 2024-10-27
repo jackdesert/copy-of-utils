@@ -260,3 +260,5 @@ function push_file() {
 export td=git@bitbucket.org:targetsmart_devops
 
 
+############################  LOCATIONS  ###############################
+alias wi='cd ~/p/wiki'
