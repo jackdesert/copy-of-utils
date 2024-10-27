@@ -2,17 +2,16 @@
 # Alias to edit this file
 alias aliwt='vi ~/.utils/bashrc/workstation__tara'
 
-# PROJECT DIRS
-#
-alias a='cd ~/p/anony-mouse/amouse'
-alias aa='cd ~/p/anony-mouse'
-alias ali='view ~/.aliases'
-alias alie='vi ~/.aliases'
+###################  WORKSPACE LOCATIONS  ########
+alias d='cd ~/downloads'
+alias headers='python3 ~/.utils/scripts/headers.py'
+alias p='cd ~/p'
 
+###################  TARA LOCATIONS  ########
+#
 alias h='cd /mnt/c/Users/jack.desert/Documents'
 
 alias an='cd ~/p/myts_smartmatch_file_analysis'
-alias d='cd ~/downloads'
 alias e='cd ~/p/eav2020'
 alias ea='cd ~/p/eav2020-alteryx-flows'
 alias g='cd ~/p/eav2020-ga-runoff'
@@ -41,14 +40,12 @@ alias lr='cd ~/p/liveramp_abilitec'
 alias nb='cd ~/p/nbc_voter_files'
 alias jd='cd ~/p/jack-desert-utils'
 alias st='cd ~/p/static_analysis'
-alias headers='python ~/.utils/headers.py'
 alias na='cd ~/p/name_parse_batch_io'
 alias x='cd ~/p/evav-transform'
 alias loa='cd ~/p/evav-load'
 alias fa="cd ~/p/myts_smartmatch_file_analysis"
 alias v='cd ~/p/voterbase-weekly-build'
 alias vp='cd ~/p/goalteryx-plugin-vendor-processing'
-alias p='cd ~/p'
 alias m='cd ~/p/mbp_webhooks'
 alias pn='cd ~/p/pinocchio'
 alias xt='cd /home/jack.desert/p/exacttrack_batch_io/exacttrack_batch_io'
@@ -75,7 +72,6 @@ alias repos='aws s3 cp s3://ts-meta/bitbucket/repos.txt - | less'
 alias aws-login='~/.aws-env/bin/aws-mfa --duration 28800 --device arn:aws:iam::200731153988:mfa/jack.desert'
 
 alias codeartifact-download-login='aws codeartifact login --tool pip --repository pypi-store --domain client-tech --domain-owner 200731153988'
-alias headers='python3 ~/.utils/scripts/headers.py'
 alias rand='python3 ~/.utils/scrupts/rand.py'
 
 

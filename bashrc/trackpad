@@ -1,20 +1,24 @@
 # Self edit
 alias alit='vi ~/.utils/bashrc/trackpad'
 
-xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 310 1
-xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 310 1
+# To see a list of devices:
+#   xinput list
+# To see properties for a single device:
+#   xinput list-props [device]
 
-# Enable tapping drag
-xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 312 1
-xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 312 1
+# Note the Sino may need to be not touching anything...
 
-# Enable natural scrolling (not sure why 0 is the required value)
-xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 281 0
-xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 281 0
+TRACKPADS=('SINO WEALTH USB TOUCHPAD Touchpad' 'AlpsPS/2 ALPS DualPoint TouchPad')
+for tpad in "${TRACKPADS[@]}"; do
+    xinput set-prop "$tpad" 'libinput Tapping Enabled' 1
+    # This needs to be enabled for terminal.
+    # To make this also work in firefox, open about:config and set
+    # `mousewheel.default.delta_multiplier_y` to -100
+    xinput set-prop "$tpad" 'libinput Natural Scrolling Enabled' 1
 
-# Make the scrolling smooth by using 2px instead of 15
-xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 307 10
-xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 307 10
+    # For some reason 10 is the minimum
+    xinput set-prop "$tpad" 'libinput Scrolling Pixel Distance' 10
 
-
-
+    # Do NOT want horizontal scroll
+    xinput set-prop "$tpad" 'libinput Horizontal Scroll Enabled' 0
+done

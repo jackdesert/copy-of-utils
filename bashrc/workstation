@@ -14,6 +14,39 @@ fi
 alias alid='echo "Now in directory" && cd ~/.utils/bashrc'
 
 
+###################  WORKSPACE LOCATIONS  ########
+alias d='cd ~/downloads'
+alias headers='python3 ~/.utils/scripts/headers.py'
+alias p='cd ~/p'
+
+# Space prepend may keep it out of history
+alias acc=' vi -R ~/.secret/accounts'
+alias acce=' vi ~/.secret/accounts'
+
+alias fin=' vi ~/.secret/accounts_financial'
+alias fine=' vi ~/.secret/accounts_financial'
+
+alias accb=' vi -R ~/.secret/accounts_elite_care'
+alias accbe=' vi ~/.secret/accounts_elite_care'
+
+alias acck=' vi -R ~/.secret/accounts_kids'
+alias accke=' vi ~/.secret/accounts_kids'
+
+alias accw=' vi ~/.secret/accounts_upwork'
+
+alias ali=' vi -R ~/.utils/jack_alias'
+alias alie=' vi ~/.utils/jack_alias'
+
+alias accd='  vi -R ~/.secret/disconnected_accounts'
+alias accde=' vi   ~/.secret/disconnected_accounts'
+
+alias lies=' vi ~/.secret/lies'
+
+alias don='vi ~/.secret/donations'
+
+
+
+
 #################   PROMPT    ###################
 
 # Basic PS1 with current directory in blue
@@ -32,34 +65,6 @@ alias ll='ls -alpG --color'
 # See https://geoff.greer.fm/lscolors/
 export LSCOLORS=bxfxcxdxdxegedabagacad
 
-
-#################################################
-# PATHS I EDIT OFTEN
-#################################################
-# Space prepend may keep it out of history
-alias acc=' view ~/.secret/accounts'
-alias acce=' vi ~/.secret/accounts'
-
-alias fin=' vi ~/.secret/accounts_financial'
-alias fine=' vi ~/.secret/accounts_financial'
-
-alias accb=' view ~/.secret/accounts_elite_care'
-alias accbe=' vi ~/.secret/accounts_elite_care'
-
-alias acck=' view ~/.secret/accounts_kids'
-alias accke=' vi ~/.secret/accounts_kids'
-
-alias accw=' vi ~/.secret/accounts_upwork'
-
-alias ali=' view ~/.utils/jack_alias'
-alias alie=' vi ~/.utils/jack_alias'
-
-alias accd='  view ~/.secret/disconnected_accounts'
-alias accde=' vi   ~/.secret/disconnected_accounts'
-
-alias lies=' vi ~/.secret/lies'
-
-alias don='vi ~/.secret/donations'
 
 alias pp='ps aux | grep '
 # Bash and Zsh have different config files
@@ -262,3 +267,4 @@ export td=git@bitbucket.org:targetsmart_devops
 
 ############################  LOCATIONS  ###############################
 alias wi='cd ~/p/wiki'
+alias a='cd ~/p/wiki/linux/distros/archlinux'

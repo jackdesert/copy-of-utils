@@ -1,19 +1,21 @@
 [global_config]
+copy_on_selection = True
+  copy_selection_to_clipboard = True
 [keybindings]
   copy = <Primary>c
   paste = <Primary>v
-  line_up = <Shift>Down
-  line_down = <Shift>Up
   resize_up = ""
   resize_down = ""
   resize_left = ""
   resize_right = ""
 [profiles]
   [[default]]
+    background_color = "#282828"
     font = FreeMono Bold 17
-    foreground_color = "#e53c00"
+    foreground_color = "#ebdbb2"
     scrollbar_position = hidden
     scrollback_infinite = True
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     use_system_font = False
 [layouts]
   [[default]]

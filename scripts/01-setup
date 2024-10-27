@@ -38,3 +38,5 @@ ln -s ~/.utils/Xmodmap ~/.Xmodmap
 ln -s ~/.utils/terminator ~/.config/terminator
 
 ln -s ~/.utils/gitconfig ~/.gitconfig
+
+ln -s ~/.utils/vimrc/vimrc ~/.vimrc

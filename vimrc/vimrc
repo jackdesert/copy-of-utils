@@ -80,7 +80,10 @@ set autoread    " Automaticall load changes to files (why isn't this working?)
 
 
 " Use the system clipboard to hold all buffers
-set clipboard+=unnamed
+" (Requires gvim)
+" See https://wiki.archlinux.org/title/Vim
+"set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 " Autosave when focus lost
 " :au FocusLost * :wa
