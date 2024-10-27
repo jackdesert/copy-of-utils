@@ -3,12 +3,19 @@
 # to the X window system
 #######################################################################
 # Self Edit
-alias alik='vim ~/.utils/bashrc/keyboard-hacks'
+alias alik='vim ~/.utils/bashrc/keyboard'
 
 ###################  XMODMAP   #######################################
 # Remap Keyboard
 xmodmap ~/.Xmodmap
 
+###########################  REPEAT RATE  #############################
+xset r rate 240 60
+
+
+###########################  CAPSLOCK  ###############################
+setxkbmap -option "caps:escape"
+echo `date` >> /tmp/rate
 
 #########################  TOGGLE KEYBOARD LAYOUTS   ####################
 # Set keyboards to US and Russian
@@ -44,3 +51,4 @@ alias caps='/usr/bin/setxkbmap -option "caps:escape"'
 # OR when you are stuck in all caps mode and you want to turn it off
 alias enable-caps='/usr/bin/setxkbmap -option "caps:none"'
 alias        CAPS='/usr/bin/setxkbmap -option "caps:none"'
+

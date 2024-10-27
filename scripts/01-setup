@@ -20,6 +20,9 @@ echo '# Uncomment the relevant alias files'
 echo '# source ~/.utils/bashrc/workstation__macos' >> $CONFIGFILE
 echo '# source ~/.utils/bashrc/workstation__windows' >> $CONFIGFILE
 echo '# source ~/.utils/bashrc/workstation__tara' >> $CONFIGFILE
+echo '# source ~/.utils/bashrc/keyboard' >> $CONFIGFILE
+echo '# source ~/.utils/bashrc/trackpad' >> $CONFIGFILE
+
 
 touch ~/.utils/bashrc/only-this-machine
 echo 'source ~/.utils/bashrc/only-this-machine' >> $CONFIGFILE

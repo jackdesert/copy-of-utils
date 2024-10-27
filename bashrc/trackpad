@@ -1,0 +1,12 @@
+
+xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 310 1
+xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 310 1
+
+# Enable tapping drag
+xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 312 1
+xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 312 1
+
+# Enable natural scrolling
+xinput set-prop 'SINO WEALTH USB TOUCHPAD Touchpad' 281 1
+xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 281 1
+
