@@ -1,6 +1,5 @@
 [global_config]
-copy_on_selection = True
-  copy_selection_to_clipboard = True
+  link_single_click = True
 [keybindings]
   copy = <Primary>c
   paste = <Primary>v
@@ -15,7 +14,7 @@ copy_on_selection = True
     foreground_color = "#ebdbb2"
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#dc8add:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     use_system_font = False
 [layouts]
   [[default]]

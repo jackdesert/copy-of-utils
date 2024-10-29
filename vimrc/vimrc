@@ -1,4 +1,10 @@
 
+" Putting clipboard first in case anything dies along the way
+" Use the system clipboard to hold all buffers
+" (Requires gvim)
+" See https://wiki.archlinux.org/title/Vim
+set clipboard+=unnamedplus
+
 
 "
 set encoding=utf-8
@@ -79,11 +85,6 @@ set foldlevel=99
 set autoread    " Automaticall load changes to files (why isn't this working?)
 
 
-" Use the system clipboard to hold all buffers
-" (Requires gvim)
-" See https://wiki.archlinux.org/title/Vim
-"set clipboard+=unnamed
-set clipboard+=unnamedplus
 
 " Autosave when focus lost
 " :au FocusLost * :wa

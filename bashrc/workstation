@@ -12,6 +12,8 @@ fi
 
 # Alias to go to the directory
 alias alid='echo "Now in directory" && cd ~/.utils/bashrc'
+# Alias to edit neovim config
+alias alin='vi ~/.config/nvim/init.vim'
 
 
 ###################  WORKSPACE LOCATIONS  ########
