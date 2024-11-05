@@ -151,8 +151,18 @@ sr () {
 }
 
 ##################  WORKSPACES LOGIN (From other)  ########################
+# Add the key so we can `-A`
+ssh-add ~/.ssh/id_ed25519
 export ws='msad\\jack.desert@10.20.2.48'
-alias ws="ssh $ws"
+alias ws="ssh -A $ws"
+
+# At-home workspaces
+# Note this box is 13.11
+export ws2='172.26.13.10'
+alias ws2="ssh -A $ws2"
+
+export ws3='192.168.1.130'
+alias ws3="ssh -A $ws3"
 
 
 
@@ -211,4 +221,4 @@ echo 'Name failures so they are not a surprise to others'
 echo 'Use "PIVOT" issue type for unplanned work that another team needs, and for system recovery??'
 echo 'Add cycle points when you move something to "Released", or leave a note saying status at cycle end'
 
-
+export WHEN_TAGS_MODULE=work_tags
