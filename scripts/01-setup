@@ -32,6 +32,7 @@ echo "Please edit $CONFIGFILE and uncomment any alias files relevant to your mac
 
 ####################################################
 sudo ln -s /usr/bin/vim /usr/bin/vi
+sudo ln -s ~/.utils/scripts/screenshot /usr/bin
 
 ln -s ~/.utils/Xmodmap ~/.Xmodmap
 

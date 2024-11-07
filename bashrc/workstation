@@ -22,8 +22,8 @@ alias headers='python3 ~/.utils/scripts/headers.py'
 alias p='cd ~/p'
 
 # Space prepend may keep it out of history
-alias acc=' vi -R ~/.secret/accounts'
-alias acce=' vi ~/.secret/accounts'
+alias acc=' vi -R ~/.secret/accounts.yml'
+alias acce=' vi ~/.secret/accounts.yml'
 
 alias fin=' vi ~/.secret/accounts_financial'
 alias fine=' vi ~/.secret/accounts_financial'

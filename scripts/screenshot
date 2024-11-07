@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# This is a screenshot utility for archlinux
+#
+#    pacman -S maim
+
+FNAME=`date "+%m%d_%H%M%S.jpg"`
+DIR=~/pictures/skrin
+mkdir -p $DIR
+FULL_PATH=$DIR/$FNAME
+maim -s > $FULL_PATH
+echo File written to $FULL_PATH

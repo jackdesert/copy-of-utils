@@ -1,5 +1,8 @@
 [global_config]
   link_single_click = True
+  copy_on_selection = True
+  copy_selection_to_clipboard = True
+
 [keybindings]
   copy = <Primary>c
   paste = <Primary>v
