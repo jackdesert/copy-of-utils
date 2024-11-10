@@ -14,3 +14,9 @@ augroup ZigComments
     " If you're using treesitter, also add this line:
     autocmd FileType zig highlight @comment ctermfg=240 guifg=#505050
 augroup END
+
+
+"Make case INsensitive by default,
+"but if you add any capital letters, it switches to case sensitive
+set ignorecase smartcase
+
