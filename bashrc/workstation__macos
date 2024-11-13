@@ -5,3 +5,8 @@
 ###################   ZSH   ##############################3
 # Tell zsh not to autocorrect
 DISABLE_CORRECTION='true'
+
+# macos will not let me remove vim proper, so using these aliases to make sure I use nvim
+alias vi=nvim
+alias vim=nvim
+alias view='nvim -I'
