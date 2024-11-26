@@ -7,6 +7,6 @@
 DISABLE_CORRECTION='true'
 
 # macos will not let me remove vim proper, so using these aliases to make sure I use nvim
-alias vi=nvim
-alias vim=nvim
-alias view='nvim -I'
+alias vi=/usr/local/bin/nvim
+alias vim=/usr/local/bin/nvim
+alias view='/usr/local/bin/nvim -I'
