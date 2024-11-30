@@ -16,3 +16,5 @@
 	autocrlf = input
 [init]
 	defaultBranch = main
+[safe]
+	directory = /usb/archinstall-bare.git

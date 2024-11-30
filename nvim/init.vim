@@ -24,7 +24,7 @@ set ignorecase smartcase
 nnoremap ; :
 
 
-" Tell mneovim where the python executable is located
+" On macOS, tell neovim where the python executable is located
 "   This is to avoid the 22 second load time of python files
 "   (This avoids the ugly hack of needing to `pip install neovim`)
 "
@@ -34,3 +34,8 @@ if filereadable(s:pyenv_python)
     "   If it exists, we set this variable
     let g:python3_host_prog = s:pyenv_python
 endif
+
+
+" Use tabs instead of spaces for python files
+" (This is to support archinstall)
+"autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
