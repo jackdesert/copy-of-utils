@@ -1,8 +1,8 @@
 [global_config]
+  window_state = fullscreen
+  borderless = True
+  tab_position = hidden
   link_single_click = True
-  copy_on_selection = True
-  copy_selection_to_clipboard = True
-
 [keybindings]
   copy = <Primary>c
   paste = <Primary>v
@@ -10,11 +10,22 @@
   resize_down = ""
   resize_left = ""
   resize_right = ""
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
+  switch_to_tab_10 = <Alt>0
 [profiles]
   [[default]]
     background_color = "#282828"
-    font = FreeMono Bold 17
+    font = Monospace Bold 16
     foreground_color = "#ebdbb2"
+    show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
     palette = "#000000:#aa0000:#00aa00:#aa5500:#dc8add:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
