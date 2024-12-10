@@ -39,3 +39,6 @@ endif
 " Use tabs instead of spaces for python files
 " (This is to support archinstall)
 "autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+" Remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
