@@ -1,5 +1,7 @@
 #! /bin/bash
-set -e
+
+# Do not set -e because it's easier if most commands still run even when one fails
+#set -e
 
 cd ~
 if [[ $SHELL == *"zsh"* ]]; then
