@@ -265,6 +265,25 @@ function push_file() {
 }
 
 
+###################### Create a directory and walk into it  #####
+function mkcd() {
+    # Check if directory name is provided
+    if [ $# -eq 0 ]; then
+        echo "Error: Please provide a directory name"
+        return 1
+    fi
+
+    # Check if directory already exists
+    if [ -d "$1" ]; then
+        echo "Error: Directory '$1' already exists"
+        return 1
+    fi
+    # Show the user where they are
+    echo $(readlink -f "$1")
+    # Create directory and change into it
+    mkdir "$1" && cd "$1"
+}
+
 #######################  EMPLOYER  #################################
 export td=git@bitbucket.org:targetsmart_devops
 
@@ -272,3 +291,10 @@ export td=git@bitbucket.org:targetsmart_devops
 ############################  LOCATIONS  ###############################
 alias wi='cd ~/p/wiki'
 alias a='cd ~/p/wiki/linux/distros/archlinux'
+
+
+#######################  STATIC ANALYSIS  ##############################
+
+# Note running ruff check twice: once to fix, once to check return code
+# Note "Big Three" is a racecar drift concept for wide roads
+alias big3-static-analysis='ruff check --fix `git ls-files | grep \.py$` && echo 01-RUFF_CHECK_WITH_FIX_SUCCESSFUL && ruff check `git ls-files | grep \.py$` && echo 02-RUFF_CHECK_PASSES && ruff format `git ls-files | grep \.py$` && echo 02-RUFF_FORMAT_SUCCESSFUL && mypy --install-types --non-interactive . && echo 03-MYPY_PASSES'
