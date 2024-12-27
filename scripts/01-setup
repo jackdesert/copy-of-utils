@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 # Do not set -e because it's easier if most commands still run even when one fails
 #set -e
@@ -47,5 +47,15 @@ ln -s ~/.utils/gitconfig ~/.gitconfig
 
 # Note nvim uses a different config path
 # ln -s ~/.utils/vimrc/vimrc ~/.vimrc
-ln -s ~/.utils/nvim ~/.config/nvim 
+ln -s ~/.utils/nvim ~/.config/nvim
+
+
+# Some commands fail on macos, so we only apply them conditionally
+if [[ "$(uname)" == "Darwin" ]]; then
+  echo 'You will need to create an alias for neovim'
+else
+  sudo ln -s /usr/bin/nvim /usr/bin/vi
+  sudo ln -s ~/.utils/scripts/screenshot /usr/bin/screenshot
+fi
+
 

@@ -29,7 +29,6 @@ alias amend='git commit -a --amend --no-edit && git push --force-with-lease --fo
 # Easy pushes to repos where you are the only committer.
 alias keep="git add .; git commit -am'PLACEHOLDER'"
 alias keeps="git add .; git commit -am'PLACEHOLDER'; git push origin HEAD"
-alias pass="git commit -am'PASSED'"
 # Print an example command to the screen that will run against all python files in repo
 alias showme='echo "some_command \`git ls-files | grep \\.py$\`"'
 
