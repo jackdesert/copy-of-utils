@@ -46,6 +46,8 @@ alias lies=' vi ~/.secret/lies'
 
 alias don='vi ~/.secret/donations'
 
+alias fr='cd ~/p/wiki/bsd/distros/freebsd'
+
 # I never did start using mu
 alias wherea='vi ~/p/wiki/where/main.txt'
 
@@ -138,10 +140,10 @@ arscca='arscca@54.190.220.179'
 alias arscca="ssh -A $arscca"
 
 
-# Toronto
-# kuyu also has an account, so he can run perforce
-export my=jd@68.183.202.162
-alias my="echo remember to ssh-add;ssh -A $my"
+export myarch=jd@68.183.17.105
+alias myarch="echo remember to ssh-add;ssh -A $myarch"
+export mybsd=root@2001:19f0:5:284:5400:5ff:fe37:2228
+alias mybsd="echo remember to ssh-add;ssh -A $mybsd"
 ###############################################################
 
 # Volume
@@ -290,7 +292,7 @@ export td=git@bitbucket.org:targetsmart_devops
 
 ############################  LOCATIONS  ###############################
 alias wi='cd ~/p/wiki'
-alias a='cd ~/p/wiki/linux/distros/archlinux'
+alias a='cd ~/p/wiki/unix/distros/archlinux'
 
 
 #######################  STATIC ANALYSIS  ##############################
