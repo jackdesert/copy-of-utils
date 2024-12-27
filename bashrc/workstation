@@ -293,6 +293,7 @@ export td=git@bitbucket.org:targetsmart_devops
 ############################  LOCATIONS  ###############################
 alias wi='cd ~/p/wiki'
 alias a='cd ~/p/wiki/unix/distros/archlinux'
+alias f='cd ~/p/wiki/freebsd'
 
 
 #######################  STATIC ANALYSIS  ##############################
