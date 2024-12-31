@@ -43,6 +43,8 @@ ln -s ~/.utils/Xmodmap ~/.Xmodmap
 mkdir -p ~/.config
 ln -s ~/.utils/terminator ~/.config/terminator
 
+ln -s ~/.utils/ghostty ~/.config/ghostty
+
 ln -s ~/.utils/gitconfig ~/.gitconfig
 
 # Note nvim uses a different config path
