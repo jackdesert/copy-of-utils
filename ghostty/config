@@ -1,0 +1,14 @@
+# gtk-tabs-location does nothing for me
+gtk-tabs-location = right
+
+# I think this makes the title bar hidden
+window-decoration = false
+
+# Padding requires restart of ghostty.
+# If you want to ignore the bottom 2 inches of your screen, this options is for you!
+# Note padding does not change the border. It still has a border about 2px thick that I want to delete.
+window-padding-x = 0
+window-padding-y = 0
+
+
+font-size = 16
