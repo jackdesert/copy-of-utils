@@ -51,7 +51,7 @@ alias fr='cd ~/p/wiki/bsd/distros/freebsd'
 # I never did start using mu
 alias wherea='vi ~/p/wiki/where/main.txt'
 
-alias pf='cd ~/p/wiki/sewing-machine/pfaff-545'
+alias pf='cd ~/p/wiki/pfaff-545'
 
 
 
