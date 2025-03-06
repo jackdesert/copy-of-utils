@@ -53,6 +53,10 @@ alias wherea='vi ~/p/wiki/where/main.txt'
 
 alias pf='cd ~/p/wiki/pfaff-545'
 
+alias thread='vi ~/p/wiki/sewing-machine/upholstery/04-thread.md'
+alias serial='vi ~/p/wiki/sewing-machine/pfaff-545/92-serial-numbers.md'
+
+
 
 
 #################   PROMPT    ###################
